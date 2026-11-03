@@ -1,0 +1,2351 @@
+{
+ "parts": {
+  "1": "Part 1 · Quantum mechanics for computing (Lec 1–6)",
+  "2": "Part 2 · Circuits, gates and protocols (Lec 7–11)",
+  "3": "Part 3 · Mixed states and nonlocality (Lec 12–15)",
+  "4": "Part 4 · Quantum algorithms (Lec 16–26)",
+  "5": "Part 5 · Error correction and cryptography (Lec 27–31)"
+ },
+ "course": [
+  {
+   "week": 1,
+   "date": "Lec 1–2",
+   "title": "Introduction and History · The Superposition Principle",
+   "unit": {
+    "id": "qubits",
+    "title": "Qubits, superposition and inner products",
+    "week": 1,
+    "date": "Notes: Introduction and History · The Superposition Principle",
+    "lecture": "Lec 1–2",
+    "practice": "states",
+    "intro": "What a quantum state is, why amplitudes (not probabilities) are the basic objects, and how inner products give measurement probabilities.",
+    "steps": [
+     {
+      "type": "read",
+      "title": "States are unit vectors",
+      "md": "A **qubit** is a two-level quantum system. Its state is a unit vector in $\\mathbb{C}^2$:\n$$|\\psi\\rangle = \\alpha|0\\rangle + \\beta|1\\rangle, \\qquad |\\alpha|^2 + |\\beta|^2 = 1.$$\nThe complex numbers $\\alpha, \\beta$ are **amplitudes**. A $d$-level system (a *qudit*; $d=3$ is a qutrit) works the same way with $d$ basis states.\n\nTwo facts that trip people up:\n\n- **Global phase is invisible.** $|\\psi\\rangle$ and $e^{i\\gamma}|\\psi\\rangle$ give identical predictions for every experiment.\n- **Relative phase is not.** $|+\\rangle = \\tfrac{1}{\\sqrt2}(|0\\rangle + |1\\rangle)$ and $|-\\rangle = \\tfrac{1}{\\sqrt2}(|0\\rangle - |1\\rangle)$ differ only by the sign of one amplitude, yet they are perfectly distinguishable.\n\nOther states worth memorizing: $|{\\pm i}\\rangle = \\tfrac{1}{\\sqrt2}(|0\\rangle \\pm i|1\\rangle)$."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "1/sqrt(5)"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "N1",
+       "prompt": "For the state $c\\,(|0\\rangle + 2i\\,|1\\rangle)$ to be normalized, what must $|c|$ be?",
+       "why": "The squared magnitudes of the amplitudes are $|c|^2(1 + |2i|^2) = 5|c|^2$, so $|c| = 1/\\sqrt5$. Note $|2i|^2 = 4$, not $-4$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$1/\\sqrt5$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "|+⟩ and −|+⟩",
+        "|+⟩ and |−⟩",
+        "|+i⟩ and |−i⟩",
+        "|0⟩ and |1⟩"
+       ],
+       "soln": "|+⟩ and −|+⟩",
+       "name": "N2",
+       "prompt": "Which pair of states can **no** experiment tell apart?",
+       "why": "$-|+\\rangle = e^{i\\pi}|+\\rangle$ differs from $|+\\rangle$ only by a global phase. Every other pair differs by a relative phase or is orthogonal.",
+       "hint": "",
+       "quiz": false
+      }
+     },
+     {
+      "type": "read",
+      "title": "Photon polarization: superposition you can see",
+      "md": "Polarization is a convenient physical qubit: write horizontal as $|0\\rangle$ (or $|H\\rangle$) and vertical as $|1\\rangle$. Light polarized at angle $\\theta$ is\n$$|\\theta\\rangle = \\cos\\theta\\,|0\\rangle + \\sin\\theta\\,|1\\rangle.$$\nAn ideal polarizing filter at angle $\\phi$ *measures* in the basis $\\{|\\phi\\rangle, |\\phi + 90^\\circ\\rangle\\}$: a photon passes with probability $|\\langle\\phi|\\theta\\rangle|^2 = \\cos^2(\\theta - \\phi)$, and if it passes it **is now** polarized at $\\phi$.\n\nThat last clause is what makes the three-filter puzzle work: two crossed filters block everything, but inserting a third filter between them lets light through, because the middle filter re-prepares each photon in a new state."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "cos(pi/8)^8"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "N3",
+       "prompt": "Horizontally polarized photons pass through filters at $22.5^\\circ, 45^\\circ, 67.5^\\circ, 90^\\circ$ in that order. What fraction comes out the end?",
+       "why": "Each filter is $22.5^\\circ = \\pi/8$ past the last one, so each passes $\\cos^2(\\pi/8)$ of the photons reaching it. Four filters give $\\cos^8(\\pi/8)$. More, finer steps let *more* light through; in the limit the light is rotated with no loss.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$\\cos^8(\\pi/8) \\approx 0.531$"
+      }
+     },
+     {
+      "type": "read",
+      "title": "Inner products and bases",
+      "md": "The inner product of $|\\phi\\rangle = \\sum_i \\phi_i|i\\rangle$ and $|\\psi\\rangle = \\sum_i \\psi_i |i\\rangle$ is\n$$\\langle\\phi|\\psi\\rangle = \\sum_i \\phi_i^{*}\\,\\psi_i .$$\nThe **bra** $\\langle\\phi|$ is the conjugate transpose of the ket, so don't forget the complex conjugate.\n\nAn **orthonormal basis** $\\{|v_0\\rangle,\\dots,|v_{d-1}\\rangle\\}$ satisfies $\\langle v_i|v_j\\rangle = \\delta_{ij}$. Measuring $|\\psi\\rangle$ in that basis gives outcome $i$ with probability\n$$p_i = |\\langle v_i|\\psi\\rangle|^2,$$\nand these sum to 1 because $\\sum_i |v_i\\rangle\\langle v_i| = I$ (the **completeness relation**)."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "(2+sqrt(3))/4"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "N4",
+       "prompt": "Measure $|\\psi\\rangle = \\tfrac{\\sqrt3}{2}|0\\rangle + \\tfrac12|1\\rangle$ in the $\\{|+\\rangle,|-\\rangle\\}$ basis. What is the probability of the outcome $+$?",
+       "why": "$\\langle +|\\psi\\rangle = \\tfrac{1}{\\sqrt2}\\left(\\tfrac{\\sqrt3}{2} + \\tfrac12\\right)$, so $p_+ = \\tfrac12\\cdot\\tfrac{(\\sqrt3+1)^2}{4} = \\tfrac{4 + 2\\sqrt3}{8} = \\tfrac{2+\\sqrt3}{4}$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$\\frac{2+\\sqrt3}{4} \\approx 0.933$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "1/2"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "N5",
+       "prompt": "What is $|\\langle +|{+i}\\rangle|^2$?",
+       "why": "$\\langle +|{+i}\\rangle = \\tfrac12(1 + i)$, whose squared magnitude is $\\tfrac14\\cdot 2 = \\tfrac12$. The $x$- and $y$-bases are *mutually unbiased*: either basis's states give 50/50 outcomes in the other.",
+       "hint": "",
+       "quiz": true,
+       "soln": "$1/2$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "2/3"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "N6",
+       "prompt": "A qutrit in $\\tfrac{1}{\\sqrt3}(|0\\rangle+|1\\rangle+|2\\rangle)$ is measured in the basis $\\{|0\\rangle,\\ \\tfrac{1}{\\sqrt2}(|1\\rangle+|2\\rangle),\\ \\tfrac{1}{\\sqrt2}(|1\\rangle-|2\\rangle)\\}$. Probability of the second outcome?",
+       "why": "The overlap is $\\tfrac{1}{\\sqrt2}\\cdot\\tfrac{1}{\\sqrt3}(1+1) = \\tfrac{2}{\\sqrt6}$; squared, $\\tfrac46 = \\tfrac23$. The third outcome has probability 0 and the first $\\tfrac13$.",
+       "hint": "",
+       "quiz": true,
+       "soln": "$2/3$"
+      }
+     }
+    ],
+    "notes": [
+     {
+      "label": "Lecture 1",
+      "short": "PDF 1",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_01.pdf"
+     },
+     {
+      "label": "Lecture 2",
+      "short": "PDF 2",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_02.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "week": 1,
+   "date": "Lec 3",
+   "title": "Unitary Evolution and the Bloch Sphere",
+   "unit": {
+    "id": "bloch",
+    "title": "Unitary evolution and the Bloch sphere",
+    "week": 1,
+    "date": "Notes: Unitary Evolution and the Bloch Sphere",
+    "lecture": "Lec 3",
+    "practice": "unitary",
+    "intro": "Closed systems evolve by unitary matrices; for one qubit, every unitary is a rotation of the Bloch sphere.",
+    "steps": [
+     {
+      "type": "read",
+      "title": "Unitary evolution",
+      "md": "An isolated system evolves linearly and preserves normalization, so the evolution is a **unitary** matrix: $U^\\dagger U = I$. Unitaries preserve all inner products and are always reversible ($U^{-1} = U^\\dagger$).\n\nThe workhorse one-qubit gates:\n$$X = \\begin{pmatrix}0&1\\\\1&0\\end{pmatrix},\\ Y = \\begin{pmatrix}0&-i\\\\i&0\\end{pmatrix},\\ Z = \\begin{pmatrix}1&0\\\\0&-1\\end{pmatrix},\\ H = \\tfrac{1}{\\sqrt2}\\begin{pmatrix}1&1\\\\1&-1\\end{pmatrix}.$$\n$X$ flips $|0\\rangle \\leftrightarrow |1\\rangle$, $Z$ flips the sign of $|1\\rangle$, and $H$ swaps the $Z$ basis with the $X$ basis: $H|0\\rangle = |+\\rangle$, $H|1\\rangle = |-\\rangle$. Also useful: the phase gate $S = \\mathrm{diag}(1, i)$ and $T = \\mathrm{diag}(1, e^{i\\pi/4})$."
+     },
+     {
+      "type": "read",
+      "title": "The Bloch sphere",
+      "md": "Up to global phase, every qubit state can be written\n$$|\\psi\\rangle = \\cos\\tfrac{\\theta}{2}\\,|0\\rangle + e^{i\\varphi}\\sin\\tfrac{\\theta}{2}\\,|1\\rangle,$$\nwhich we draw as the point $(\\sin\\theta\\cos\\varphi,\\ \\sin\\theta\\sin\\varphi,\\ \\cos\\theta)$ on the unit sphere.\n\n- $|0\\rangle$ is the north pole and $|1\\rangle$ the south pole.\n- $|\\pm\\rangle$ sit at $\\pm x$ and $|{\\pm i}\\rangle$ at $\\pm y$.\n- **Orthogonal states are antipodal.** Note the half-angle: a $90^\\circ$ angle in Hilbert space is $180^\\circ$ on the sphere.\n- Measuring in the standard basis gives $0$ with probability $\\cos^2(\\theta/2) = (1+z)/2$."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "1/sqrt(2)"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "B1",
+       "prompt": "What is the Bloch-sphere $z$-coordinate of $\\cos\\tfrac{\\pi}{8}|0\\rangle + \\sin\\tfrac{\\pi}{8}|1\\rangle$?",
+       "why": "Here $\\theta/2 = \\pi/8$, so $\\theta = \\pi/4$ and $z = \\cos\\theta = 1/\\sqrt2$. The point is halfway between $|0\\rangle$ (north pole) and $|+\\rangle$ (the equator).",
+       "hint": "",
+       "quiz": false,
+       "soln": "$1/\\sqrt2$"
+      }
+     },
+     {
+      "type": "read",
+      "title": "Gates are rotations",
+      "md": "The rotation gates\n$$R_z(\\alpha) = \\begin{pmatrix}e^{-i\\alpha/2}&0\\\\0&e^{i\\alpha/2}\\end{pmatrix},\\qquad R_x(\\alpha) = e^{-i\\alpha X/2},\\qquad R_y(\\alpha) = e^{-i\\alpha Y/2}$$\nrotate the sphere by angle $\\alpha$ about the named axis. In general $R_{\\hat n}(\\alpha) = \\cos\\tfrac{\\alpha}{2}I - i\\sin\\tfrac{\\alpha}{2}(\\hat n\\cdot\\vec\\sigma)$.\n\nEvery one-qubit unitary is, up to global phase, a rotation of the Bloch sphere. The Paulis are $180^\\circ$ rotations about $x$, $y$, $z$. $H$ is a $180^\\circ$ rotation about the axis halfway between $x$ and $z$, so it swaps $x \\leftrightarrow z$ and sends $y \\to -y$. $S$ is a $90^\\circ$ rotation about $z$.\n\n> A **reflection** of the sphere (for example $z \\to -z$ with $x, y$ fixed) is *not* a rotation, so no unitary does it."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "Sends it to |+i⟩",
+        "Sends it to |−⟩",
+        "Leaves it unchanged",
+        "Sends it to |1⟩"
+       ],
+       "soln": "Sends it to |+i⟩",
+       "name": "B2",
+       "prompt": "What does the phase gate S = diag(1, i) do to |+⟩?",
+       "why": "$S|+\\rangle = \\tfrac{1}{\\sqrt2}(|0\\rangle + i|1\\rangle) = |{+i}\\rangle$: a quarter turn about $z$ carries $+x$ to $+y$.",
+       "hint": "",
+       "quiz": false
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "Swaps the x and z axes and reverses y",
+        "Rotates 90° about z",
+        "Reflects through the xy-plane",
+        "Swaps x and y and reverses z"
+       ],
+       "soln": "Swaps the x and z axes and reverses y",
+       "name": "B3",
+       "prompt": "What does H do to the Bloch sphere?",
+       "why": "$H$ is a half-turn about $(\\hat x + \\hat z)/\\sqrt2$. That swaps $\\hat x$ and $\\hat z$ and, like any half-turn, sends the perpendicular axis $\\hat y$ to $-\\hat y$.",
+       "hint": "",
+       "quiz": false
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "1/4"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "B4",
+       "prompt": "A qubit's Bloch vector makes a $120^\\circ$ angle with the $+z$ axis. What is the probability that a standard-basis measurement gives $0$?",
+       "why": "$P(0) = \\cos^2(\\theta/2) = \\cos^2 60^\\circ = \\tfrac14$. Equivalently $z = \\cos 120^\\circ = -\\tfrac12$ and $(1+z)/2 = \\tfrac14$.",
+       "hint": "",
+       "quiz": true,
+       "soln": "$1/4$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "90"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "B5",
+       "prompt": "On the Bloch sphere, what is the angle (in degrees) between $|0\\rangle$ and $|-\\rangle$?",
+       "why": "$|0\\rangle$ is the north pole and $|-\\rangle$ is on the equator at $-x$, so they are $90^\\circ$ apart on the sphere, though their Hilbert-space overlap is $1/\\sqrt2$, a $45^\\circ$ angle.",
+       "hint": "",
+       "quiz": true,
+       "soln": "$90$"
+      }
+     }
+    ],
+    "notes": [
+     {
+      "label": "Lecture 3",
+      "short": "PDF 3",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_03.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "week": 1,
+   "date": "Lec 4",
+   "title": "Quantum Measurements",
+   "unit": {
+    "id": "measure",
+    "title": "Measurements and observables",
+    "week": 1,
+    "date": "Notes: Quantum Measurements",
+    "lecture": "Lec 4",
+    "practice": "states",
+    "intro": "Von Neumann (projective) measurements, observables and expectation values, and why non-orthogonal states can't be perfectly distinguished.",
+    "steps": [
+     {
+      "type": "read",
+      "title": "Projective measurements",
+      "md": "A **von Neumann measurement** is given by an orthonormal basis, or more generally by orthogonal projectors $\\Pi_1,\\dots,\\Pi_m$ with $\\sum_k \\Pi_k = I$. On state $|\\psi\\rangle$:\n$$P(k) = \\langle\\psi|\\Pi_k|\\psi\\rangle, \\qquad |\\psi\\rangle \\mapsto \\frac{\\Pi_k|\\psi\\rangle}{\\sqrt{P(k)}}.$$\nWhen a projector has rank > 1, the measurement only learns which *subspace* the state is in. The state is projected onto it, keeping its shape within the subspace instead of collapsing all the way to a basis vector."
+     },
+     {
+      "type": "read",
+      "title": "Observables",
+      "md": "An **observable** is a Hermitian matrix $M = \\sum_k \\lambda_k \\Pi_k$ (its spectral decomposition). Measuring $M$ means doing the projective measurement $\\{\\Pi_k\\}$ and reporting the eigenvalue $\\lambda_k$. The average outcome is\n$$\\langle M\\rangle = \\sum_k \\lambda_k P(k) = \\langle\\psi|M|\\psi\\rangle.$$\nIf an eigenvalue is repeated, its $\\Pi_k$ projects onto the whole eigenspace. Example: $Z = |0\\rangle\\langle0| - |1\\rangle\\langle1|$, so $\\langle Z\\rangle = |\\alpha|^2 - |\\beta|^2$, which is the Bloch $z$-coordinate."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "1/2"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "M1",
+       "prompt": "For $|\\psi\\rangle = \\tfrac{\\sqrt3}{2}|0\\rangle + \\tfrac12|1\\rangle$, what is $\\langle Z\\rangle$?",
+       "why": "$\\langle Z\\rangle = \\tfrac34 - \\tfrac14 = \\tfrac12$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$1/2$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "sqrt(3)/2"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "M2",
+       "prompt": "For the same state, what is $\\langle X\\rangle$?",
+       "why": "$\\langle X\\rangle = 2\\,\\mathrm{Re}(\\alpha^*\\beta) = 2\\cdot\\tfrac{\\sqrt3}{2}\\cdot\\tfrac12 = \\tfrac{\\sqrt3}{2}$. As a check, $\\langle X\\rangle^2 + \\langle Z\\rangle^2 = 1$: the state is on the $xz$ great circle.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$\\sqrt3/2$"
+      }
+     },
+     {
+      "type": "read",
+      "title": "Distinguishing states",
+      "md": "Two states can be told apart *perfectly* only if they are orthogonal. For two equally likely pure states $|\\psi_0\\rangle, |\\psi_1\\rangle$, the best possible success probability (Helstrom's bound) is\n$$P_{\\text{succ}} = \\tfrac12\\left(1 + \\sqrt{1 - |\\langle\\psi_0|\\psi_1\\rangle|^2}\\right).$$\nMore general measurements (**POVMs**) can sometimes beat every projective measurement on the original system. Physically, a POVM is just a projective measurement on the system *plus an ancilla*: append a qubit in $|0\\rangle$, apply a unitary, then measure. This is the trick for identifying one of three symmetric qubit states."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "No: they are not orthogonal",
+        "Yes: measure in the X basis",
+        "Yes: measure in the Z basis",
+        "Yes, but only with a POVM"
+       ],
+       "soln": "No: they are not orthogonal",
+       "name": "M3",
+       "prompt": "Can any measurement distinguish |0⟩ from |+⟩ with certainty?",
+       "why": "$\\langle 0|+\\rangle = 1/\\sqrt2 \\ne 0$. Helstrom's bound gives at most $\\tfrac12(1 + 1/\\sqrt2) = \\cos^2(\\pi/8) \\approx 0.854$, and ancillas don't change that.",
+       "hint": "",
+       "quiz": false
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "1/2"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "M4",
+       "prompt": "An observable has eigenvalue $2$ on $|0\\rangle$ and $-1$ on $|1\\rangle$. What is its expectation value in the state $|+\\rangle$?",
+       "why": "$\\tfrac12(2) + \\tfrac12(-1) = \\tfrac12$.",
+       "hint": "",
+       "quiz": true,
+       "soln": "$1/2$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "(|1⟩+|2⟩)/√2",
+        "|1⟩ or |2⟩, each with probability 1/2",
+        "(|0⟩+|1⟩+|2⟩)/√3",
+        "|2⟩"
+       ],
+       "soln": "(|1⟩+|2⟩)/√2",
+       "name": "M5",
+       "prompt": "A qutrit in (|0⟩+|1⟩+|2⟩)/√3 is measured with projectors Π₁ = |0⟩⟨0| and Π₂ = |1⟩⟨1| + |2⟩⟨2|. If the outcome is Π₂, what is the new state?",
+       "why": "Projecting gives $\\tfrac{1}{\\sqrt3}(|1\\rangle + |2\\rangle)$, and renormalizing gives $\\tfrac{1}{\\sqrt2}(|1\\rangle+|2\\rangle)$. A rank-2 projector does **not** pick out $|1\\rangle$ or $|2\\rangle$; the superposition survives.",
+       "hint": "",
+       "quiz": true
+      }
+     }
+    ],
+    "notes": [
+     {
+      "label": "Lecture 4",
+      "short": "PDF 4",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_04.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "week": 1,
+   "date": "Lec 5–6",
+   "title": "Joint Quantum Systems and Tensor Products · More Tensor Products",
+   "unit": {
+    "id": "tensor",
+    "title": "Tensor products and entanglement",
+    "week": 1,
+    "date": "Notes: Joint Quantum Systems and Tensor Products · More Tensor Products",
+    "lecture": "Lec 5–6",
+    "practice": "tensor",
+    "intro": "Composite systems live in the tensor product. Learn to recognize entanglement and to compute what happens when you measure one part.",
+    "steps": [
+     {
+      "type": "read",
+      "title": "Combining systems",
+      "md": "The state space of two systems is the **tensor product**: dimensions multiply, so $n$ qubits need $2^n$ amplitudes. Basis states are written $|a\\rangle\\otimes|b\\rangle = |a\\rangle|b\\rangle = |ab\\rangle$.\n\nOperators act factor by factor: $(A\\otimes B)(|a\\rangle\\otimes|b\\rangle) = A|a\\rangle \\otimes B|b\\rangle$. As matrices, $A\\otimes B$ is the **Kronecker product**: each entry $a_{ij}$ of $A$ becomes the block $a_{ij}B$. Order matters, and the convention is that the first factor is the most significant bit."
+     },
+     {
+      "type": "read",
+      "title": "Entanglement",
+      "md": "A two-qubit state is a **product state** if it equals $|u\\rangle\\otimes|v\\rangle$, and **entangled** otherwise. For\n$$|\\psi\\rangle = a|00\\rangle + b|01\\rangle + c|10\\rangle + d|11\\rangle,$$\nit is a product state exactly when $ad = bc$ (the $2\\times 2$ coefficient matrix has rank 1).\n\nThe four **Bell states** form an orthonormal basis of maximally entangled states:\n$$|\\Phi^\\pm\\rangle = \\tfrac{1}{\\sqrt2}(|00\\rangle \\pm |11\\rangle),\\qquad |\\Psi^\\pm\\rangle = \\tfrac{1}{\\sqrt2}(|01\\rangle \\pm |10\\rangle).$$"
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "No, it is |+⟩|+⟩",
+        "Yes, it is a Bell state",
+        "Yes, because all four amplitudes are nonzero",
+        "It depends on the basis"
+       ],
+       "soln": "No, it is |+⟩|+⟩",
+       "name": "T1",
+       "prompt": "Is ½(|00⟩ + |01⟩ + |10⟩ + |11⟩) entangled?",
+       "why": "$ad = bc = \\tfrac14$. Indeed it equals $|+\\rangle\\otimes|+\\rangle$. Entanglement doesn't depend on a choice of local bases.",
+       "hint": "",
+       "quiz": false
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "6"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "T2",
+       "prompt": "The unnormalized state $|00\\rangle + 2|01\\rangle + 3|10\\rangle + x|11\\rangle$ is a product state. What is $x$?",
+       "why": "Product requires $ad = bc$: $1\\cdot x = 2\\cdot 3$, so $x = 6$. It is $(|0\\rangle + 3|1\\rangle)\\otimes(|0\\rangle + 2|1\\rangle)$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$6$"
+      }
+     },
+     {
+      "type": "read",
+      "title": "Measuring part of a system",
+      "md": "Measuring qubit 1 of $\\sum_{a,b} c_{ab}|ab\\rangle$ in the standard basis gives outcome $a$ with probability $\\sum_b |c_{ab}|^2$. The leftover state of qubit 2 is $\\sum_b c_{ab}|b\\rangle$, renormalized.\n\nTo measure qubit 1 in another basis $\\{|e_0\\rangle, |e_1\\rangle\\}$, first rewrite the state as $|e_0\\rangle|\\phi_0\\rangle + |e_1\\rangle|\\phi_1\\rangle$ (unnormalized $|\\phi_k\\rangle$). Then $P(k) = \\langle\\phi_k|\\phi_k\\rangle$, and qubit 2 is left in $|\\phi_k\\rangle/\\|\\phi_k\\|$.\n\nFor a Bell state, measuring both qubits in the same basis (Z, X, or any real rotated basis) always gives perfectly correlated results."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "5/6"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "T3",
+       "prompt": "For $\\tfrac{1}{\\sqrt6}(|00\\rangle + |10\\rangle + 2|11\\rangle)$, what is the probability that the first qubit is measured as $1$?",
+       "why": "Add $|c_{10}|^2 + |c_{11}|^2 = \\tfrac16 + \\tfrac46 = \\tfrac56$. The second qubit is then left in $\\tfrac{1}{\\sqrt5}(|0\\rangle + 2|1\\rangle)$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$5/6$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "cos(pi/8)^2"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "T4",
+       "prompt": "Alice and Bob share $|\\Phi^+\\rangle$. Alice measures in the $Z$ basis; Bob measures in the basis rotated by $\\pi/8$, i.e. $\\{\\cos\\tfrac{\\pi}{8}|0\\rangle + \\sin\\tfrac{\\pi}{8}|1\\rangle,\\ -\\sin\\tfrac{\\pi}{8}|0\\rangle+\\cos\\tfrac{\\pi}{8}|1\\rangle\\}$. Probability their outcomes agree?",
+       "why": "If Alice gets 0, Bob holds $|0\\rangle$ and gets his first outcome with probability $\\cos^2(\\pi/8)$; the case where Alice gets 1 is symmetric. This $\\cos^2$ of the angle between bases is the number behind the CHSH game.",
+       "hint": "",
+       "quiz": true,
+       "soln": "$\\cos^2(\\pi/8)\\approx 0.854$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "32"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "T5",
+       "prompt": "How many complex amplitudes describe a general state of 5 qubits?",
+       "why": "$2^5 = 32$. This exponential growth is why classical simulation of quantum systems is hard.",
+       "hint": "",
+       "quiz": true,
+       "soln": "$32$"
+      }
+     }
+    ],
+    "notes": [
+     {
+      "label": "Lecture 5",
+      "short": "PDF 5",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_05.pdf"
+     },
+     {
+      "label": "Lecture 6",
+      "short": "PDF 6",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_06.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "week": 2,
+   "date": "Lec 7–8",
+   "title": "Classical Boolean Circuits · Reversible Boolean Circuits",
+   "unit": {
+    "id": "classical",
+    "title": "Classical and reversible circuits",
+    "week": 2,
+    "date": "Notes: Classical Boolean Circuits · Reversible Boolean Circuits",
+    "lecture": "Lec 7–8",
+    "practice": "circuits",
+    "intro": "Universal gate sets, the cost of irreversibility, and how Toffoli gates plus uncomputation make any classical function a clean reversible circuit.",
+    "steps": [
+     {
+      "type": "read",
+      "title": "Boolean circuits",
+      "md": "Any Boolean function $f:\\{0,1\\}^n\\to\\{0,1\\}^m$ can be built from AND, OR, NOT (plus FANOUT, which copies a wire). One gate can even do it alone: **NAND** is universal, since\n- $\\text{NOT}(x) = \\text{NAND}(x,x)$,\n- $\\text{AND}(x,y) = \\text{NOT}(\\text{NAND}(x,y))$,\n- $\\text{OR}(x,y) = \\text{NAND}(\\text{NOT }x, \\text{NOT }y)$.\n\nCounting arguments show most $n$-bit functions need about $2^n/n$ gates, so universality doesn't make every function *efficient*. Complexity theory asks which functions have polynomial-size circuits."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "3"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "C1",
+       "prompt": "Using only two-input NAND gates (inputs may be reused), what is the fewest gates needed to compute OR(x, y)?",
+       "why": "One NAND to get $\\bar x$, one to get $\\bar y$, and one more: $\\text{NAND}(\\bar x,\\bar y) = x\\lor y$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$3$"
+      }
+     },
+     {
+      "type": "read",
+      "title": "Reversible computation",
+      "md": "A gate is **reversible** if its output determines its input, so it permutes the $2^k$ bit strings. Erasing information costs energy (Landauer's principle), and quantum evolution is unitary, hence reversible. So we want reversible circuits.\n\n- **Toffoli** (CCNOT): $(x, y, z)\\mapsto(x, y, z\\oplus xy)$. With $z = 0$ it computes AND; with $z = 1$ it computes NAND. Toffoli plus constant inputs is universal.\n- **Fredkin** (controlled-SWAP): $(x, y, z)\\mapsto(x, y, z)$ if $x=0$, and $(x, z, y)$ if $x=1$. It conserves the number of 1s.\n\n**Garbage and uncomputation (Bennett):** compute $f$ with scratch bits, CNOT the answer onto a fresh register, then run the circuit backwards. The result is $|x\\rangle|0\\rangle\\mapsto|x\\rangle|f(x)\\rangle$ with every scratch bit returned to 0."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "NAND(x, y)",
+        "AND(x, y)",
+        "XOR(x, y)",
+        "OR(x, y)"
+       ],
+       "soln": "NAND(x, y)",
+       "name": "C2",
+       "prompt": "A Toffoli gate with target bit initialized to 1 computes which function of its controls x, y?",
+       "why": "The target becomes $1\\oplus xy = \\overline{xy}$.",
+       "hint": "",
+       "quiz": false
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "Garbage left entangled with the input destroys the interference the algorithm relies on",
+        "Garbage qubits use too much memory",
+        "Measuring garbage gives the answer away",
+        "Unitary gates cannot act on garbage qubits"
+       ],
+       "soln": "Garbage left entangled with the input destroys the interference the algorithm relies on",
+       "name": "C3",
+       "prompt": "Why must a quantum algorithm uncompute its scratch (garbage) qubits?",
+       "why": "If the register holds $\\sum_x |x\\rangle|f(x)\\rangle|g(x)\\rangle$, the garbage $g(x)$ marks which branch is which. Branches with different garbage can no longer interfere, as if $x$ had been measured.",
+       "hint": "",
+       "quiz": false
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "24"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "C4",
+       "prompt": "How many different reversible gates act on 2 bits (i.e., how many permutations of the four 2-bit strings are there)?",
+       "why": "$4! = 24$. Only some are linear over $\\mathbb{F}_2$ (built from CNOTs and NOTs). No 2-bit reversible gate can build AND, which is why Toffoli needs 3 bits.",
+       "hint": "",
+       "quiz": true,
+       "soln": "$24$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "text",
+        "answers": [
+         "110"
+        ],
+        "case": false,
+        "space": "ignore"
+       },
+       "name": "C5",
+       "prompt": "A Fredkin gate receives (x, y, z) = (1, 0, 1). What is the output? Enter it as three bits, like 010.",
+       "why": "The control is 1, so $y$ and $z$ swap: $(1, 1, 0)$. The number of 1s (two) is preserved.",
+       "hint": "",
+       "quiz": true,
+       "soln": "110"
+      }
+     }
+    ],
+    "notes": [
+     {
+      "label": "Lecture 7",
+      "short": "PDF 7",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_07.pdf"
+     },
+     {
+      "label": "Lecture 8",
+      "short": "PDF 8",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_08.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "week": 2,
+   "date": "Lec 9–10",
+   "title": "Quantum Gates I · Quantum Gates II",
+   "unit": {
+    "id": "gates",
+    "title": "Quantum gates and universality",
+    "week": 2,
+    "date": "Notes: Quantum Gates I · Quantum Gates II",
+    "lecture": "Lec 9–10",
+    "practice": "unitary",
+    "intro": "CNOT and controlled gates, basis-change tricks, and why one- and two-qubit gates suffice to build any unitary.",
+    "steps": [
+     {
+      "type": "read",
+      "title": "Two-qubit gates",
+      "md": "The **CNOT** flips the target when the control is 1: $|a\\rangle|b\\rangle\\mapsto|a\\rangle|b\\oplus a\\rangle$. A general **controlled-$U$** applies $U$ to the target only when the control is $|1\\rangle$.\n\nThree identities you will use constantly:\n- **CZ is symmetric.** $\\mathrm{CZ} = \\mathrm{diag}(1,1,1,-1)$; it doesn't matter which qubit you call the control.\n- **Hadamards reverse a CNOT.** $(H\\otimes H)\\,\\mathrm{CNOT}_{1\\to2}\\,(H\\otimes H) = \\mathrm{CNOT}_{2\\to1}$, because in the $X$ basis the roles swap.\n- **Three CNOTs make a SWAP.** $\\mathrm{CNOT}_{1\\to2}\\mathrm{CNOT}_{2\\to1}\\mathrm{CNOT}_{1\\to2} = \\mathrm{SWAP}$.\n\nAlso $HZH = X$ and $HXH = Z$, which is why $\\mathrm{CNOT} = (I\\otimes H)\\,\\mathrm{CZ}\\,(I\\otimes H)$."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "(|00⟩ + |11⟩)/√2",
+        "|+⟩|+⟩",
+        "(|00⟩ + |10⟩)/√2",
+        "(|01⟩ + |10⟩)/√2"
+       ],
+       "soln": "(|00⟩ + |11⟩)/√2",
+       "name": "G1",
+       "prompt": "What does CNOT (control = first qubit) produce from |+⟩|0⟩?",
+       "why": "$\\tfrac{1}{\\sqrt2}(|00\\rangle + |10\\rangle)\\mapsto\\tfrac{1}{\\sqrt2}(|00\\rangle + |11\\rangle) = |\\Phi^+\\rangle$. This is the standard way to make a Bell pair.",
+       "hint": "",
+       "quiz": false
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "1/4"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "G2",
+       "prompt": "Apply CZ to $|+\\rangle|+\\rangle$, then measure both qubits in the $X$ basis. Probability of getting $(+,+)$?",
+       "why": "$\\mathrm{CZ}|{+}{+}\\rangle = \\tfrac{1}{\\sqrt2}(|0\\rangle|+\\rangle + |1\\rangle|-\\rangle)$. Its overlap with $|{+}{+}\\rangle$ is $\\tfrac{1}{\\sqrt2}\\cdot\\tfrac{1}{\\sqrt2} = \\tfrac12$, so the probability is $\\tfrac14$. In fact all four outcomes are equally likely, because the state is maximally entangled.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$1/4$"
+      }
+     },
+     {
+      "type": "read",
+      "title": "Universality",
+      "md": "**Exact universality:** every $n$-qubit unitary is a product of CNOTs and one-qubit gates. Every one-qubit gate decomposes as $e^{i\\alpha}R_z(\\beta)R_y(\\gamma)R_z(\\delta)$ (Euler angles).\n\n**Approximate universality:** a finite set such as $\\{H, T, \\mathrm{CNOT}\\}$ suffices to approximate any unitary to accuracy $\\epsilon$. The **Solovay–Kitaev theorem** says only $O(\\log^c(1/\\epsilon))$ gates are needed per one-qubit gate, so discretizing costs only a polylogarithmic factor.\n\nControlled-controlled gates (Toffoli) and multiply-controlled gates are built from these using ancillas, so classical reversible circuits embed directly into quantum ones."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "HZH = X",
+        "HZH = Z",
+        "HXH = Y",
+        "HYH = Y"
+       ],
+       "soln": "HZH = X",
+       "name": "G3",
+       "prompt": "Which identity is correct?",
+       "why": "$H$ swaps the $x$ and $z$ axes of the Bloch sphere, so it conjugates $Z$ to $X$ (and $Y$ to $-Y$).",
+       "hint": "",
+       "quiz": false
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "8"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "G4",
+       "prompt": "What is the smallest $k > 0$ with $T^k = I$, where $T = \\mathrm{diag}(1, e^{i\\pi/4})$?",
+       "why": "$T^k = \\mathrm{diag}(1, e^{ik\\pi/4})$ equals $I$ first at $k = 8$. Along the way $T^2 = S$ and $T^4 = Z$.",
+       "hint": "",
+       "quiz": true,
+       "soln": "$8$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "SWAP",
+        "CZ",
+        "Identity",
+        "CNOT 2→1"
+       ],
+       "soln": "SWAP",
+       "name": "G5",
+       "prompt": "Three CNOTs alternating control and target (1→2, 2→1, 1→2) implement which gate?",
+       "why": "On basis states this is the XOR-swap trick: $(a,b)\\to(a, a\\oplus b)\\to(b, a\\oplus b)\\to(b, a)$.",
+       "hint": "",
+       "quiz": true
+      }
+     }
+    ],
+    "notes": [
+     {
+      "label": "Lecture 9",
+      "short": "PDF 9",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_09.pdf"
+     },
+     {
+      "label": "Lecture 10",
+      "short": "PDF 10",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_10.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "week": 2,
+   "date": "Lec 11",
+   "title": "Quantum Teleportation",
+   "unit": {
+    "id": "teleport",
+    "title": "Teleportation, superdense coding and no-cloning",
+    "week": 2,
+    "date": "Notes: Quantum Teleportation",
+    "lecture": "Lec 11",
+    "practice": "protocols",
+    "intro": "Entanglement as a resource: sending a qubit with two classical bits, sending two bits with one qubit, and why unknown states can't be copied.",
+    "steps": [
+     {
+      "type": "read",
+      "title": "No-cloning",
+      "md": "No unitary can map $|\\psi\\rangle|0\\rangle\\mapsto|\\psi\\rangle|\\psi\\rangle$ for every $|\\psi\\rangle$. Unitaries preserve inner products, so this would require $\\langle\\phi|\\psi\\rangle = \\langle\\phi|\\psi\\rangle^2$, which forces the overlap to be 0 or 1. You *can* copy states from a known orthogonal set (CNOT copies $|0\\rangle$ and $|1\\rangle$), but not arbitrary or non-orthogonal ones.\n\nImperfect cloners exist, and computing how well they do is a classic exercise in measurement probabilities."
+     },
+     {
+      "type": "read",
+      "title": "Teleportation",
+      "md": "Alice holds $|\\psi\\rangle$, and she shares $|\\Phi^+\\rangle$ with Bob.\n\n1. Alice measures her two qubits ($|\\psi\\rangle$ and her half of the pair) in the **Bell basis**. Each of the 4 outcomes has probability $\\tfrac14$, *whatever* $|\\psi\\rangle$ is.\n2. She sends the 2-bit result to Bob.\n3. Bob's qubit is now $X^bZ^a|\\psi\\rangle$ for the reported bits $a, b$, so he undoes that.\n\nNothing travels faster than light: until the bits arrive, Bob's qubit is maximally mixed. An eavesdropper on the classical channel sees uniformly random bits and learns nothing. Alice's copy is destroyed, consistent with no-cloning."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "1/4"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "P1",
+       "prompt": "In teleportation, what is the probability of any particular one of Alice's four Bell-measurement outcomes?",
+       "why": "Rewriting $|\\psi\\rangle|\\Phi^+\\rangle$ in the Bell basis on Alice's side gives four terms, each with amplitude $\\tfrac12$, independent of $|\\psi\\rangle$. That independence is why the classical bits carry no information about $|\\psi\\rangle$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$1/4$"
+      }
+     },
+     {
+      "type": "read",
+      "title": "Superdense coding",
+      "md": "Teleportation run in reverse: if Alice and Bob share $|\\Phi^+\\rangle$, Alice can send **two classical bits** by transmitting **one qubit**. She applies $I$, $X$, $Z$, or $XZ$ to her half, which turns the pair into one of the four Bell states, and sends it. Bob does a Bell measurement.\n\nThe resource tally:\n\n| protocol | uses | delivers |\n|---|---|---|\n| teleportation | 1 ebit + 2 bits | 1 qubit |\n| superdense coding | 1 ebit + 1 qubit | 2 bits |\n\nWithout shared entanglement, one qubit can carry at most one bit (Holevo's bound)."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "Nothing: his qubit's density matrix is I/2 for every |ψ⟩",
+        "A noisy copy of |ψ⟩",
+        "The Z-basis amplitudes only",
+        "Everything, up to a Pauli error"
+       ],
+       "soln": "Nothing: his qubit's density matrix is I/2 for every |ψ⟩",
+       "name": "P2",
+       "prompt": "Before Alice's classical bits arrive, what can Bob learn about |ψ⟩ from his qubit?",
+       "why": "Averaging $X^bZ^a|\\psi\\rangle$ over the four equally likely outcomes gives $I/2$. This no-signaling property is why teleportation can't send information faster than light.",
+       "hint": "",
+       "quiz": false
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "|Φ−⟩",
+        "|Φ+⟩",
+        "|Ψ+⟩",
+        "|Ψ−⟩"
+       ],
+       "soln": "|Φ−⟩",
+       "name": "P3",
+       "prompt": "Alice and Bob share |Φ+⟩. Alice applies Z to her qubit and sends it to Bob, who does a Bell measurement. What does he find?",
+       "why": "$(Z\\otimes I)\\tfrac{1}{\\sqrt2}(|00\\rangle + |11\\rangle) = \\tfrac{1}{\\sqrt2}(|00\\rangle - |11\\rangle)$. This is superdense coding's encoding for one of the four 2-bit messages.",
+       "hint": "",
+       "quiz": true
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "2"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "P4",
+       "prompt": "How many classical bits does superdense coding deliver per qubit sent (with one shared Bell pair)?",
+       "why": "Alice's four local operations map $|\\Phi^+\\rangle$ to the four orthogonal Bell states, which Bob distinguishes perfectly: $\\log_2 4 = 2$ bits.",
+       "hint": "",
+       "quiz": true,
+       "soln": "$2$"
+      }
+     }
+    ],
+    "notes": [
+     {
+      "label": "Lecture 11",
+      "short": "PDF 11",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_11.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "week": 3,
+   "date": "Lec 12–13",
+   "title": "Density Matrices I · Density Matrices II",
+   "unit": {
+    "id": "density",
+    "title": "Density matrices and partial trace",
+    "week": 3,
+    "date": "Notes: Density Matrices I · Density Matrices II",
+    "lecture": "Lec 12–13",
+    "practice": "density",
+    "intro": "Mixed states, the Bloch ball, and how to describe one half of an entangled pair.",
+    "steps": [
+     {
+      "type": "read",
+      "title": "Ensembles and density matrices",
+      "md": "If a system is in $|\\psi_i\\rangle$ with probability $p_i$, its **density matrix** is\n$$\\rho = \\sum_i p_i\\,|\\psi_i\\rangle\\langle\\psi_i|.$$\nEvery measurement statistic depends only on $\\rho$: $P(k) = \\mathrm{Tr}(\\Pi_k\\rho)$ and $\\langle M\\rangle = \\mathrm{Tr}(M\\rho)$. **Different ensembles with the same $\\rho$ are physically indistinguishable.** For example, $\\{|0\\rangle, |1\\rangle\\}$ and $\\{|+\\rangle, |-\\rangle\\}$, each with probabilities $\\tfrac12$, both give $I/2$.\n\nA valid $\\rho$ is Hermitian, positive semidefinite, and has trace 1. It is **pure** iff $\\mathrm{Tr}\\,\\rho^2 = 1$; otherwise $\\mathrm{Tr}\\,\\rho^2 < 1$."
+     },
+     {
+      "type": "read",
+      "title": "The Bloch ball",
+      "md": "Every qubit density matrix can be written\n$$\\rho = \\tfrac12\\left(I + r_xX + r_yY + r_zZ\\right),\\qquad |\\vec r| \\le 1,$$\nwith $r_x = \\langle X\\rangle$, and so on. Pure states lie on the surface and mixed states inside; $I/2$ is the center. Purity is $\\mathrm{Tr}\\,\\rho^2 = \\tfrac12(1 + |\\vec r|^2)$.\n\nThe Bloch vector of a mixture is the probability-weighted average of the Bloch vectors, which makes \"same density matrix?\" questions quick."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "3/4"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "D1",
+       "prompt": "What is $\\mathrm{Tr}\\,\\rho^2$ for the ensemble $\\{|0\\rangle$ w.p. $\\tfrac12$, $|+\\rangle$ w.p. $\\tfrac12\\}$?",
+       "why": "The average Bloch vector is $\\tfrac12(0,0,1) + \\tfrac12(1,0,0) = (\\tfrac12, 0, \\tfrac12)$, with $|\\vec r|^2 = \\tfrac12$. So $\\mathrm{Tr}\\,\\rho^2 = \\tfrac12(1 + \\tfrac12) = \\tfrac34$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$3/4$"
+      }
+     },
+     {
+      "type": "read",
+      "title": "Partial trace",
+      "md": "For a joint state $\\rho_{AB}$, Alice's local description is the **reduced density matrix** $\\rho_A = \\mathrm{Tr}_B\\,\\rho_{AB}$. In components,\n$$(\\rho_A)_{aa'} = \\sum_b (\\rho_{AB})_{ab,\\,a'b}.$$\nFor a pure state $\\sum c_{ab}|ab\\rangle$, this is $\\rho_A = CC^\\dagger$, where $C$ is the coefficient matrix.\n\n- For any Bell state, $\\rho_A = I/2$: maximal entanglement means maximal local ignorance.\n- **No-signaling:** nothing Bob does locally (unitaries, or measurements whose results he keeps to himself) changes $\\rho_A$.\n- If Bob measures and tells Alice the result, her conditional states form an ensemble whose average is $\\rho_A$."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "1/3"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "D2",
+       "prompt": "For $\\tfrac{1}{\\sqrt3}(|00\\rangle + |01\\rangle + |10\\rangle)$, what is the off-diagonal entry $\\langle 0|\\rho_A|1\\rangle$ of $\\rho_A = \\mathrm{Tr}_B\\,\\rho$?",
+       "why": "$C = \\tfrac{1}{\\sqrt3}\\begin{pmatrix}1&1\\\\1&0\\end{pmatrix}$, so $\\rho_A = CC^\\dagger = \\tfrac13\\begin{pmatrix}2&1\\\\1&1\\end{pmatrix}$. The off-diagonal entry is $\\tfrac13$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$1/3$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "1/2"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "D3",
+       "prompt": "For $\\rho = \\tfrac34|0\\rangle\\langle0| + \\tfrac14|1\\rangle\\langle1|$, what is $\\mathrm{Tr}(Z\\rho)$?",
+       "why": "$\\tfrac34(1) + \\tfrac14(-1) = \\tfrac12$.",
+       "hint": "",
+       "quiz": true,
+       "soln": "$1/2$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "|+i⟩ and |−i⟩, each with probability ½",
+        "|0⟩ and |+⟩, each with probability ½",
+        "|+⟩ with probability 1",
+        "|0⟩ w.p. ¾ and |1⟩ w.p. ¼"
+       ],
+       "soln": "|+i⟩ and |−i⟩, each with probability ½",
+       "name": "D4",
+       "prompt": "Which ensemble has density matrix I/2?",
+       "why": "Antipodal Bloch vectors $\\pm\\hat y$ with equal weights average to $\\vec 0$, the center of the ball, which is $I/2$.",
+       "hint": "",
+       "quiz": true
+      }
+     }
+    ],
+    "notes": [
+     {
+      "label": "Lecture 12",
+      "short": "PDF 12",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_12.pdf"
+     },
+     {
+      "label": "Lecture 13",
+      "short": "PDF 13",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_13.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "week": 3,
+   "date": "Lec 14–15",
+   "title": "The GHZ Experiment (Theory) · Quantum Optics and the GHZ Experiment",
+   "unit": {
+    "id": "ghz",
+    "title": "Nonlocality: CHSH and GHZ",
+    "week": 3,
+    "date": "Notes: The GHZ Experiment (Theory) · Quantum Optics and the GHZ Experiment",
+    "lecture": "Lec 14–15",
+    "practice": "nonlocal",
+    "intro": "Why entanglement can't be explained by pre-agreed classical answers, first statistically (CHSH) and then in a single shot (GHZ).",
+    "steps": [
+     {
+      "type": "read",
+      "title": "Local hidden variables and CHSH",
+      "md": "A **local hidden-variable** (LHV) model says each particle carries pre-set answers to every measurement it might face, and no influence passes between distant labs.\n\nIn the **CHSH game**, a referee sends random bits $x, y$ to Alice and Bob, who answer $a, b$ without communicating. They win if $a\\oplus b = x\\wedge y$.\n\n- With any classical (LHV) strategy, the best win rate is $3/4$.\n- Sharing $|\\Phi^+\\rangle$ and measuring in bases at angles $0, \\pi/4$ (Alice) and $\\pi/8, -\\pi/8$ (Bob) wins with probability $\\cos^2(\\pi/8)\\approx 0.854$.\n\nEquivalently, the CHSH correlation $S$ satisfies $|S| \\le 2$ classically and reaches $2\\sqrt2$ quantumly (Tsirelson's bound)."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "cos(pi/8)^2"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "H1",
+       "prompt": "What is the optimal quantum win probability of the CHSH game?",
+       "why": "Each pair of bases is $\\pi/8$ apart (or $3\\pi/8$ in the case that needs anti-correlation), so every case is won with probability $\\cos^2(\\pi/8)$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$\\cos^2(\\pi/8)\\approx0.854$"
+      }
+     },
+     {
+      "type": "read",
+      "title": "The GHZ argument",
+      "md": "Take the three-qubit **GHZ state** $\\tfrac{1}{\\sqrt2}(|000\\rangle + |111\\rangle)$. It is an eigenstate of\n$$XXX \\text{ with eigenvalue } +1,\\qquad XYY,\\ YXY,\\ YYX \\text{ each with eigenvalue } -1.$$\nSuppose each qubit carried pre-set values $x_j, y_j\\in\\{\\pm1\\}$. Multiplying the three $-1$ equations gives $x_Ax_Bx_C(y_Ay_By_C)^2 = -1$, so $x_Ax_Bx_C = -1$. But quantum mechanics predicts $+1$, *every time*.\n\nSo GHZ refutes local hidden variables with certainty in principle, rather than statistically like CHSH. Experiments use polarization-entangled photons from parametric down-conversion; imperfect detectors open loopholes that careful experiments must close."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "-1"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "H2",
+       "prompt": "In the GHZ state, what is the (certain) product of the three outcomes when Alice, Bob and Charlie measure $X$, $Y$, $Y$ respectively?",
+       "why": "$Y|0\\rangle = i|1\\rangle$ and $Y|1\\rangle = -i|0\\rangle$, so $XYY|000\\rangle = (i)(i)|111\\rangle = -|111\\rangle$ and $XYY|111\\rangle = -|000\\rangle$. The eigenvalue is $-1$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$-1$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "Win with probability 3/4",
+        "Win with probability 1/2",
+        "Win with probability cos²(π/8)",
+        "Win with probability 1"
+       ],
+       "soln": "Win with probability 3/4",
+       "name": "H3",
+       "prompt": "What is the best a classical (local hidden-variable) strategy can do in the CHSH game?",
+       "why": "Always answering $a = b = 0$ wins 3 of the 4 input pairs, and checking all 16 deterministic strategies shows none does better. Shared randomness only mixes deterministic strategies, so it doesn't help.",
+       "hint": "",
+       "quiz": true
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "It gives a contradiction with certainty, not just a statistical violation",
+        "It needs only two particles",
+        "It works only for photons",
+        "It allows faster-than-light signaling"
+       ],
+       "soln": "It gives a contradiction with certainty, not just a statistical violation",
+       "name": "H4",
+       "prompt": "How does the GHZ argument differ from CHSH?",
+       "why": "With GHZ, every run of the $XXX$ measurement contradicts the LHV prediction. With CHSH, LHV models win the game 75% of the time and quantum mechanics only raises that rate.",
+       "hint": "",
+       "quiz": true
+      }
+     }
+    ],
+    "notes": [
+     {
+      "label": "Lecture 14",
+      "short": "PDF 14",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_14.pdf"
+     },
+     {
+      "label": "Lecture 15",
+      "short": "PDF 15",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_15.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "week": 4,
+   "date": "Lec 16–17",
+   "title": "The Deutsch-Jozsa Algorithm · Classical Computational Complexity Theory",
+   "unit": {
+    "id": "dj",
+    "title": "Deutsch–Jozsa and complexity classes",
+    "week": 4,
+    "date": "Notes: The Deutsch-Jozsa Algorithm · Classical Computational Complexity Theory",
+    "lecture": "Lec 16–17",
+    "practice": "oracle",
+    "intro": "Phase kickback, the first exponential oracle separation, and where BQP sits among classical complexity classes.",
+    "steps": [
+     {
+      "type": "read",
+      "title": "Oracles and phase kickback",
+      "md": "A classical function $f:\\{0,1\\}^n\\to\\{0,1\\}$ is given as the reversible **oracle** $U_f|x\\rangle|y\\rangle = |x\\rangle|y\\oplus f(x)\\rangle$.\n\nIf the target is $|-\\rangle$, then $U_f|x\\rangle|-\\rangle = (-1)^{f(x)}|x\\rangle|-\\rangle$: the function value is **kicked back** as a phase. One query to a uniform superposition then produces\n$$\\frac{1}{\\sqrt{2^n}}\\sum_x (-1)^{f(x)}|x\\rangle.$$"
+     },
+     {
+      "type": "read",
+      "title": "Deutsch–Jozsa",
+      "md": "**Promise:** $f$ is constant or balanced (0 on exactly half the inputs). **Circuit:** $H^{\\otimes n}$, phase oracle, $H^{\\otimes n}$, measure. Using $H^{\\otimes n}|x\\rangle = 2^{-n/2}\\sum_y(-1)^{x\\cdot y}|y\\rangle$, the amplitude of $|y\\rangle$ is\n$$\\frac{1}{2^n}\\sum_x (-1)^{f(x) + x\\cdot y}.$$\nFor $y = 0^n$ this is the average of $(-1)^{f(x)}$: $\\pm1$ if $f$ is constant and $0$ if balanced. So one query decides with certainty. A deterministic classical algorithm needs $2^{n-1}+1$ queries in the worst case, though a randomized one with small error needs only a few, so the speedup is mainly over exact classical computation.\n\nThe same circuit solves **Bernstein–Vazirani**: if $f(x) = s\\cdot x \\bmod 2$, the output is exactly $s$."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "1/4"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "J1",
+       "prompt": "Run Deutsch–Jozsa with $n = 3$ on a function that equals 1 on exactly 2 of the 8 inputs (so the promise fails). What is the probability of measuring $000$?",
+       "why": "The amplitude of $|000\\rangle$ is $\\tfrac18(6\\cdot(+1) + 2\\cdot(-1)) = \\tfrac12$, so the probability is $\\tfrac14$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$1/4$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "text",
+        "answers": [
+         "101"
+        ],
+        "case": false,
+        "space": "ignore"
+       },
+       "name": "J2",
+       "prompt": "In Bernstein–Vazirani with hidden string s = 101, what string does the circuit output? (Enter the bits, like 011.)",
+       "why": "The phase state is $\\sum_x(-1)^{s\\cdot x}|x\\rangle = H^{\\otimes n}|s\\rangle$, so the final Hadamards return exactly $|s\\rangle$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "101"
+      }
+     },
+     {
+      "type": "read",
+      "title": "Complexity classes",
+      "md": "- **P**: solvable in polynomial time. **BPP**: polynomial time with randomness and bounded error.\n- **NP**: \"yes\" answers have short certificates you can check efficiently.\n- **BQP**: solvable by polynomial-size quantum circuits with bounded error.\n\nKnown: $\\mathrm{P}\\subseteq\\mathrm{BPP}\\subseteq\\mathrm{BQP}\\subseteq\\mathrm{PSPACE}$. Factoring is in BQP but not believed to be in BPP. Nobody believes $\\mathrm{NP}\\subseteq\\mathrm{BQP}$: Grover's algorithm gives only a quadratic speedup for brute-force search, and that is optimal.\n\nOracle results (Deutsch–Jozsa, Simon) prove separations *relative to an oracle*, not unconditional separations."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "BQP ⊆ PSPACE",
+        "NP ⊆ BQP",
+        "BQP ⊆ BPP",
+        "PSPACE ⊆ BQP"
+       ],
+       "soln": "BQP ⊆ PSPACE",
+       "name": "J3",
+       "prompt": "Which containment is known to hold?",
+       "why": "A quantum circuit's acceptance probability can be computed by summing over paths in polynomial space. The other three are open, and believed false.",
+       "hint": "",
+       "quiz": true
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "9"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "J4",
+       "prompt": "For $n = 4$, how many queries does a deterministic classical algorithm need in the worst case to decide constant vs. balanced with certainty?",
+       "why": "After $2^{n-1} = 8$ equal answers the function could still be balanced, so you need $2^{n-1}+1 = 9$.",
+       "hint": "",
+       "quiz": true,
+       "soln": "$9$"
+      }
+     }
+    ],
+    "notes": [
+     {
+      "label": "Lecture 16",
+      "short": "PDF 16",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_16.pdf"
+     },
+     {
+      "label": "Lecture 17",
+      "short": "PDF 17",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_17.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "week": 4,
+   "date": "Lec 18",
+   "title": "Simon's Algorithm",
+   "unit": {
+    "id": "simon",
+    "title": "Simon's algorithm",
+    "week": 4,
+    "date": "Notes: Simon's Algorithm",
+    "lecture": "Lec 18",
+    "practice": "oracle",
+    "intro": "An exponential speedup for finding a hidden XOR period, the blueprint for Shor's algorithm.",
+    "steps": [
+     {
+      "type": "read",
+      "title": "The problem and the circuit",
+      "md": "**Promise:** $f:\\{0,1\\}^n\\to\\{0,1\\}^n$ satisfies $f(x) = f(y) \\iff y \\in\\{x, x\\oplus s\\}$ for a hidden $s\\ne 0$. **Goal:** find $s$.\n\n**One round:**\n1. Prepare $\\tfrac{1}{\\sqrt{2^n}}\\sum_x|x\\rangle|0\\rangle$ and query: $\\sum_x|x\\rangle|f(x)\\rangle$.\n2. Measure the second register. The first collapses to $\\tfrac{1}{\\sqrt2}(|x_0\\rangle + |x_0\\oplus s\\rangle)$ for a random $x_0$.\n3. Apply $H^{\\otimes n}$ and measure. You get a uniformly random $y$ with $y\\cdot s = 0 \\pmod 2$.\n\nEach round gives one linear equation for $s$. After about $n$ rounds you have $n-1$ independent equations, and Gaussian elimination over $\\mathbb{F}_2$ gives $s$."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "8"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "S1",
+       "prompt": "For $n = 4$ and $s \\neq 0$, how many different strings $y$ can a round of Simon's algorithm output?",
+       "why": "$y$ ranges over the strings orthogonal to $s$, which form a subspace of dimension $n - 1$, so there are $2^{n-1} = 8$, all equally likely.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$8$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "text",
+        "answers": [
+         "111"
+        ],
+        "case": false,
+        "space": "ignore"
+       },
+       "name": "S2",
+       "prompt": "With n = 3, two rounds return y₁ = 110 and y₂ = 011. What is s ≠ 000? (Enter the bits.)",
+       "why": "$s\\cdot110 = 0$ gives $s_1 = s_2$, and $s\\cdot011 = 0$ gives $s_2 = s_3$, so the only nonzero solution is $s = 111$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "111"
+      }
+     },
+     {
+      "type": "read",
+      "title": "Why it's fast",
+      "md": "Classically, you learn about $s$ only by finding a **collision** $f(x) = f(x')$, and then $s = x\\oplus x'$. By the birthday paradox that takes about $2^{n/2}$ queries, and this is provably necessary even with randomness. Simon needs $O(n)$ queries plus polynomial classical post-processing, an **exponential** oracle separation between BQP and BPP.\n\nShor's algorithm follows the same pattern with $\\mathbb{Z}_N$ in place of $\\mathbb{F}_2^n$: superpose, query a periodic function, Fourier transform, sample the dual of the period, and solve classically."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "Like 2^(n/2) (birthday bound)",
+        "Like n",
+        "Like n²",
+        "Like 2^n exactly"
+       ],
+       "soln": "Like 2^(n/2) (birthday bound)",
+       "name": "S3",
+       "prompt": "How does the number of classical queries needed for Simon's problem grow?",
+       "why": "Collisions appear after about $\\sqrt{2^n}$ random queries, and no classical strategy does much better.",
+       "hint": "",
+       "quiz": false
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "1/16"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "S4",
+       "prompt": "For $n = 5$, what is the probability that a round outputs one particular valid $y$?",
+       "why": "There are $2^{n-1} = 16$ valid strings, each equally likely.",
+       "hint": "",
+       "quiz": true,
+       "soln": "$1/16$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "(|x₀⟩ + |x₀⊕s⟩)/√2",
+        "|x₀⟩",
+        "|s⟩",
+        "The uniform superposition over all x"
+       ],
+       "soln": "(|x₀⟩ + |x₀⊕s⟩)/√2",
+       "name": "S5",
+       "prompt": "After measuring the second register (value f(x₀)), what is the state of the first register?",
+       "why": "Exactly two inputs map to $f(x_0)$: $x_0$ and $x_0\\oplus s$. The measurement leaves their equal superposition.",
+       "hint": "",
+       "quiz": true
+      }
+     }
+    ],
+    "notes": [
+     {
+      "label": "Lecture 18",
+      "short": "PDF 18",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_18.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "week": 4,
+   "date": "Lec 19–20",
+   "title": "The Quantum Fourier Transform · Phase Estimation",
+   "unit": {
+    "id": "qft",
+    "title": "QFT and phase estimation",
+    "week": 4,
+    "date": "Notes: The Quantum Fourier Transform · Phase Estimation",
+    "lecture": "Lec 19–20",
+    "practice": "fourier",
+    "intro": "The Fourier transform on $2^n$ amplitudes with $O(n^2)$ gates, and its main use: reading off an eigenvalue's phase.",
+    "steps": [
+     {
+      "type": "read",
+      "title": "The quantum Fourier transform",
+      "md": "With $N = 2^n$ and $\\omega = e^{2\\pi i/N}$,\n$$\\mathrm{QFT}_N|j\\rangle = \\frac{1}{\\sqrt N}\\sum_{k=0}^{N-1}\\omega^{jk}|k\\rangle.$$\nIt factors into a product of single-qubit states, $\\tfrac{1}{\\sqrt N}\\bigotimes_{\\ell}\\left(|0\\rangle + e^{2\\pi i\\, j/2^\\ell}|1\\rangle\\right)$. That gives a circuit of Hadamards and controlled phase rotations $R_k = \\mathrm{diag}(1, e^{2\\pi i/2^k})$ with $O(n^2)$ gates, plus a final bit reversal.\n\nCaveat: this does *not* compute a classical FFT exponentially faster. The output amplitudes can't be read out; you can only sample from them."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "-1/2"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "F1",
+       "prompt": "Apply $\\mathrm{QFT}_4$ to $|1\\rangle$. What is the amplitude of $|2\\rangle$?",
+       "why": "$\\omega = i$ for $N = 4$, so the amplitudes are $\\tfrac12(1, i, -1, -i)$. The coefficient of $|2\\rangle$ is $\\tfrac12 i^2 = -\\tfrac12$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$-1/2$"
+      }
+     },
+     {
+      "type": "read",
+      "title": "Phase estimation",
+      "md": "Given a unitary $U$ with eigenvector $|u\\rangle$, $U|u\\rangle = e^{2\\pi i\\varphi}|u\\rangle$, estimate $\\varphi\\in[0,1)$:\n\n1. Put $t$ ancilla qubits in uniform superposition.\n2. Apply controlled-$U^{2^k}$ from ancilla $k$. Kickback leaves $\\tfrac{1}{\\sqrt{2^t}}\\sum_j e^{2\\pi i\\varphi j}|j\\rangle$.\n3. Apply $\\mathrm{QFT}^{-1}$ and measure an integer $m$; the estimate is $\\varphi\\approx m/2^t$.\n\nIf $\\varphi = m/2^t$ exactly, the output is $m$ with certainty. Otherwise the nearest $t$-bit approximation appears with probability at least $4/\\pi^2\\approx 0.405$, and adding a few ancilla qubits boosts confidence."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "3"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "F2",
+       "prompt": "Phase estimation with $t = 3$ ancillas and $\\varphi = 0.375$. What integer $m$ is measured?",
+       "why": "$0.375 = 3/8 = 0.011_2$ is exactly representable with 3 bits, so $m = 3$ with certainty.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$3$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "15"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "F3",
+       "prompt": "With $t = 4$ ancillas, how many applications of $U$ in total do the controlled-$U^{2^k}$ steps use (counting $U^{2^k}$ as $2^k$ uses)?",
+       "why": "$1 + 2 + 4 + 8 = 2^t - 1 = 15$. When $U^{2^k}$ can be computed directly (as in modular exponentiation), the cost is far smaller.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$15$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "The uniform superposition over all |k⟩",
+        "|0⟩",
+        "|N−1⟩",
+        "A random basis state"
+       ],
+       "soln": "The uniform superposition over all |k⟩",
+       "name": "F4",
+       "prompt": "What is QFT_N|0⟩?",
+       "why": "With $j = 0$, every phase $\\omega^{0} = 1$.",
+       "hint": "",
+       "quiz": true
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "4/pi^2"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "F5",
+       "prompt": "If $\\varphi$ is not a multiple of $1/2^t$, what lower bound holds on the probability of getting the closest $t$-bit estimate?",
+       "why": "The output distribution is a discrete sinc-squared peak, and the worst case ($\\varphi$ exactly between two grid points) gives $4/\\pi^2$.",
+       "hint": "",
+       "quiz": true,
+       "soln": "$4/\\pi^2\\approx0.405$"
+      }
+     }
+    ],
+    "notes": [
+     {
+      "label": "Lecture 19",
+      "short": "PDF 19",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_19.pdf"
+     },
+     {
+      "label": "Lecture 20",
+      "short": "PDF 20",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_20.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "week": 4,
+   "date": "Lec 21–23",
+   "title": "Quantum Factoring Algorithm · Number Theory for the Factoring Algorithm · The Discrete Log Algorithm",
+   "unit": {
+    "id": "shor",
+    "title": "Factoring and discrete log",
+    "week": 4,
+    "date": "Notes: Quantum Factoring Algorithm · Number Theory for the Factoring Algorithm · The Discrete Log Algorithm",
+    "lecture": "Lec 21–23",
+    "practice": "fourier",
+    "intro": "Reduce factoring to order finding, solve order finding with phase estimation, and recover the order with continued fractions.",
+    "steps": [
+     {
+      "type": "read",
+      "title": "Factoring reduces to order finding",
+      "md": "To factor an odd $N$ that isn't a prime power:\n\n1. Pick a random $a$ with $1 < a < N$. If $\\gcd(a, N) > 1$, you've already found a factor.\n2. Find the **order** $r$: the least $r > 0$ with $a^r\\equiv 1 \\pmod N$ (the quantum step).\n3. If $r$ is even and $a^{r/2}\\not\\equiv -1 \\pmod N$, then $\\gcd(a^{r/2}\\pm1, N)$ are nontrivial factors.\n\nThis works because $(a^{r/2}-1)(a^{r/2}+1)\\equiv 0$ but neither factor is $\\equiv 0$, so $N$ shares a factor with each. For a random $a$, step 3 succeeds with probability at least $1/2$."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "4"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "R1",
+       "prompt": "What is the order of $a = 7$ modulo $N = 15$?",
+       "why": "$7^1 = 7,\\ 7^2 = 49\\equiv4,\\ 7^3\\equiv28\\equiv13,\\ 7^4\\equiv91\\equiv1$. So $r = 4$, and $\\gcd(7^2-1, 15) = \\gcd(48, 15) = 3$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$4$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "6"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "R2",
+       "prompt": "What is the order of $a = 2$ modulo $N = 21$?",
+       "why": "$2, 4, 8, 16, 32\\equiv11, 22\\equiv1$, so $r = 6$. Then $a^{3} = 8\\not\\equiv -1$, and $\\gcd(7, 21) = 7$, $\\gcd(9, 21) = 3$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$6$"
+      }
+     },
+     {
+      "type": "read",
+      "title": "Order finding as phase estimation",
+      "md": "Let $U_a|x\\rangle = |ax \\bmod N\\rangle$. Its eigenvectors $|u_s\\rangle = \\tfrac{1}{\\sqrt r}\\sum_k e^{-2\\pi i sk/r}|a^k\\rangle$ have eigenvalues $e^{2\\pi i s/r}$, and $|1\\rangle = \\tfrac{1}{\\sqrt r}\\sum_s|u_s\\rangle$. So phase estimation started on $|1\\rangle$ returns $m\\approx 2^t\\, s/r$ for a uniformly random $s$.\n\n**Recovering $r$:** use $t\\approx 2\\log_2 N$ bits, so that $s/r$ is the unique fraction with denominator below $N$ near $m/2^t$. Find it with **continued fractions**. If $\\gcd(s, r) > 1$ you get a factor of $r$; repeating a few times fixes that.\n\nThe cost is dominated by modular exponentiation, $O(n^3)$ gates with schoolbook arithmetic, so factoring runs in polynomial time."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "4"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "R3",
+       "prompt": "With $t = 8$, phase estimation for $U_a$ returns $m = 192$. Continued fractions on $192/256$ suggest which order $r$?",
+       "why": "$192/256 = 3/4$ exactly, so $s/r = 3/4$, giving $r = 4$ (or a multiple of 4 if $\\gcd(s, r) > 1$).",
+       "hint": "",
+       "quiz": false,
+       "soln": "$4$"
+      }
+     },
+     {
+      "type": "read",
+      "title": "Discrete logarithm",
+      "md": "Given a generator $g$ of $\\mathbb{Z}_p^*$ and $b = g^a \\bmod p$, find $a$. Shor's method uses two registers over $\\mathbb{Z}_{p-1}$: compute $|x\\rangle|y\\rangle|g^xb^{-y}\\rangle$, Fourier transform both registers, and measure a pair $(c, d)$ with $d\\equiv ac \\pmod{p-1}$ (up to the usual details). When $c$ is invertible, $a = d\\,c^{-1}$.\n\nThis is an abelian **hidden subgroup problem**, like Simon and order finding, and the same idea breaks Diffie–Hellman and elliptic-curve cryptography."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "2"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "R4",
+       "prompt": "What is the order of $a = 4$ modulo $15$?",
+       "why": "$4^2 = 16\\equiv 1$. Since $4^{1}\\not\\equiv -1$, $\\gcd(4-1, 15) = 3$ and $\\gcd(4+1, 15) = 5$.",
+       "hint": "",
+       "quiz": true,
+       "soln": "$2$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "If gcd(a, N) > 1 you already have a factor, and a has no order mod N",
+        "To make sure r is even",
+        "To choose the number of ancilla qubits",
+        "Because U_a is not unitary otherwise"
+       ],
+       "soln": "If gcd(a, N) > 1 you already have a factor, and a has no order mod N",
+       "name": "R5",
+       "prompt": "In Shor's algorithm, why check gcd(a, N) before running the quantum step?",
+       "why": "$a^r\\equiv1 \\pmod N$ is only possible when $a$ is invertible mod $N$, that is, when $\\gcd(a, N) = 1$.",
+       "hint": "",
+       "quiz": true
+      }
+     }
+    ],
+    "notes": [
+     {
+      "label": "Lecture 21",
+      "short": "PDF 21",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_21.pdf"
+     },
+     {
+      "label": "Lecture 22",
+      "short": "PDF 22",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_22.pdf"
+     },
+     {
+      "label": "Lecture 23",
+      "short": "PDF 23",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_23.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "week": 4,
+   "date": "Lec 24–26",
+   "title": "Grover's Search Algorithm · Proof that Grover Search is Optimal · Hamiltonian Simulation",
+   "unit": {
+    "id": "grover",
+    "title": "Grover search and Hamiltonian simulation",
+    "week": 4,
+    "date": "Notes: Grover's Search Algorithm · Proof that Grover Search is Optimal · Hamiltonian Simulation",
+    "lecture": "Lec 24–26",
+    "practice": "search",
+    "intro": "Search $N$ items in $O(\\sqrt N)$ queries, why you can't beat that, and how to simulate $e^{-iHt}$ with gates.",
+    "steps": [
+     {
+      "type": "read",
+      "title": "Grover's algorithm as a rotation",
+      "md": "Start in the uniform superposition $|s\\rangle$ over $N$ items, of which $M$ are marked. One **Grover iteration** is the phase oracle (flip the sign of marked items) followed by the diffusion $2|s\\rangle\\langle s| - I$.\n\nEverything happens in the plane spanned by $|\\text{good}\\rangle$ and $|\\text{bad}\\rangle$. With $\\sin\\theta = \\sqrt{M/N}$, each iteration rotates by $2\\theta$, so after $k$ iterations\n$$P(\\text{success}) = \\sin^2\\big((2k+1)\\theta\\big).$$\nThe best choice is $k\\approx\\frac{\\pi}{4}\\sqrt{N/M}$. Iterating more *overshoots* and the success probability falls again."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "1"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "W1",
+       "prompt": "Grover with $N = 4$ items and $M = 1$ marked. What is the success probability after one iteration?",
+       "why": "$\\sin\\theta = 1/2$, so $\\theta = 30^\\circ$ and $3\\theta = 90^\\circ$. One iteration finds the item with certainty.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$1$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "25/32"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "W2",
+       "prompt": "Grover with $N = 8$, $M = 1$. Success probability after one iteration?",
+       "why": "$\\sin\\theta = 1/\\sqrt8$, and $\\sin 3\\theta = 3\\sin\\theta - 4\\sin^3\\theta = \\tfrac{3}{\\sqrt8} - \\tfrac{4}{8\\sqrt8} = \\tfrac{5}{2\\sqrt8}$. Squared, that is $\\tfrac{25}{32}$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$25/32\\approx0.781$"
+      }
+     },
+     {
+      "type": "read",
+      "title": "Grover is optimal",
+      "md": "The **BBBV hybrid argument:** run any $T$-query algorithm on the empty oracle and on an oracle that marks item $x$. Each query can move the state by an amount proportional to the amplitude on $x$. Summed over all $N$ choices of $x$, the total \"query magnitude\" is at most $T$, so for some $x$ the two runs differ by $O(T/\\sqrt N)$. Telling the two oracles apart reliably therefore needs $T = \\Omega(\\sqrt N)$.\n\nConsequence: brute-force search gives only a quadratic speedup. Black-box quantum algorithms can't solve NP-complete problems in polynomial time."
+     },
+     {
+      "type": "read",
+      "title": "Hamiltonian simulation",
+      "md": "Physics gives $U(t) = e^{-iHt}$ for a Hermitian $H$. For a local Hamiltonian $H = \\sum_j H_j$, where each term acts on a few qubits, use the **Trotter–Suzuki** product\n$$e^{-iHt}\\approx\\Big(\\prod_j e^{-iH_jt/n}\\Big)^n,$$\nwith error $O(t^2/n)$ from the commutators. (There is no error at all if the terms commute.) To reach error $\\epsilon$, take $n = O(t^2/\\epsilon)$ steps; higher-order formulas do better.\n\nBuilding blocks: $e^{-i\\alpha Z\\otimes Z}$ is CNOT, then $R_z(2\\alpha)$ on the target, then CNOT. Conjugating by $H$ gates turns $Z$s into $X$s. This was Feynman's original motivation for quantum computers."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "804"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "W3",
+       "prompt": "For $N = 2^{20}$ and one marked item, about how many Grover iterations are optimal? (Use $\\frac{\\pi}{4}\\sqrt N$.)",
+       "why": "$\\sqrt{2^{20}} = 1024$ and $\\tfrac{\\pi}{4}\\cdot1024\\approx804$, compared with about half a million classical queries on average.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$\\approx 804$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "The success probability drops back near 0",
+        "The success probability stays near 1",
+        "The success probability doubles",
+        "The algorithm outputs two marked items"
+       ],
+       "soln": "The success probability drops back near 0",
+       "name": "W4",
+       "prompt": "What happens if you run about twice the optimal number of Grover iterations?",
+       "why": "After $2k$ iterations the state has rotated by about $\\pi$ instead of $\\pi/2$, so it sits back near $|\\text{bad}\\rangle$.",
+       "hint": "",
+       "quiz": true
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "When all the terms H_j commute",
+        "When t < 1",
+        "When each H_j is a Pauli operator",
+        "Never"
+       ],
+       "soln": "When all the terms H_j commute",
+       "name": "W5",
+       "prompt": "When is the first-order Trotter formula exact?",
+       "why": "If the terms commute, $e^{-i(A+B)t} = e^{-iAt}e^{-iBt}$ exactly, so the commutator error terms vanish.",
+       "hint": "",
+       "quiz": true
+      }
+     }
+    ],
+    "notes": [
+     {
+      "label": "Lecture 24",
+      "short": "PDF 24",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_24.pdf"
+     },
+     {
+      "label": "Lecture 25",
+      "short": "PDF 25",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_25.pdf"
+     },
+     {
+      "label": "Lecture 26",
+      "short": "PDF 26",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_26.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "week": 5,
+   "date": "Lec 27–30",
+   "title": "Intro to QECC: the 9-Qubit Code · More on the 9-Qubit Code · The 7-Qubit Hamming Code · Quantum CSS Codes",
+   "unit": {
+    "id": "qec",
+    "title": "Quantum error correction",
+    "week": 5,
+    "date": "Notes: Intro to QECC: the 9-Qubit Code · More on the 9-Qubit Code · The 7-Qubit Hamming Code · Quantum CSS Codes",
+    "lecture": "Lec 27–30",
+    "practice": "qec",
+    "intro": "Discretizing errors, Shor's 9-qubit code, the Steane code, and the CSS construction.",
+    "steps": [
+     {
+      "type": "read",
+      "title": "Correcting quantum errors at all",
+      "md": "Three obstacles look fatal: no-cloning (can't copy), continuous errors, and measurement disturbing the state. The fixes:\n\n- **Redundancy without copying:** encode $\\alpha|0\\rangle+\\beta|1\\rangle\\mapsto\\alpha|000\\rangle+\\beta|111\\rangle$. That is entanglement, not three copies.\n- **Measure only the syndrome:** $Z_1Z_2$ and $Z_2Z_3$ reveal *which* qubit flipped, never $\\alpha$ or $\\beta$.\n- **Errors discretize:** any single-qubit error is a combination of $I, X, Y, Z$. Measuring the syndrome collapses the error onto one of these, so correcting $X$ and $Z$ errors corrects *every* single-qubit error.\n\nThe bit-flip code corrects one $X$. The same code in the Hadamard basis ($|{+}{+}{+}\\rangle$, $|{-}{-}{-}\\rangle$) corrects one $Z$."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "1"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "E1",
+       "prompt": "In the 3-qubit bit-flip code the syndrome is $Z_1Z_2 = -1$, $Z_2Z_3 = +1$. Which qubit flipped? (Enter 1, 2, or 3.)",
+       "why": "Qubits 1 and 2 disagree while 2 and 3 agree, so qubit 1 is the odd one out.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$1$"
+      }
+     },
+     {
+      "type": "read",
+      "title": "Shor's 9-qubit code",
+      "md": "Concatenate the two 3-qubit codes:\n$$|0_L\\rangle = \\tfrac{1}{2\\sqrt2}(|000\\rangle+|111\\rangle)^{\\otimes3},\\qquad |1_L\\rangle = \\tfrac{1}{2\\sqrt2}(|000\\rangle-|111\\rangle)^{\\otimes3}.$$\nWithin each block, $ZZ$ checks catch bit flips. Comparing the signs of the three blocks (with $X^{\\otimes6}$-type checks) catches phase flips. So it corrects any single-qubit error.\n\nIt is **degenerate**: $Z_1$ and $Z_2$ act identically on the code space, so the decoder needn't know which of them happened."
+     },
+     {
+      "type": "read",
+      "title": "Steane and CSS codes",
+      "md": "The classical **Hamming [7,4,3] code** has a parity-check matrix whose columns are the binary numbers 1–7. The syndrome of a single bit flip *is the binary position* of the flipped bit.\n\nA **CSS code** uses classical codes $C_2\\subset C_1$. Bit flips are corrected with $C_1$ and phase flips with $C_2^\\perp$, which works because a Hadamard swaps the roles of $X$ and $Z$. With $C_1 = $ Hamming and $C_2 = C_1^\\perp$, you get the **Steane $[[7,1,3]]$ code**: 7 physical qubits, 1 logical qubit, distance 3 (corrects any single error), and 6 stabilizer generators (3 $X$-type, 3 $Z$-type)."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "5"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "E2",
+       "prompt": "In the Hamming [7,4,3] code with columns 1–7 in binary, a single bit flip gives syndrome 101. Which bit position flipped?",
+       "why": "The syndrome equals the column of the flipped bit, and $101_2 = 5$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$5$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "7"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "E3",
+       "prompt": "How many physical qubits does the Steane code use to encode one logical qubit?",
+       "why": "It's $[[7,1,3]]$, smaller than Shor's 9 qubits. The smallest code that corrects any single-qubit error uses 5.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$7$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "Different errors (e.g. Z₁ and Z₂) act the same on the code space",
+        "It cannot correct Y errors",
+        "Its stabilizers don't commute",
+        "It encodes zero logical qubits"
+       ],
+       "soln": "Different errors (e.g. Z₁ and Z₂) act the same on the code space",
+       "name": "E4",
+       "prompt": "Why is Shor's 9-qubit code called degenerate?",
+       "why": "$Z_1Z_2$ is a stabilizer, so $Z_1$ and $Z_2$ have the same effect on code states and can share a correction.",
+       "hint": "",
+       "quiz": true
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "6"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "E5",
+       "prompt": "How many independent stabilizer generators does an [[n, k]] stabilizer code have when n = 7, k = 1?",
+       "why": "$n - k = 6$. Each generator halves the space: $2^7/2^6 = 2$ dimensions, one logical qubit.",
+       "hint": "",
+       "quiz": true,
+       "soln": "$6$"
+      }
+     }
+    ],
+    "notes": [
+     {
+      "label": "Lecture 27",
+      "short": "PDF 27",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_27.pdf"
+     },
+     {
+      "label": "Lecture 28",
+      "short": "PDF 28",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_28.pdf"
+     },
+     {
+      "label": "Lecture 29",
+      "short": "PDF 29",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_29.pdf"
+     },
+     {
+      "label": "Lecture 30",
+      "short": "PDF 30",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_30.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "week": 5,
+   "date": "Lec 31",
+   "title": "The BB84 Quantum Key Distribution Protocol and the Proof of Its Security",
+   "unit": {
+    "id": "bb84",
+    "title": "BB84 quantum key distribution",
+    "week": 5,
+    "date": "Notes: The BB84 Quantum Key Distribution Protocol and the Proof of Its Security",
+    "lecture": "Lec 31",
+    "practice": "qkd",
+    "intro": "Share a secret key whose security rests on quantum mechanics, and see why eavesdropping can't go unnoticed.",
+    "steps": [
+     {
+      "type": "read",
+      "title": "The protocol",
+      "md": "1. Alice sends random bits, each in a random basis: $Z$ ($|0\\rangle, |1\\rangle$) or $X$ ($|+\\rangle, |-\\rangle$).\n2. Bob measures each qubit in a random basis.\n3. Over a public but **authenticated** classical channel, they compare bases (not bits) and keep the positions where the bases matched. This **sifting** keeps about half.\n4. They reveal a random sample of the sifted bits to estimate the error rate. If it's too high, they abort.\n5. **Error correction** fixes the remaining mismatches. **Privacy amplification** (hashing) shrinks the key so Eve's partial information becomes negligible."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "1/2"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "K1",
+       "prompt": "On average, what fraction of the transmitted qubits survive sifting?",
+       "why": "Bob's random basis matches Alice's with probability $\\tfrac12$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$1/2$"
+      }
+     },
+     {
+      "type": "read",
+      "title": "Why eavesdropping shows",
+      "md": "In an **intercept–resend** attack, Eve measures in a random basis and resends what she saw. On a sifted bit, she picks the wrong basis half the time. Then Bob's result is random, wrong half of those times. So Eve introduces a $\\tfrac12\\cdot\\tfrac12 = \\tfrac14$ error rate while learning only about half the bits.\n\nMore generally, information gain forces disturbance (no-cloning again). The **Shor–Preskill proof** relates BB84 to a CSS code. Error correction and privacy amplification are the classical shadow of decoding a CSS code, which gives a secure key rate of $1 - 2h(e)$, where $h$ is binary entropy. That stays positive up to an error rate of about 11%."
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "1/4"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "K2",
+       "prompt": "What error rate does a full intercept–resend attack (random bases) cause on the sifted key?",
+       "why": "Wrong basis with probability $\\tfrac12$, then a random result: $\\tfrac12\\cdot\\tfrac12 = \\tfrac14$.",
+       "hint": "",
+       "quiz": false,
+       "soln": "$1/4$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "smallbox",
+       "check": {
+        "type": "num",
+        "answers": [
+         "0.1"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       "name": "K3",
+       "prompt": "If Eve does intercept–resend on only 40% of the qubits, what is the expected error rate on the sifted key?",
+       "why": "$0.4\\times\\tfrac14 = 0.1$.",
+       "hint": "",
+       "quiz": true,
+       "soln": "$0.1$"
+      }
+     },
+     {
+      "type": "check",
+      "q": {
+       "kind": "multiplechoice",
+       "renderer": "radio",
+       "options": [
+        "Otherwise Eve can impersonate Bob to Alice and vice versa (man-in-the-middle)",
+        "To keep the basis choices secret",
+        "To make sifting possible",
+        "Because the qubits carry no information"
+       ],
+       "soln": "Otherwise Eve can impersonate Bob to Alice and vice versa (man-in-the-middle)",
+       "name": "K4",
+       "prompt": "Why must the classical channel be authenticated?",
+       "why": "QKD protects against eavesdropping on the quantum channel, but without authentication Eve could run separate QKD sessions with each party. So QKD needs a short shared secret to start; it expands a key rather than creating one from nothing.",
+       "hint": "",
+       "quiz": true
+      }
+     }
+    ],
+    "notes": [
+     {
+      "label": "Lecture 31",
+      "short": "PDF 31",
+      "url": "https://math.mit.edu/~shor/435-LN/Lecture_31.pdf"
+     }
+    ]
+   }
+  }
+ ]
+}
