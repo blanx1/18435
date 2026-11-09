@@ -75,6 +75,18 @@
    ]
   },
   {
+   "id": "pe2",
+   "label": "Practice Exam 2 (course handout, official solutions)",
+   "kind": "midterm",
+   "pages": [
+    "pe2/p1",
+    "pe2/p2",
+    "pe2/p3",
+    "pe2/p4",
+    "pe2/p5"
+   ]
+  },
+  {
    "id": "ma",
    "label": "Practice Midterm A",
    "kind": "midterm",
@@ -166,6 +178,16 @@
     "ps5/p2",
     "ps5/p3",
     "ps5/p4"
+   ]
+  },
+  {
+   "id": "ps6",
+   "label": "Problem Set 6",
+   "kind": "pset",
+   "pages": [
+    "ps6/p1",
+    "ps6/p2",
+    "ps6/p3"
    ]
   }
  ],
@@ -3102,6 +3124,455 @@
      "rows": 5,
      "expl": "",
      "concept": "protocols"
+    }
+   }
+  },
+  "pe2/p1": {
+   "title": "Problem 1: Mixtures of Bell states",
+   "exam": "pe2",
+   "label": "Practice Exam 2 (course handout, official solutions)",
+   "html": "<p>The probabilistic ensemble containing an equal mixture of any two Bell states is always unentangled. This problem works it out for a specific example.</p>\n<p>Consider the ensemble of <span class=\"cs_math_to_render\">\\tfrac{1}{\\sqrt2}(|00\\rangle + |11\\rangle)</span> and <span class=\"cs_math_to_render\">\\tfrac{1}{\\sqrt2}(|01\\rangle + |10\\rangle)</span>, each with probability <span class=\"cs_math_to_render\">\\tfrac12</span>.</p>\n<div class=\"xq-part\"><p><strong>(1A)</strong> What is the density matrix of this ensemble? Enter its <span class=\"cs_math_to_render\">\\langle 00|\\rho|11\\rangle</span> entry.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1B)</strong> And its <span class=\"cs_math_to_render\">\\langle 01|\\rho|01\\rangle</span> entry?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1C)</strong> Express this density matrix as a probabilistic mixture of tensor product states <span class=\"cs_math_to_render\">|\\phi\\rangle\\otimes|\\psi\\rangle</span>.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1D)</strong> Use Pauli transformations together with the parts above to show that the 50/50 mixture of **any** two of the four Bell states <span class=\"cs_math_to_render\">\\tfrac{1}{\\sqrt2}(|00\\rangle\\pm|11\\rangle)</span>, <span class=\"cs_math_to_render\">\\tfrac{1}{\\sqrt2}(|01\\rangle\\pm|10\\rangle)</span> is not entangled. How do you do this?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "⟨00|ρ|11⟩ =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/4"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/4$",
+     "rows": 4,
+     "expl": "**Official solution:** $\\rho = \\tfrac12\\cdot\\tfrac12(|00\\rangle + |11\\rangle)(\\langle00| + \\langle11|) + \\tfrac12\\cdot\\tfrac12(|01\\rangle + |10\\rangle)(\\langle01| + \\langle10|) = \\tfrac14\\begin{pmatrix}1&0&0&1\\\\0&1&1&0\\\\0&1&1&0\\\\1&0&0&1\\end{pmatrix}$ in the basis $|00\\rangle,|01\\rangle,|10\\rangle,|11\\rangle$.",
+     "concept": "density"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "⟨01|ρ|01⟩ =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/4"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/4$",
+     "rows": 4,
+     "expl": "See the full matrix in part (A). Every diagonal entry is $\\tfrac14$.",
+     "concept": "density"
+    },
+    "C1": {
+     "kind": "multiplechoice",
+     "prompt": "ρ =",
+     "renderer": "radio",
+     "options": [
+      "½|++⟩⟨++| + ½|−−⟩⟨−−|",
+      "½|00⟩⟨00| + ½|11⟩⟨11|",
+      "½|+−⟩⟨+−| + ½|−+⟩⟨−+|",
+      "¼ I ⊗ I"
+     ],
+     "check": null,
+     "soln": "½|++⟩⟨++| + ½|−−⟩⟨−−|",
+     "rows": 4,
+     "expl": "**Official solution:** $\\rho$ is a 50/50 mixture of $\\tfrac12(|00\\rangle + |01\\rangle + |10\\rangle + |11\\rangle) = |{+}{+}\\rangle$ and $\\tfrac12(|00\\rangle - |01\\rangle - |10\\rangle + |11\\rangle) = |{-}{-}\\rangle$. The cross terms between kets with an even number of 1s and kets with an odd number of 1s cancel, leaving $\\rho$.\\n\\n**Notes:** in the $X$ basis, $|\\Phi^+\\rangle = \\tfrac{1}{\\sqrt2}(|{+}{+}\\rangle + |{-}{-}\\rangle)$ and $|\\Psi^+\\rangle = \\tfrac{1}{\\sqrt2}(|{+}{+}\\rangle - |{-}{-}\\rangle)$. Averaging the two projectors cancels the cross terms, leaving $\\tfrac12|{+}{+}\\rangle\\langle{+}{+}| + \\tfrac12|{-}{-}\\rangle\\langle{-}{-}|$. You can check this against the matrix in part (A).",
+     "concept": "density"
+    },
+    "D1": {
+     "kind": "bigbox",
+     "prompt": "Your argument:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "**Official solution:** the intended idea is that local unitaries can't create entanglement. So if a single-qubit transformation maps the pair $\\{|B_a\\rangle, |B_b\\rangle\\}$ to $\\{\\tfrac{1}{\\sqrt2}(|00\\rangle+|11\\rangle), \\tfrac{1}{\\sqrt2}(|01\\rangle+|10\\rangle)\\}$, the original mixture is unentangled too. For example, $\\sigma_z$ on the second qubit turns $\\{\\tfrac{1}{\\sqrt2}(|00\\rangle - |11\\rangle), \\tfrac{1}{\\sqrt2}(|01\\rangle - |10\\rangle)\\}$ into the pair from part (A). The official solutions admit the problem was accidentally much too hard: Pauli transformations alone can't map *every* pair to that one. For example, $\\{\\Phi^+, \\Psi^-\\}$ can't be sent to $\\{\\Phi^+, \\Psi^+\\}$ by Paulis. Two fixes work but are too long for a test: use single-qubit rotations by $120^\\circ$ about axes like $(1,1,1)$, or show directly that the $\\{\\Phi^+, \\Psi^-\\}$ mixture is unentangled.\\n\\n**Notes (one short fix):** Every Bell state is $(I\\otimes P)|\\Phi^+\\rangle$ for a Pauli $P\\in\\{I, X, Z, XZ\\}$. A mixture of $(I\\otimes P)|\\Phi^+\\rangle$ and $(I\\otimes Q)|\\Phi^+\\rangle$ equals $(I\\otimes P)$ applied to the mixture of $|\\Phi^+\\rangle$ and $(I\\otimes P^\\dagger Q)|\\Phi^+\\rangle$. Local unitaries preserve separability, so it suffices to handle the three cases $P^\\dagger Q = X, Z, Y$ (up to phase). $X$ is parts (A)–(C). For $Z$, the mixture of $\\Phi^\\pm$ is $\\tfrac12(|00\\rangle\\langle00| + |11\\rangle\\langle11|)$, already separable. For $Y$, use $(C^*\\otimes C)|\\Phi^+\\rangle = |\\Phi^+\\rangle$ for any unitary $C$. Choosing $C = S^\\dagger$ conjugates $Y$ to $X$, so this local unitary maps the $\\{\\Phi^+, (I\\otimes Y)\\Phi^+\\}$ mixture to the $X$ case. This is a non-Pauli single-qubit transformation, in the spirit of the official fix.",
+     "rows": 5,
+     "expl": "",
+     "concept": "density"
+    }
+   }
+  },
+  "pe2/p2": {
+   "title": "Problem 2: Factoring 21, eigenvector by eigenvector",
+   "exam": "pe2",
+   "label": "Practice Exam 2 (course handout, official solutions)",
+   "html": "<p>To factor 21, use <span class=\"cs_math_to_render\">U|y\\rangle = |2y \\bmod 21\\rangle</span> on the numbers <span class=\"cs_math_to_render\">0,\\dots,20</span>. The factoring algorithm starts with <span class=\"cs_math_to_render\">|1\\rangle</span> and runs phase estimation on <span class=\"cs_math_to_render\">U</span>. Assume that if the eigenvalue is <span class=\"cs_math_to_render\">e^{2\\pi i a/b}</span>, phase estimation plus continued fractions returns <span class=\"cs_math_to_render\">a/b</span> in lowest terms with probability 1.</p>\n<div class=\"xq-part\"><p><strong>(2A)</strong> <span class=\"cs_math_to_render\">|1\\rangle</span> is a superposition of eigenvectors of <span class=\"cs_math_to_render\">U</span>. How many eigenvectors appear?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2B)</strong> Describe these eigenvectors.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2C)</strong> The algorithm returns <span class=\"cs_math_to_render\">a/b</span>; if <span class=\"cs_math_to_render\">b</span> is even we compute <span class=\"cs_math_to_render\">2^{b/2}</span> and try to factor with <span class=\"cs_math_to_render\">\\gcd(2^{b/2}\\pm1, 21)</span>, and odd <span class=\"cs_math_to_render\">b</span> counts as failure. What is the probability of getting the factors?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "number =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "6"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$6$",
+     "rows": 4,
+     "expl": "**Official solution:** six eigenvectors have an overlap with $|1\\rangle$, because $2^1\\equiv2, 2^2\\equiv4, 2^3\\equiv8, 2^4\\equiv16, 2^5\\equiv11, 2^6\\equiv1 \\pmod{21}$. Each is an equal superposition of $|1\\rangle, |2\\rangle, |4\\rangle, |8\\rangle, |16\\rangle, |11\\rangle$ with phases that are powers of a sixth root of unity, with eigenvalues $e^{2\\pi i(k/6)}$ for $k = 0,\\dots,5$.\\n\\n**Notes:** the orbit of 1 is $1, 2, 4, 8, 16, 11$, so the order is $r = 6$. The eigenvectors are $|u_s\\rangle = \\tfrac{1}{\\sqrt6}\\sum_{k=0}^{5}e^{-2\\pi i sk/6}|2^k \\bmod 21\\rangle$ for $s = 0,\\dots,5$, with eigenvalue $e^{2\\pi i s/6}$, and $|1\\rangle = \\tfrac{1}{\\sqrt6}\\sum_s|u_s\\rangle$, so each $s$ is equally likely.",
+     "concept": "fourier"
+    },
+    "B1": {
+     "kind": "bigbox",
+     "prompt": "Your description:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "**Official solution:** there are six, one for each sixth root of unity. For example $\\tfrac{1}{\\sqrt6}(|1\\rangle - |2\\rangle + |4\\rangle - |8\\rangle + |16\\rangle - |11\\rangle)$ has eigenvalue $e^{2\\pi i(3/6)} = -1$, and $\\tfrac{1}{\\sqrt6}(|1\\rangle + |2\\rangle + |4\\rangle + |8\\rangle + |16\\rangle + |11\\rangle)$ has eigenvalue 1.\\n\\n**Notes:** they are the Fourier transforms of the orbit $\\{1,2,4,8,16,11\\}$: $|u_s\\rangle = \\tfrac{1}{\\sqrt6}\\sum_{k=0}^{5}\\omega^{-sk}|2^k\\bmod21\\rangle$ with $\\omega = e^{2\\pi i/6}$, for $s = 0,\\dots,5$. Applying $U$ shifts $k\\to k+1$, which multiplies the state by $\\omega^s$. Summing over $s$ makes every term except $k = 0$ cancel, leaving $|1\\rangle$.",
+     "rows": 5,
+     "expl": "",
+     "concept": "fourier"
+    },
+    "C1": {
+     "kind": "smallbox",
+     "prompt": "P =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "any",
+      "checks": [
+       {
+        "type": "num",
+        "answers": [
+         "1/2"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       {
+        "type": "num",
+        "answers": [
+         "1/3"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       }
+      ]
+     },
+     "soln": "$1/2$ or $1/3$ (the official solutions give full credit for either)",
+     "rows": 4,
+     "expl": "**Official solution:** denominator 6 gives $(2^3 + 1)(2^3 - 1) = 9\\cdot7$, and $\\gcd(9, 21) = 3$, $\\gcd(7, 21) = 7$. Denominators 3 and 1 don't work because they are odd. Denominator 2 gives $(2+1)(2-1)$ and $\\gcd(3, 21) = 3$, which is one of the factors, but by complete coincidence. So the probability is $\\tfrac12$ or $\\tfrac13$, depending on whether you count the coincidence, and either receives full credit.\\n\\n**Notes:** $s/6$ in lowest terms: $s = 0\\to 0/1$, $1\\to1/6$, $2\\to1/3$, $3\\to1/2$, $4\\to2/3$, $5\\to5/6$. Odd $b$ ($s = 0, 2, 4$) fails. $b = 6$ ($s = 1, 5$) gives $2^3 = 8$, and $\\gcd(7, 21) = 7$, $\\gcd(9, 21) = 3$: success, probability $\\tfrac13$. $b = 2$ ($s = 3$) gives $2^1 = 2$. That's not a genuine square root of 1 (since $2^2 = 4 \\neq 1$), but $\\gcd(3, 21) = 3$ still finds a factor by luck, raising the total to $\\tfrac12$.",
+     "concept": "fourier"
+    }
+   }
+  },
+  "pe2/p3": {
+   "title": "Problem 3: Prime powers",
+   "exam": "pe2",
+   "label": "Practice Exam 2 (course handout, official solutions)",
+   "html": "<p>Suppose we apply the factoring algorithm to <span class=\"cs_math_to_render\">N = p^t</span>, a power of a prime <span class=\"cs_math_to_render\">p</span>.</p>\n<div class=\"xq-part\"><p><strong>(3A)</strong> Will it work?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3B)</strong> Exactly what goes wrong, and how is it avoided in practice?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "multiplechoice",
+     "prompt": "Choose one:",
+     "renderer": "radio",
+     "options": [
+      "No: a^{r/2} ≡ −1 whenever r is even, so the gcds are trivial",
+      "Yes, as usual",
+      "No: the order r doesn't exist",
+      "No: U_a isn't unitary"
+     ],
+     "check": null,
+     "soln": "No: a^{r/2} ≡ −1 whenever r is even, so the gcds are trivial",
+     "rows": 4,
+     "expl": "**Official solution:** the algorithm finds $r$ with $a^r\\equiv1$ and hopes $a^{r/2}-1$ and $a^{r/2}+1$ each contain a different factor of $N$. But every factor of $p^t$ is a power of $p$. If both are multiples of $p$, so is their difference, which is 2. So it can only work when $p = 2$, and powers of 2 don't need a quantum computer. In fact $a^{r/2}$ is always $\\pm1$, because 1 has only two square roots mod $p^t$, though proving that takes more number theory than the course expects.\\n\\n**Notes:** order finding works fine, but the reduction fails. For odd $p$, $(\\mathbb{Z}/p^t)^*$ is cyclic, so $x^2\\equiv1 \\pmod{p^t}$ has only the solutions $\\pm1$. If $r$ is even, then $a^{r/2}\\not\\equiv1$ (by minimality of $r$) forces $a^{r/2}\\equiv -1$. So $\\gcd(a^{r/2}\\pm1, N)$ is always trivial.",
+     "concept": "fourier"
+    },
+    "B1": {
+     "kind": "bigbox",
+     "prompt": "Your explanation:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "**Official solution:** if $a^{r/2}-1$ and $a^{r/2}+1$ were both multiples of $p$, their difference 2 would be too, which is impossible for odd $p$. So the two gcds can't split $N$. Factoring powers of 2 doesn't need a quantum computer.\\n\\n**Notes:** the reduction needs a nontrivial square root of 1 mod $N$, and those exist only when $N$ has at least two distinct odd prime factors (Chinese remainder theorem). For $N = p^t$, every square root of 1 is $\\pm1$, so each trial gives either odd $r$ or $a^{r/2}\\equiv-1$, and both fail. The fix is classical: before running the quantum part, check whether $N$ is a perfect power $m^k$, which takes polynomial time by computing $k$-th roots for $k\\le\\log_2N$.",
+     "rows": 5,
+     "expl": "",
+     "concept": "fourier"
+    }
+   }
+  },
+  "pe2/p4": {
+   "title": "Problem 4: Forgetting the gcd check",
+   "exam": "pe2",
+   "label": "Practice Exam 2 (course handout, official solutions)",
+   "html": "<p>Suppose we don't check <span class=\"cs_math_to_render\">\\gcd(a, N) = 1</span> and accidentally pick <span class=\"cs_math_to_render\">1 &lt; a &lt; N</span> with <span class=\"cs_math_to_render\">\\gcd(a, N) &gt; 1</span>.</p>\n<div class=\"xq-part\"><p><strong>(4A)</strong> Will the algorithm still work?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(4B)</strong> Exactly what goes wrong?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "multiplechoice",
+     "prompt": "Choose one:",
+     "renderer": "radio",
+     "options": [
+      "No: U_a isn't a permutation, so it isn't unitary, and a has no order mod N",
+      "Yes, it finds r as usual",
+      "Yes, but r is always odd"
+     ],
+     "check": null,
+     "soln": "No: U_a isn't a permutation, so it isn't unitary, and a has no order mod N",
+     "rows": 4,
+     "expl": "**Official solution:** you will never find an $r$ with $a^r\\equiv1 \\pmod N$. If a prime $p$ divides both $a$ and $N$, then $a^r \\bmod N$ is always a multiple of $p$.\\n\\n**Notes:** if $d = \\gcd(a, N) > 1$, then $y\\mapsto ay \\bmod N$ isn't one-to-one (it maps $N/d$ and $0$ both to $0$), so it isn't reversible, let alone unitary. No power of $a$ is $\\equiv 1 \\pmod N$, so the order doesn't exist.",
+     "concept": "fourier"
+    },
+    "B1": {
+     "kind": "bigbox",
+     "prompt": "Your explanation:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "**Official solution:** for this $a$ we never find an $r$ with $a^r\\equiv1 \\pmod N$, because if $p$ divides $a$ and $N$, then $a^r \\bmod N$ is always a multiple of $p$.\\n\\n**Notes:** the quantum step assumes $U_a$ permutes $\\mathbb{Z}_N$. When $\\gcd(a, N) > 1$, multiplication by $a$ isn't invertible mod $N$. The sequence $1, a, a^2,\\dots$ never returns to 1 (it lands in multiples of $d$), so there's no period $r$ to find. Phase estimation is undefined, and any implementation of 'multiply by $a$' would either not be a valid gate or return meaningless output. The irony is that $\\gcd(a, N)$ itself is already a nontrivial factor, which is why the classical check comes first.",
+     "rows": 5,
+     "expl": "",
+     "concept": "fourier"
+    }
+   }
+  },
+  "pe2/p5": {
+   "title": "Problem 5: Continued fractions",
+   "exam": "pe2",
+   "label": "Practice Exam 2 (course handout, official solutions)",
+   "html": "<p>Explain what problem the continued fraction algorithm solves, and how it is used in the quantum factoring algorithm.</p>\n<div class=\"xq-part\"><p><strong>(5A)</strong> With <span class=\"cs_math_to_render\">t</span> ancilla bits and <span class=\"cs_math_to_render\">N = 21</span>, what is the smallest <span class=\"cs_math_to_render\">t</span> with <span class=\"cs_math_to_render\">2^t \\ge N^2</span> (the usual precision choice)?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(5B)</strong> Your explanation:</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "t =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "9"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$9$",
+     "rows": 4,
+     "expl": "$N^2 = 441$ and $2^9 = 512$. With this precision, the fraction $s/r$ with $r < N$ closest to $m/2^t$ is unique.",
+     "concept": "fourier"
+    },
+    "B1": {
+     "kind": "bigbox",
+     "prompt": "Your explanation:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "**Official solution:** the quantum part returns a fraction $M/2^L$ that approximates $d/r$, where $r$ is the period of $a^k \\bmod N$. We need $r$, but we can't find it by inspection because $r$ and $2^L$ are exponentially large. The continued fraction algorithm takes a real number and finds all its convergents, fractions that are close to it subject to a bound on the denominator. One of them is guaranteed to be $d/r$, and since there are only about $\\log$ of the denominator many, we can try them all (that last point isn't needed for full credit).\\n\\n**Notes:** continued fractions find the best rational approximations to a real number: the convergents $p_k/q_k$, computed by repeatedly taking integer parts and reciprocals. Any fraction $p/q$ with $|x - p/q| < 1/(2q^2)$ is guaranteed to be a convergent of $x$. In Shor's algorithm, phase estimation returns $m$ with $|m/2^t - s/r| \\le 1/2^{t+1}$. Choosing $2^t\\ge N^2 > r^2$ makes this error less than $1/(2r^2)$, so $s/r$ appears among the convergents of $m/2^t$, and we take the last convergent with denominator below $N$. That denominator is $r$, or a divisor of $r$ if $\\gcd(s, r) > 1$, which a few repetitions or an lcm fixes. It takes $O(\\log N)$ steps.",
+     "rows": 5,
+     "expl": "",
+     "concept": "fourier"
+    }
+   }
+  },
+  "ps6/p1": {
+   "title": "Problem 1: Simon's algorithm without the promise",
+   "exam": "ps6",
+   "label": "Problem Set 6",
+   "html": "<p><span class=\"cs_math_to_render\">f</span> maps <span class=\"cs_math_to_render\">n</span>-bit strings to <span class=\"cs_math_to_render\">n</span>-bit strings, is not necessarily 2-to-1, but satisfies <span class=\"cs_math_to_render\">f(x) = f(x\\oplus c)</span> for some <span class=\"cs_math_to_render\">c</span>.</p>\n<div class=\"xq-part\"><p><strong>(1A)</strong> Show that the quantum part of Simon's algorithm still always returns a <span class=\"cs_math_to_render\">k</span> with <span class=\"cs_math_to_render\">c\\cdot k\\equiv 0 \\pmod 2</span>.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1B)</strong> Can you use this to give an algorithm that always finds <span class=\"cs_math_to_render\">c</span> in a reasonable amount of time?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "bigbox",
+     "prompt": "Your proof:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "After the query and measuring the second register with value $v$, the first register is the uniform superposition over $S = f^{-1}(v)$. Since $f(x) = f(x\\oplus c)$, $S$ is closed under $x\\mapsto x\\oplus c$ and splits into pairs $\\{x, x\\oplus c\\}$. After $H^{\\otimes n}$, the amplitude of $k$ is proportional to $\\sum_{x\\in S}(-1)^{x\\cdot k} = \\sum_{\\text{pairs}}(-1)^{x\\cdot k}\\left(1 + (-1)^{c\\cdot k}\\right)$, which vanishes whenever $c\\cdot k = 1$. So every observed $k$ satisfies $c\\cdot k = 0$.",
+     "rows": 5,
+     "expl": "",
+     "concept": "oracle"
+    },
+    "B1": {
+     "kind": "multiplechoice",
+     "prompt": "Choose one:",
+     "renderer": "radio",
+     "options": [
+      "No: the k's need not span c's orthogonal complement",
+      "Yes: run it n times and solve",
+      "Yes, with Grover"
+     ],
+     "check": null,
+     "soln": "No: the k's need not span c's orthogonal complement",
+     "rows": 4,
+     "expl": "Without the 2-to-1 promise the $k$'s can be concentrated on a small subspace. Extreme case: a constant $f$ satisfies the condition for every $c$, and the algorithm always returns $k = 0$, so the equations say nothing. Even when $c$ is unique, the distribution of $k$ can make the needed independent equations exponentially unlikely.",
+     "concept": "oracle"
+    }
+   }
+  },
+  "ps6/p2": {
+   "title": "Problem 2: Fidelity",
+   "exam": "ps6",
+   "label": "Problem Set 6",
+   "html": "<p>For PSD <span class=\"cs_math_to_render\">A</span>, <span class=\"cs_math_to_render\">A^{1/2}</span> is the unique PSD <span class=\"cs_math_to_render\">B</span> with <span class=\"cs_math_to_render\">B^2 = A</span>. For pure states <span class=\"cs_math_to_render\">F(|\\phi\\rangle,|\\psi\\rangle) = |\\langle\\phi|\\psi\\rangle|</span>, and for density matrices <span class=\"cs_math_to_render\">F(\\rho,\\sigma) = \\mathrm{Tr}\\sqrt{\\rho^{1/2}\\sigma\\rho^{1/2}}</span>.</p>\n<div class=\"xq-part\"><p><strong>(2A)</strong> Show that <span class=\"cs_math_to_render\">\\rho^{1/2}\\sigma\\rho^{1/2}</span> is positive semidefinite, so the fidelity is well-defined.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2B)</strong> Show that for pure states <span class=\"cs_math_to_render\">\\rho = |\\phi\\rangle\\langle\\phi|</span>, <span class=\"cs_math_to_render\">\\sigma = |\\psi\\rangle\\langle\\psi|</span>, <span class=\"cs_math_to_render\">F(\\rho,\\sigma) = |\\langle\\phi|\\psi\\rangle|</span>.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2C)</strong> Show that <span class=\"cs_math_to_render\">F(U\\rho U^\\dagger, U\\sigma U^\\dagger) = F(\\rho,\\sigma)</span>.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2D)</strong> What is <span class=\"cs_math_to_render\">F(\\rho,\\sigma)</span> for <span class=\"cs_math_to_render\">\\rho = |0\\rangle\\langle0|</span> and <span class=\"cs_math_to_render\">\\sigma = I/2</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "bigbox",
+     "prompt": "Your proof:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Write $\\rho^{1/2}\\sigma\\rho^{1/2} = (\\sigma^{1/2}\\rho^{1/2})^\\dagger(\\sigma^{1/2}\\rho^{1/2}) = M^\\dagger M$, using that $\\rho^{1/2}$ and $\\sigma^{1/2}$ are Hermitian. For any $|v\\rangle$, $\\langle v|M^\\dagger M|v\\rangle = \\|M|v\\rangle\\|^2\\ge0$. So it's PSD and has a PSD square root.",
+     "rows": 5,
+     "expl": "",
+     "concept": "density"
+    },
+    "B1": {
+     "kind": "bigbox",
+     "prompt": "Your proof:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "A pure-state projector is its own square root, so $\\rho^{1/2} = \\rho$. Then $\\rho\\sigma\\rho = |\\phi\\rangle\\langle\\phi|\\psi\\rangle\\langle\\psi|\\phi\\rangle\\langle\\phi| = |\\langle\\phi|\\psi\\rangle|^2\\,|\\phi\\rangle\\langle\\phi|$. Its square root is $|\\langle\\phi|\\psi\\rangle|\\,|\\phi\\rangle\\langle\\phi|$, whose trace is $|\\langle\\phi|\\psi\\rangle|$.",
+     "rows": 5,
+     "expl": "",
+     "concept": "density"
+    },
+    "C1": {
+     "kind": "bigbox",
+     "prompt": "Your proof:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "$(U\\rho U^\\dagger)^{1/2} = U\\rho^{1/2}U^\\dagger$, since it is PSD and squares to $U\\rho U^\\dagger$ (uniqueness). Then $(U\\rho U^\\dagger)^{1/2}U\\sigma U^\\dagger(U\\rho U^\\dagger)^{1/2} = U\\rho^{1/2}\\sigma\\rho^{1/2}U^\\dagger$, whose square root is $U\\sqrt{\\rho^{1/2}\\sigma\\rho^{1/2}}\\,U^\\dagger$ by the same argument. The trace is invariant under conjugation.",
+     "rows": 5,
+     "expl": "",
+     "concept": "density"
+    },
+    "D1": {
+     "kind": "smallbox",
+     "prompt": "F =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/sqrt(2)"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/\\sqrt2$",
+     "rows": 4,
+     "expl": "$\\rho^{1/2}\\sigma\\rho^{1/2} = \\tfrac12|0\\rangle\\langle0|$, whose square root is $\\tfrac{1}{\\sqrt2}|0\\rangle\\langle0|$, with trace $\\tfrac{1}{\\sqrt2}$. In general $F(|\\phi\\rangle\\langle\\phi|,\\sigma) = \\sqrt{\\langle\\phi|\\sigma|\\phi\\rangle}$.",
+     "concept": "density"
+    }
+   }
+  },
+  "ps6/p3": {
+   "title": "Problem 3: Leaving out a small gate",
+   "exam": "ps6",
+   "label": "Problem Set 6",
+   "html": "<p>A computation <span class=\"cs_math_to_render\">|\\psi\\rangle = U_t\\cdots U_1|\\phi\\rangle</span> on <span class=\"cs_math_to_render\">L</span> qubits has gate <span class=\"cs_math_to_render\">U_k = \\mathrm{diag}(1,1,1,e^{2\\pi i\\epsilon})</span> (a controlled phase) with small <span class=\"cs_math_to_render\">\\epsilon</span>. Let <span class=\"cs_math_to_render\">|\\psi'\\rangle</span> be the result of leaving <span class=\"cs_math_to_render\">U_k</span> out.</p>\n<div class=\"xq-part\"><p><strong>(3A)</strong> How does <span class=\"cs_math_to_render\">1 - F(|\\psi\\rangle,|\\psi'\\rangle)</span> scale with <span class=\"cs_math_to_render\">\\epsilon</span> in the worst case?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3B)</strong> For <span class=\"cs_math_to_render\">\\epsilon = 0.1</span>, what is the worst-case fidelity?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "multiplechoice",
+     "prompt": "1 − F scales as:",
+     "renderer": "radio",
+     "options": [
+      "ε²",
+      "ε",
+      "√ε",
+      "It doesn't depend on ε"
+     ],
+     "check": null,
+     "soln": "ε²",
+     "rows": 4,
+     "expl": "Let $|\\chi\\rangle = U_{k-1}\\cdots U_1|\\phi\\rangle$ and $p = \\|\\Pi_{11}|\\chi\\rangle\\|^2$, where $\\Pi_{11}$ projects the two gate qubits onto $|11\\rangle$. Later gates are unitary, so $F = |\\langle\\chi|U_k|\\chi\\rangle| = |1 + p(e^{2\\pi i\\epsilon} - 1)|$. This is minimized at $p = \\tfrac12$, giving $F\\ge\\cos(\\pi\\epsilon)\\approx 1 - \\tfrac{\\pi^2\\epsilon^2}{2}$.",
+     "concept": "unitary"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "F_min =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "cos(pi/10)"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$\\cos(\\pi/10)\\approx0.951$",
+     "rows": 4,
+     "expl": "$F_{\\min} = \\cos(\\pi\\epsilon)$. Note the *distance* $\\||\\psi\\rangle - |\\psi'\\rangle\\|\\le 2\\sin(\\pi\\epsilon) = O(\\epsilon)$ is first order, while the fidelity loss is second order. Both say small rotations can be dropped, and errors add up at most linearly over many dropped gates. That's the basis for approximating the QFT by omitting tiny controlled-phase gates.",
+     "concept": "unitary"
     }
    }
   }
