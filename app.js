@@ -427,7 +427,7 @@
     else src.removeAttribute('href');
   }
 
-  Promise.all([fetch('data.json').then(r => r.json()), fetch('learn.json').then(r => r.json()).catch(() => ({course: []}))]).then(([data, learn]) => {
+  Promise.all([fetch('data (new).json').then(r => r.json()), fetch('learn.json').then(r => r.json()).catch(() => ({course: []}))]).then(([data, learn]) => {
     D = data; LEARN = learn;
     for (const c of LEARN.course) {
       if (!c.unit) continue;
