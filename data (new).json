@@ -1,0 +1,3580 @@
+{
+ "concepts": [
+  {
+   "id": "states",
+   "name": "States & measurement",
+   "description": "Normalize states, compute measurement probabilities and expectation values, and post-measurement states."
+  },
+  {
+   "id": "unitary",
+   "name": "Unitaries, gates & the Bloch sphere",
+   "description": "Work with Pauli/Hadamard/phase gates, Bloch-sphere rotations, CNOT identities and circuits."
+  },
+  {
+   "id": "tensor",
+   "name": "Tensor products & entanglement",
+   "description": "Test for entanglement and analyze measurements on part of a joint system."
+  },
+  {
+   "id": "circuits",
+   "name": "Classical & reversible circuits",
+   "description": "Build functions from NAND, Toffoli and Fredkin gates, and uncompute garbage."
+  },
+  {
+   "id": "protocols",
+   "name": "Teleportation & no-cloning",
+   "description": "Analyze teleportation, superdense coding, entanglement manipulation and cloning limits."
+  },
+  {
+   "id": "density",
+   "name": "Density matrices",
+   "description": "Compute density matrices, purity, partial traces and indistinguishable ensembles."
+  },
+  {
+   "id": "nonlocal",
+   "name": "Nonlocality (CHSH & GHZ)",
+   "description": "Reason about local hidden variables, the CHSH game and the GHZ paradox."
+  },
+  {
+   "id": "oracle",
+   "name": "Oracle algorithms",
+   "description": "Deutsch–Jozsa, Bernstein–Vazirani and Simon's algorithm."
+  },
+  {
+   "id": "fourier",
+   "name": "QFT, phase estimation & factoring",
+   "description": "Fourier transforms, phase estimation, order finding and continued fractions."
+  },
+  {
+   "id": "search",
+   "name": "Grover search & simulation",
+   "description": "Grover iterations, optimal query counts, and Trotterized Hamiltonian simulation."
+  },
+  {
+   "id": "qec",
+   "name": "Error correction",
+   "description": "Syndromes, the 3-, 7- and 9-qubit codes, and logical error rates."
+  },
+  {
+   "id": "qkd",
+   "name": "Quantum key distribution",
+   "description": "BB84 sifting, eavesdropping error rates and security thresholds."
+  }
+ ],
+ "exams": [
+  {
+   "id": "pe1",
+   "label": "Practice Exam 1 (course handout)",
+   "kind": "midterm",
+   "pages": [
+    "pe1/p1",
+    "pe1/p2",
+    "pe1/p3",
+    "pe1/p4",
+    "pe1/p5"
+   ]
+  },
+  {
+   "id": "pe2",
+   "label": "Practice Exam 2 (course handout, official solutions)",
+   "kind": "midterm",
+   "pages": [
+    "pe2/p1",
+    "pe2/p2",
+    "pe2/p3",
+    "pe2/p4",
+    "pe2/p5"
+   ]
+  },
+  {
+   "id": "ma",
+   "label": "Practice Midterm A",
+   "kind": "midterm",
+   "pages": [
+    "ma/p1",
+    "ma/p2",
+    "ma/p3",
+    "ma/p4",
+    "ma/p5"
+   ]
+  },
+  {
+   "id": "mb",
+   "label": "Practice Midterm B",
+   "kind": "midterm",
+   "pages": [
+    "mb/p1",
+    "mb/p2",
+    "mb/p3",
+    "mb/p4",
+    "mb/p5"
+   ]
+  },
+  {
+   "id": "fa",
+   "label": "Practice Final",
+   "kind": "final",
+   "pages": [
+    "fa/p1",
+    "fa/p2",
+    "fa/p3",
+    "fa/p4",
+    "fa/p5",
+    "fa/p6",
+    "fa/p7"
+   ]
+  },
+  {
+   "id": "ps1",
+   "label": "Problem Set 1",
+   "kind": "pset",
+   "pages": [
+    "ps1/p1",
+    "ps1/p2",
+    "ps1/p3",
+    "ps1/p4",
+    "ps1/p5"
+   ]
+  },
+  {
+   "id": "ps2",
+   "label": "Problem Set 2",
+   "kind": "pset",
+   "pages": [
+    "ps2/p1",
+    "ps2/p2",
+    "ps2/p3",
+    "ps2/p4",
+    "ps2/p5"
+   ]
+  },
+  {
+   "id": "ps3",
+   "label": "Problem Set 3",
+   "kind": "pset",
+   "pages": [
+    "ps3/p1",
+    "ps3/p2",
+    "ps3/p3",
+    "ps3/p4",
+    "ps3/p5"
+   ]
+  },
+  {
+   "id": "ps4",
+   "label": "Problem Set 4",
+   "kind": "pset",
+   "pages": [
+    "ps4/p1",
+    "ps4/p2"
+   ]
+  },
+  {
+   "id": "ps5",
+   "label": "Problem Set 5",
+   "kind": "pset",
+   "pages": [
+    "ps5/p1",
+    "ps5/p2",
+    "ps5/p3",
+    "ps5/p4"
+   ]
+  },
+  {
+   "id": "ps6",
+   "label": "Problem Set 6",
+   "kind": "pset",
+   "pages": [
+    "ps6/p1",
+    "ps6/p2",
+    "ps6/p3"
+   ]
+  }
+ ],
+ "pages": {
+  "ma/p1": {
+   "title": "Problem 1: A two-qubit state",
+   "exam": "ma",
+   "label": "Practice Midterm A",
+   "html": "<p>Alice and Bob share the state <span class=\"cs_math_to_render\">|\\psi\\rangle = c\\left(|0\\rangle_A|-\\rangle_B + 2|1\\rangle_A|+\\rangle_B\\right)</span> with <span class=\"cs_math_to_render\">c &gt; 0</span>.</p>\n<div class=\"xq-part\"><p><strong>(1A)</strong> Find <span class=\"cs_math_to_render\">c</span>.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1B)</strong> Both qubits are measured in the standard basis. What is the probability of the outcome <span class=\"cs_math_to_render\">01</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1C)</strong> Only Alice measures, in the standard basis. What is the probability she gets <span class=\"cs_math_to_render\">1</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1D)</strong> Is <span class=\"cs_math_to_render\">|\\psi\\rangle</span> entangled?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1E)</strong> Alice measures in the standard basis and Bob in the <span class=\"cs_math_to_render\">\\{|+\\rangle,|-\\rangle\\}</span> basis. What is the probability that Alice gets <span class=\"cs_math_to_render\">0</span> and Bob gets <span class=\"cs_math_to_render\">+</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"E1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1",
+    "E1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "c =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/sqrt(5)"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$c = 1/\\sqrt5$",
+     "rows": 4,
+     "expl": "$|0\\rangle|-\\rangle$ and $|1\\rangle|+\\rangle$ are orthonormal, so $\\langle\\psi|\\psi\\rangle = c^2(1 + 4) = 1$.",
+     "concept": "states"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "P(01) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/10"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/10$",
+     "rows": 4,
+     "expl": "Expanding, $|0\\rangle|-\\rangle = \\tfrac{1}{\\sqrt2}(|00\\rangle - |01\\rangle)$, so the $|01\\rangle$ amplitude is $-c/\\sqrt2$ and the probability is $\\tfrac{1}{5}\\cdot\\tfrac12 = \\tfrac1{10}$.",
+     "concept": "tensor"
+    },
+    "C1": {
+     "kind": "smallbox",
+     "prompt": "P(A = 1) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "4/5"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$4/5$",
+     "rows": 4,
+     "expl": "$|2c|^2 = 4/5$. Bob is then left in $|+\\rangle$.",
+     "concept": "tensor"
+    },
+    "D1": {
+     "kind": "multiplechoice",
+     "prompt": "Choose one:",
+     "renderer": "radio",
+     "options": [
+      "Yes",
+      "No",
+      "It depends on the measurement basis"
+     ],
+     "check": null,
+     "soln": "Yes",
+     "rows": 4,
+     "expl": "In the standard basis the amplitudes are $(a,b,c,d) = \\tfrac{1}{\\sqrt{10}}(1,-1,2,2)$. Then $ad = \\tfrac{2}{10}$ but $bc = -\\tfrac{2}{10}$, so $ad\\neq bc$ and the state is entangled.",
+     "concept": "tensor"
+    },
+    "E1": {
+     "kind": "smallbox",
+     "prompt": "P(0, +) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "0"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$0$",
+     "rows": 4,
+     "expl": "If Alice gets 0, Bob's qubit is exactly $|-\\rangle$, which never yields $+$. In this mixed basis the state is $c(|0,-\\rangle + 2|1,+\\rangle)$: perfectly correlated.",
+     "concept": "tensor"
+    }
+   }
+  },
+  "ma/p2": {
+   "title": "Problem 2: Identify the Pauli",
+   "exam": "ma",
+   "label": "Practice Midterm A",
+   "html": "<p>Consider the two-qubit circuit: <span class=\"cs_math_to_render\">H</span> on qubit 1; <span class=\"cs_math_to_render\">\\mathrm{CNOT}_{1\\to2}</span>; a single-qubit gate <span class=\"cs_math_to_render\">G</span> on qubit 2; <span class=\"cs_math_to_render\">\\mathrm{CNOT}_{1\\to2}</span>; <span class=\"cs_math_to_render\">H</span> on qubit 1. The input is <span class=\"cs_math_to_render\">|00\\rangle</span>. With <span class=\"cs_math_to_render\">G = I</span> the output is <span class=\"cs_math_to_render\">|00\\rangle</span>.</p>\n<div class=\"xq-part\"><p><strong>(2A)</strong> If <span class=\"cs_math_to_render\">G = Z</span>, what is the output? Enter it as two bits, like 01.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2B)</strong> If <span class=\"cs_math_to_render\">G = X</span>, what is the output?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2C)</strong> Which gate <span class=\"cs_math_to_render\">G</span> produces the output <span class=\"cs_math_to_render\">|11\\rangle</span> (up to a global phase)?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2D)</strong> If <span class=\"cs_math_to_render\">G = H</span>, what is the probability of output <span class=\"cs_math_to_render\">01</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "Output:",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "text",
+      "answers": [
+       "10"
+      ],
+      "case": false,
+      "space": "ignore"
+     },
+     "soln": "10",
+     "rows": 4,
+     "expl": "After the first two gates we have $|\\Phi^+\\rangle$. $Z_2$ gives $\\tfrac{1}{\\sqrt2}(|00\\rangle-|11\\rangle)$, the CNOT gives $\\tfrac{1}{\\sqrt2}(|00\\rangle-|10\\rangle) = |-\\rangle|0\\rangle$, and the final $H$ gives $|10\\rangle$.",
+     "concept": "unitary"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "Output:",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "text",
+      "answers": [
+       "01"
+      ],
+      "case": false,
+      "space": "ignore"
+     },
+     "soln": "01",
+     "rows": 4,
+     "expl": "$X_2|\\Phi^+\\rangle = |\\Psi^+\\rangle$. The CNOT gives $\\tfrac{1}{\\sqrt2}(|01\\rangle + |11\\rangle) = |+\\rangle|1\\rangle$, and $H$ gives $|01\\rangle$.",
+     "concept": "unitary"
+    },
+    "C1": {
+     "kind": "multiplechoice",
+     "prompt": "G =",
+     "renderer": "radio",
+     "options": [
+      "Y",
+      "Z",
+      "X",
+      "H",
+      "No single-qubit gate can"
+     ],
+     "check": null,
+     "soln": "Y",
+     "rows": 4,
+     "expl": "$Y = iXZ$ combines both effects: it flips qubit 2 and puts a phase on qubit 1, so the output is $i|11\\rangle$. The circuit is a Bell-basis 'Pauli detector' (essentially superdense decoding).",
+     "concept": "unitary"
+    },
+    "D1": {
+     "kind": "smallbox",
+     "prompt": "P(01) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/2"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/2$",
+     "rows": 4,
+     "expl": "$H = (X + Z)/\\sqrt2$, so the output is $\\tfrac{1}{\\sqrt2}(|01\\rangle + |10\\rangle)$: outcomes 01 and 10 each with probability $\\tfrac12$. Linearity lets you superpose the answers to the earlier parts.",
+     "concept": "unitary"
+    }
+   }
+  },
+  "ma/p3": {
+   "title": "Problem 3: An observable on a qutrit",
+   "exam": "ma",
+   "label": "Practice Midterm A",
+   "html": "<p>Let <span class=\"cs_math_to_render\">M = \\begin{pmatrix}1&amp;0&amp;0\\\\0&amp;0&amp;1\\\\0&amp;1&amp;0\\end{pmatrix}</span> act on a qutrit, and let <span class=\"cs_math_to_render\">|\\psi\\rangle = \\tfrac13\\left(2|0\\rangle + |1\\rangle + 2|2\\rangle\\right)</span>.</p>\n<p><span class=\"cs_math_to_render\">M</span> has eigenvalue <span class=\"cs_math_to_render\">+1</span> (twice) and <span class=\"cs_math_to_render\">-1</span> (once).</p>\n<div class=\"xq-part\"><p><strong>(3A)</strong> What is the probability of measuring <span class=\"cs_math_to_render\">-1</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3B)</strong> What is <span class=\"cs_math_to_render\">\\langle M\\rangle</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3C)</strong> The outcome is <span class=\"cs_math_to_render\">+1</span>. After the measurement, what is the amplitude of <span class=\"cs_math_to_render\">|0\\rangle</span> in the (normalized, real) post-measurement state?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3D)</strong> Explain why measuring <span class=\"cs_math_to_render\">M</span> is *not* the same as measuring in the basis <span class=\"cs_math_to_render\">\\{|0\\rangle, \\tfrac{1}{\\sqrt2}(|1\\rangle+|2\\rangle), \\tfrac{1}{\\sqrt2}(|1\\rangle-|2\\rangle)\\}</span>.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "P(−1) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/18"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/18$",
+     "rows": 4,
+     "expl": "The $-1$ eigenvector is $\\tfrac{1}{\\sqrt2}(|1\\rangle - |2\\rangle)$, with overlap $\\tfrac{1}{3\\sqrt2}(1 - 2) = -\\tfrac{1}{3\\sqrt2}$. Squared: $\\tfrac{1}{18}$.",
+     "concept": "states"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "⟨M⟩ =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "8/9"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$8/9$",
+     "rows": 4,
+     "expl": "$\\tfrac{17}{18} - \\tfrac1{18} = \\tfrac{16}{18} = \\tfrac89$. Check: $M|\\psi\\rangle = \\tfrac13(2,2,1)$, so $\\langle\\psi|M|\\psi\\rangle = \\tfrac19(4+2+2) = \\tfrac89$.",
+     "concept": "states"
+    },
+    "C1": {
+     "kind": "smallbox",
+     "prompt": "amplitude =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "2*sqrt(2/17)"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$2\\sqrt{2/17}\\approx0.686$",
+     "rows": 4,
+     "expl": "Project onto the $+1$ eigenspace, spanned by $|0\\rangle$ and $\\tfrac{1}{\\sqrt2}(|1\\rangle+|2\\rangle)$: $\\tfrac23|0\\rangle + \\tfrac12(|1\\rangle + |2\\rangle)$, with squared norm $\\tfrac{17}{18}$. Normalizing, the $|0\\rangle$ amplitude is $\\tfrac23\\sqrt{18/17} = 2\\sqrt{2/17}$. The measurement does **not** collapse to a single eigenvector, because the eigenvalue is degenerate.",
+     "concept": "states"
+    },
+    "D1": {
+     "kind": "bigbox",
+     "prompt": "Your explanation:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Both measurements give the same outcome probabilities for the eigenvalues, but measuring $M$ only reveals the eigenvalue. A $+1$ result projects onto the 2-dimensional eigenspace and keeps the superposition of $|0\\rangle$ and $\\tfrac{1}{\\sqrt2}(|1\\rangle+|2\\rangle)$. The basis measurement would also tell you *which* of the two vectors you found, and collapse to it. The post-measurement states differ, so later measurements can tell the two procedures apart.",
+     "rows": 5,
+     "expl": "",
+     "concept": "states"
+    }
+   }
+  },
+  "ma/p4": {
+   "title": "Problem 4: Mixed states",
+   "exam": "ma",
+   "label": "Practice Midterm A",
+   "html": "<p>Consider the ensemble <span class=\"cs_math_to_render\">\\mathcal{E}</span>: <span class=\"cs_math_to_render\">|0\\rangle</span> with probability <span class=\"cs_math_to_render\">\\tfrac12</span> and <span class=\"cs_math_to_render\">|+\\rangle</span> with probability <span class=\"cs_math_to_render\">\\tfrac12</span>.</p>\n<div class=\"xq-part\"><p><strong>(4A)</strong> What is <span class=\"cs_math_to_render\">\\mathrm{Tr}\\,\\rho^2</span> for <span class=\"cs_math_to_render\">\\mathcal E</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(4B)</strong> What is <span class=\"cs_math_to_render\">\\langle X\\rangle</span> for <span class=\"cs_math_to_render\">\\mathcal E</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(4C)</strong> An ensemble of the form <span class=\"cs_math_to_render\">\\{\\cos\\alpha|0\\rangle+\\sin\\alpha|1\\rangle</span> w.p. <span class=\"cs_math_to_render\">p</span>, <span class=\"cs_math_to_render\">|1\\rangle</span> w.p. <span class=\"cs_math_to_render\">1-p\\}</span> can never equal <span class=\"cs_math_to_render\">\\mathcal{E}</span>'s density matrix if <span class=\"cs_math_to_render\">\\alpha</span> is real and <span class=\"cs_math_to_render\">0&lt;p&lt;1</span>. True or false?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(4D)</strong> Let <span class=\"cs_math_to_render\">|\\phi\\rangle_{AB} = \\tfrac{1}{\\sqrt3}(|00\\rangle+|01\\rangle+|10\\rangle)</span>. What is the purity <span class=\"cs_math_to_render\">\\mathrm{Tr}\\,\\rho_A^2</span> of Alice's reduced state?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "Tr ρ² =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "3/4"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$3/4$",
+     "rows": 4,
+     "expl": "$\\vec r = (\\tfrac12, 0, \\tfrac12)$, so $\\mathrm{Tr}\\rho^2 = \\tfrac12(1 + |\\vec r|^2) = \\tfrac34$.",
+     "concept": "density"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "⟨X⟩ =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/2"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/2$",
+     "rows": 4,
+     "expl": "$\\langle X\\rangle = r_x = \\tfrac12(0) + \\tfrac12(1)$.",
+     "concept": "density"
+    },
+    "C1": {
+     "kind": "multiplechoice",
+     "prompt": "Choose one:",
+     "renderer": "radio",
+     "options": [
+      "False: some choice of α and p works",
+      "True: no choice works"
+     ],
+     "check": null,
+     "soln": "False: some choice of α and p works",
+     "rows": 4,
+     "expl": "We need $p\\,\\vec r_\\alpha + (1-p)(0,0,-1) = (\\tfrac12,0,\\tfrac12)$ with $\\vec r_\\alpha = (\\sin2\\alpha, 0, \\cos2\\alpha)$. Since $(\\tfrac12, 0, \\tfrac12)$ is inside the Bloch ball, the line from the south pole through it meets the sphere again. Solving gives $p = 5/8$, $\\sin2\\alpha = 4/5$, $\\cos 2\\alpha = 3/5$. Many ensembles share each mixed $\\rho$.",
+     "concept": "density"
+    },
+    "D1": {
+     "kind": "smallbox",
+     "prompt": "Tr ρ_A² =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "7/9"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$7/9$",
+     "rows": 4,
+     "expl": "$\\rho_A = \\tfrac13\\begin{pmatrix}2&1\\\\1&1\\end{pmatrix}$, so $\\mathrm{Tr}\\rho_A^2 = \\tfrac19(4 + 1 + 1 + 1) = \\tfrac79$.",
+     "concept": "density"
+    }
+   }
+  },
+  "ma/p5": {
+   "title": "Problem 5: Teleporting with the wrong Bell pair",
+   "exam": "ma",
+   "label": "Practice Midterm A",
+   "html": "<p>Alice wants to teleport <span class=\"cs_math_to_render\">|\\psi\\rangle</span> to Bob, but by mistake they share <span class=\"cs_math_to_render\">|\\Psi^-\\rangle = \\tfrac{1}{\\sqrt2}(|01\\rangle - |10\\rangle)</span> instead of <span class=\"cs_math_to_render\">|\\Phi^+\\rangle</span>. Alice performs the usual Bell measurement and gets the outcome she would normally associate with *no correction needed*.</p>\n<div class=\"xq-part\"><p><strong>(5A)</strong> Which single-qubit gate (up to global phase) should Bob apply to recover <span class=\"cs_math_to_render\">|\\psi\\rangle</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(5B)</strong> An eavesdropper copies Alice's two classical bits. What is the probability of any particular 2-bit message?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(5C)</strong> Explain why teleportation, with either Bell pair, cannot be used to send information faster than light.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "multiplechoice",
+     "prompt": "Bob applies:",
+     "renderer": "radio",
+     "options": [
+      "Y",
+      "I",
+      "X",
+      "Z",
+      "H"
+     ],
+     "check": null,
+     "soln": "Y",
+     "rows": 4,
+     "expl": "$|\\Psi^-\\rangle = (I\\otimes XZ)|\\Phi^+\\rangle$, and Bob's operator commutes through Alice's measurement, so Bob holds $XZ|\\psi\\rangle$. Undo it with $ZX$, which equals $Y$ up to phase ($XZ = -iY$).",
+     "concept": "protocols"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "P =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/4"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/4$",
+     "rows": 4,
+     "expl": "The Bell outcomes are uniform no matter what $|\\psi\\rangle$ is, and changing the shared Bell state just relabels them.",
+     "concept": "protocols"
+    },
+    "C1": {
+     "kind": "bigbox",
+     "prompt": "Your explanation:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Before the classical bits arrive, Bob's reduced state is the average over the four equally likely Pauli-rotated copies of $|\\psi\\rangle$, which is $I/2$ independent of $|\\psi\\rangle$. No local measurement on a state that is always $I/2$ reveals anything, so Bob learns nothing until a light-speed-limited classical message arrives.",
+     "rows": 5,
+     "expl": "",
+     "concept": "protocols"
+    }
+   }
+  },
+  "mb/p1": {
+   "title": "Problem 1: Bloch-sphere bookkeeping",
+   "exam": "mb",
+   "label": "Practice Midterm B",
+   "html": "<p>Let <span class=\"cs_math_to_render\">|\\psi\\rangle = \\cos\\tfrac{\\pi}{12}|0\\rangle + e^{i\\pi/3}\\sin\\tfrac{\\pi}{12}|1\\rangle</span>.</p>\n<div class=\"xq-part\"><p><strong>(1A)</strong> What is the Bloch <span class=\"cs_math_to_render\">z</span>-coordinate of <span class=\"cs_math_to_render\">|\\psi\\rangle</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1B)</strong> What is the Bloch <span class=\"cs_math_to_render\">x</span>-coordinate?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1C)</strong> Apply <span class=\"cs_math_to_render\">H</span> and measure in the standard basis. What is <span class=\"cs_math_to_render\">P(0)</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1D)</strong> Is there a unitary <span class=\"cs_math_to_render\">U</span> that maps every Bloch vector <span class=\"cs_math_to_render\">(x, y, z)</span> to <span class=\"cs_math_to_render\">(x, y, -z)</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "z =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "sqrt(3)/2"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$\\sqrt3/2$",
+     "rows": 4,
+     "expl": "$\\theta = \\pi/6$, so $z = \\cos(\\pi/6)$.",
+     "concept": "unitary"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "x =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/4"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/4$",
+     "rows": 4,
+     "expl": "$x = \\sin\\theta\\cos\\varphi = \\tfrac12\\cdot\\tfrac12$.",
+     "concept": "unitary"
+    },
+    "C1": {
+     "kind": "smallbox",
+     "prompt": "P(0) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "5/8"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$5/8$",
+     "rows": 4,
+     "expl": "$H$ swaps $x\\leftrightarrow z$, so the new $z$ is $\\tfrac14$ and $P(0) = (1 + \\tfrac14)/2 = \\tfrac58$.",
+     "concept": "unitary"
+    },
+    "D1": {
+     "kind": "multiplechoice",
+     "prompt": "Choose one:",
+     "renderer": "radio",
+     "options": [
+      "No: that's a reflection, and unitaries act as rotations",
+      "Yes: U = Z",
+      "Yes: U = X",
+      "Yes, but only up to global phase"
+     ],
+     "check": null,
+     "soln": "No: that's a reflection, and unitaries act as rotations",
+     "rows": 4,
+     "expl": "$Z$ maps $(x,y,z)\\to(-x,-y,z)$, a rotation by $\\pi$. A reflection has determinant $-1$ and is not in $SO(3)$, so no unitary implements it. (Complex conjugation would, but it isn't linear.)",
+     "concept": "unitary"
+    }
+   }
+  },
+  "mb/p2": {
+   "title": "Problem 2: Reversible logic",
+   "exam": "mb",
+   "label": "Practice Midterm B",
+   "html": "<p>Recall Toffoli: <span class=\"cs_math_to_render\">(x,y,z)\\mapsto(x,y,z\\oplus xy)</span>, and Fredkin: swap the last two bits if and only if the first is 1.</p>\n<div class=\"xq-part\"><p><strong>(2A)</strong> Feed the Fredkin gate <span class=\"cs_math_to_render\">(x, y, 0)</span>. Which function of <span class=\"cs_math_to_render\">x, y</span> appears on the third output wire?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2B)</strong> Using Toffoli gates and one ancilla initialized to 0, you compute <span class=\"cs_math_to_render\">x\\wedge y\\wedge z</span> into a fresh target and leave the ancilla clean. What is the fewest Toffoli gates needed?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2C)</strong> Why does the uncomputation step matter for quantum algorithms?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "multiplechoice",
+     "prompt": "Third output =",
+     "renderer": "radio",
+     "options": [
+      "x AND y",
+      "x OR y",
+      "x XOR y",
+      "NOT x AND y"
+     ],
+     "check": null,
+     "soln": "x AND y",
+     "rows": 4,
+     "expl": "If $x = 1$ the bits swap and the third output is $y$; if $x = 0$ it stays 0. So it equals $xy$. (The second output is $\\bar x\\, y$.)",
+     "concept": "circuits"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "Number of Toffolis =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "3"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$3$",
+     "rows": 4,
+     "expl": "Compute $a = xy$ into the ancilla, then $t\\mathrel{\\oplus}= a z$, then uncompute $a$ with a third Toffoli. Skipping the last step leaves garbage.",
+     "concept": "circuits"
+    },
+    "C1": {
+     "kind": "bigbox",
+     "prompt": "Your explanation:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Leftover garbage $|g(x)\\rangle$ stays entangled with the input register. Superposed branches with different garbage are orthogonal and can no longer interfere, which is equivalent to having measured part of the computation. Algorithms like Deutsch–Jozsa and Grover depend on interference, so their oracles must be clean: $|x\\rangle|y\\rangle\\mapsto|x\\rangle|y\\oplus f(x)\\rangle$.",
+     "rows": 5,
+     "expl": "",
+     "concept": "circuits"
+    }
+   }
+  },
+  "mb/p3": {
+   "title": "Problem 3: Splitting a GHZ state",
+   "exam": "mb",
+   "label": "Practice Midterm B",
+   "html": "<p>Alice, Bob and Charlie share <span class=\"cs_math_to_render\">\\tfrac{1}{\\sqrt2}(|000\\rangle + |111\\rangle)</span>. Charlie measures his qubit in the <span class=\"cs_math_to_render\">\\{|+\\rangle,|-\\rangle\\}</span> basis and gets <span class=\"cs_math_to_render\">-</span>.</p>\n<div class=\"xq-part\"><p><strong>(3A)</strong> What state do Alice and Bob now share?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3B)</strong> What was the probability of Charlie getting <span class=\"cs_math_to_render\">-</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3C)</strong> Which local gate should Alice apply (after a phone call from Charlie) so that she and Bob share <span class=\"cs_math_to_render\">|\\Phi^+\\rangle</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3D)</strong> If Charlie had instead measured in the standard basis, what would the maximum entanglement between Alice and Bob be afterwards?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "multiplechoice",
+     "prompt": "State:",
+     "renderer": "radio",
+     "options": [
+      "|Φ−⟩ = (|00⟩ − |11⟩)/√2",
+      "|Φ+⟩",
+      "|Ψ+⟩",
+      "|00⟩ or |11⟩, each with probability ½"
+     ],
+     "check": null,
+     "soln": "|Φ−⟩ = (|00⟩ − |11⟩)/√2",
+     "rows": 4,
+     "expl": "$\\langle -|_C$ applied to the state gives $\\tfrac{1}{2}(|00\\rangle - |11\\rangle)$, which normalizes to $|\\Phi^-\\rangle$.",
+     "concept": "protocols"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "P(−) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/2"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/2$",
+     "rows": 4,
+     "expl": "The norm squared of $\\tfrac12(|00\\rangle-|11\\rangle)$ is $\\tfrac12$.",
+     "concept": "protocols"
+    },
+    "C1": {
+     "kind": "multiplechoice",
+     "prompt": "Alice applies:",
+     "renderer": "radio",
+     "options": [
+      "Z",
+      "X",
+      "H",
+      "Nothing"
+     ],
+     "check": null,
+     "soln": "Z",
+     "rows": 4,
+     "expl": "$(Z\\otimes I)|\\Phi^-\\rangle = |\\Phi^+\\rangle$.",
+     "concept": "protocols"
+    },
+    "D1": {
+     "kind": "multiplechoice",
+     "prompt": "Choose one:",
+     "renderer": "radio",
+     "options": [
+      "None: they'd hold |00⟩ or |11⟩",
+      "One full Bell pair",
+      "Half a Bell pair"
+     ],
+     "check": null,
+     "soln": "None: they'd hold |00⟩ or |11⟩",
+     "rows": 4,
+     "expl": "A $Z$-basis measurement on one GHZ qubit collapses all three qubits, leaving a product state.",
+     "concept": "protocols"
+    }
+   }
+  },
+  "mb/p4": {
+   "title": "Problem 4: GHZ correlations",
+   "exam": "mb",
+   "label": "Practice Midterm B",
+   "html": "<p>Let <span class=\"cs_math_to_render\">|G\\rangle = \\tfrac{1}{\\sqrt2}(|000\\rangle + |111\\rangle)</span> and <span class=\"cs_math_to_render\">|G'\\rangle = \\tfrac{1}{\\sqrt2}(|000\\rangle - |111\\rangle)</span>.</p>\n<div class=\"xq-part\"><p><strong>(4A)</strong> What is <span class=\"cs_math_to_render\">\\langle G|X\\otimes X\\otimes X|G\\rangle</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(4B)</strong> What is <span class=\"cs_math_to_render\">\\langle G|X\\otimes Y\\otimes Y|G\\rangle</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(4C)</strong> What is <span class=\"cs_math_to_render\">\\langle G'|X\\otimes X\\otimes X|G'\\rangle</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(4D)</strong> Explain how the values in (4A) and (4B) contradict local hidden variables.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "⟨XXX⟩ =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1$",
+     "rows": 4,
+     "expl": "$XXX$ swaps $|000\\rangle\\leftrightarrow|111\\rangle$, which leaves $|G\\rangle$ fixed.",
+     "concept": "nonlocal"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "⟨XYY⟩ =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "-1"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$-1$",
+     "rows": 4,
+     "expl": "$XYY|000\\rangle = (i)(i)|111\\rangle = -|111\\rangle$, and likewise for $|111\\rangle$.",
+     "concept": "nonlocal"
+    },
+    "C1": {
+     "kind": "smallbox",
+     "prompt": "⟨XXX⟩ =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "-1"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$-1$",
+     "rows": 4,
+     "expl": "$XXX|G'\\rangle = \\tfrac{1}{\\sqrt2}(|111\\rangle - |000\\rangle) = -|G'\\rangle$.",
+     "concept": "nonlocal"
+    },
+    "D1": {
+     "kind": "bigbox",
+     "prompt": "Your explanation:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Suppose each qubit carries predetermined values $x_j, y_j = \\pm1$. Quantum mechanics predicts $x_Ax_Bx_C = +1$ and $x_Ay_By_C = y_Ax_By_C = y_Ay_Bx_C = -1$. Multiplying the last three gives $x_Ax_Bx_C\\,(y_Ay_By_C)^2 = x_Ax_Bx_C = -1$, contradicting $+1$. No assignment works, so the predictions can't come from local predetermined values, and this holds in every single run, not just on average.",
+     "rows": 5,
+     "expl": "",
+     "concept": "nonlocal"
+    }
+   }
+  },
+  "mb/p5": {
+   "title": "Problem 5: Guessing between two states",
+   "exam": "mb",
+   "label": "Practice Midterm B",
+   "html": "<p>You're handed <span class=\"cs_math_to_render\">|0\\rangle</span> or <span class=\"cs_math_to_render\">|+\\rangle</span> with equal probability and must guess which.</p>\n<div class=\"xq-part\"><p><strong>(5A)</strong> You measure in the standard basis and guess <span class=\"cs_math_to_render\">|0\\rangle</span> on outcome 0 and <span class=\"cs_math_to_render\">|+\\rangle</span> on outcome 1. What is your success probability?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(5B)</strong> What is the best possible success probability over all measurements?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(5C)</strong> Can appending an ancilla and doing a POVM beat the answer to (5B)?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "P(success) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "3/4"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$3/4$",
+     "rows": 4,
+     "expl": "$\\tfrac12(1) + \\tfrac12\\cdot\\tfrac12 = \\tfrac34$.",
+     "concept": "states"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "P(success) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "cos(pi/8)^2"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$\\cos^2(\\pi/8)\\approx0.854$",
+     "rows": 4,
+     "expl": "Helstrom: $\\tfrac12(1 + \\sqrt{1 - |\\langle0|+\\rangle|^2}) = \\tfrac12(1 + \\tfrac{1}{\\sqrt2}) = \\cos^2\\tfrac{\\pi}{8}$. It is achieved by measuring in the basis symmetric about the two states, at $-\\pi/8$ and $3\\pi/8$.",
+     "concept": "states"
+    },
+    "C1": {
+     "kind": "multiplechoice",
+     "prompt": "Choose one:",
+     "renderer": "radio",
+     "options": [
+      "No: Helstrom's bound already covers all measurements",
+      "Yes: POVMs can reach success probability 1",
+      "Yes, slightly"
+     ],
+     "check": null,
+     "soln": "No: Helstrom's bound already covers all measurements",
+     "rows": 4,
+     "expl": "For two states, the optimal measurement is projective. POVMs help with *more* states, like the three-state 'trine', or with unambiguous discrimination.",
+     "concept": "states"
+    }
+   }
+  },
+  "fa/p1": {
+   "title": "Problem 1: Deutsch–Jozsa off-promise",
+   "exam": "fa",
+   "label": "Practice Final",
+   "html": "<p>Run the Deutsch–Jozsa circuit (<span class=\"cs_math_to_render\">H^{\\otimes3}</span>, phase oracle, <span class=\"cs_math_to_render\">H^{\\otimes3}</span>, measure) on <span class=\"cs_math_to_render\">f(x_1x_2x_3) = x_1 \\wedge x_2</span>, which is neither constant nor balanced.</p>\n<div class=\"xq-part\"><p><strong>(1A)</strong> What is the probability of measuring <span class=\"cs_math_to_render\">000</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1B)</strong> What is the probability of measuring <span class=\"cs_math_to_render\">110</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1C)</strong> For Bernstein–Vazirani with <span class=\"cs_math_to_render\">f(x) = s\\cdot x</span> and <span class=\"cs_math_to_render\">s = 011</span>, what does the same circuit output?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "P(000) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/4"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/4$",
+     "rows": 4,
+     "expl": "$f$ is 1 on 2 of the 8 inputs. The $|000\\rangle$ amplitude is $\\tfrac18(6 - 2) = \\tfrac12$.",
+     "concept": "oracle"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "P(110) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/4"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/4$",
+     "rows": 4,
+     "expl": "Since $f$ doesn't depend on $x_3$, only $y$ with $y_3 = 0$ appear. Each of $000, 010, 100, 110$ has amplitude $\\pm\\tfrac12$: for example the $|110\\rangle$ amplitude is $\\tfrac18\\sum_x(-1)^{x_1x_2 + x_1 + x_2} = -\\tfrac12$.",
+     "concept": "oracle"
+    },
+    "C1": {
+     "kind": "smallbox",
+     "prompt": "Output:",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "text",
+      "answers": [
+       "011"
+      ],
+      "case": false,
+      "space": "ignore"
+     },
+     "soln": "011",
+     "rows": 4,
+     "expl": "The phase state equals $H^{\\otimes3}|s\\rangle$, so the circuit returns $s$ deterministically.",
+     "concept": "oracle"
+    }
+   }
+  },
+  "fa/p2": {
+   "title": "Problem 2: Simon's algorithm",
+   "exam": "fa",
+   "label": "Practice Final",
+   "html": "<p>A function on 3 bits satisfies Simon's promise with hidden string <span class=\"cs_math_to_render\">s = 101</span>.</p>\n<div class=\"xq-part\"><p><strong>(2A)</strong> Which string can **never** be output by a round of Simon's algorithm?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2B)</strong> How many distinct outputs are possible?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2C)</strong> Suppose instead <span class=\"cs_math_to_render\">s</span> is unknown and two rounds return <span class=\"cs_math_to_render\">010</span> and <span class=\"cs_math_to_render\">111</span>. Find the nonzero <span class=\"cs_math_to_render\">s</span>.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "multiplechoice",
+     "prompt": "Never output:",
+     "renderer": "radio",
+     "options": [
+      "100",
+      "000",
+      "010",
+      "111"
+     ],
+     "check": null,
+     "soln": "100",
+     "rows": 4,
+     "expl": "Valid outputs satisfy $y\\cdot s = y_1\\oplus y_3 = 0$. $100$ gives 1.",
+     "concept": "oracle"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "Number =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "4"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$4$",
+     "rows": 4,
+     "expl": "$2^{n-1} = 4$: $000, 010, 101, 111$.",
+     "concept": "oracle"
+    },
+    "C1": {
+     "kind": "smallbox",
+     "prompt": "s =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "text",
+      "answers": [
+       "101"
+      ],
+      "case": false,
+      "space": "ignore"
+     },
+     "soln": "101",
+     "rows": 4,
+     "expl": "$s\\cdot010 = 0$ gives $s_2 = 0$, and $s\\cdot 111 = 0$ gives $s_1 = s_3$, so $s = 101$.",
+     "concept": "oracle"
+    }
+   }
+  },
+  "fa/p3": {
+   "title": "Problem 3: Fourier sampling",
+   "exam": "fa",
+   "label": "Practice Final",
+   "html": "<p>Throughout, <span class=\"cs_math_to_render\">\\omega_N = e^{2\\pi i/N}</span>.</p>\n<div class=\"xq-part\"><p><strong>(3A)</strong> Apply <span class=\"cs_math_to_render\">\\mathrm{QFT}_8</span> to <span class=\"cs_math_to_render\">|2\\rangle</span>. What is the amplitude of <span class=\"cs_math_to_render\">|2\\rangle</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3B)</strong> Phase estimation with <span class=\"cs_math_to_render\">t = 3</span> on an eigenvalue <span class=\"cs_math_to_render\">e^{2\\pi i\\cdot 5/8}</span>: what integer is measured?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3C)</strong> Phase estimation with <span class=\"cs_math_to_render\">t = 2</span> on <span class=\"cs_math_to_render\">\\varphi = 1/3</span>. What is the probability of measuring <span class=\"cs_math_to_render\">m = 1</span> (estimate <span class=\"cs_math_to_render\">1/4</span>)?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "amplitude =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "-1/sqrt(8)"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$-1/\\sqrt8$",
+     "rows": 4,
+     "expl": "$\\omega_8^{2\\cdot2} = \\omega_8^4 = -1$, so the amplitude is $-1/\\sqrt8$.",
+     "concept": "fourier"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "m =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "5"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$5$",
+     "rows": 4,
+     "expl": "$5/8$ is exact in 3 bits.",
+     "concept": "fourier"
+    },
+    "C1": {
+     "kind": "smallbox",
+     "prompt": "P(m = 1) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "0.69976"
+      ],
+      "tol": 0.005,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$\\approx 0.700$",
+     "rows": 4,
+     "expl": "$P(m) = \\left|\\tfrac14\\sum_{k=0}^{3}e^{2\\pi i k(1/3 - m/4)}\\right|^2$. For $m = 1$ the phase step is $2\\pi/12$, giving $\\approx 0.700$. The other outcomes have probabilities $\\approx 0.0625\\ (m=0)$, $0.1875\\ (m=2)$, $0.050\\ (m=3)$.",
+     "concept": "fourier"
+    }
+   }
+  },
+  "fa/p4": {
+   "title": "Problem 4: Factoring 35",
+   "exam": "fa",
+   "label": "Practice Final",
+   "html": "<p>Run Shor's algorithm on <span class=\"cs_math_to_render\">N = 35</span> with <span class=\"cs_math_to_render\">a = 2</span>.</p>\n<div class=\"xq-part\"><p><strong>(4A)</strong> What is the order <span class=\"cs_math_to_render\">r</span> of <span class=\"cs_math_to_render\">2</span> modulo <span class=\"cs_math_to_render\">35</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(4B)</strong> Compute <span class=\"cs_math_to_render\">\\gcd(a^{r/2}+1, N)</span>.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(4C)</strong> With <span class=\"cs_math_to_render\">t = 11</span> ancilla bits, phase estimation returns <span class=\"cs_math_to_render\">m = 853</span>. Using continued fractions on <span class=\"cs_math_to_render\">853/2048</span>, what denominator (candidate order) do you find?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "r =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "12"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$12$",
+     "rows": 4,
+     "expl": "Powers of 2 mod 35: $2,4,8,16,32,29,23,11,22,9,18,1$.",
+     "concept": "fourier"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "gcd =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "5"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$5$",
+     "rows": 4,
+     "expl": "$2^6 = 64\\equiv29$, and $29\\not\\equiv-1$. So $\\gcd(30, 35) = 5$ and $\\gcd(28, 35) = 7$.",
+     "concept": "fourier"
+    },
+    "C1": {
+     "kind": "smallbox",
+     "prompt": "denominator =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "12"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$12$",
+     "rows": 4,
+     "expl": "The convergents of $853/2048$ are $0, \\tfrac12, \\tfrac25, \\tfrac5{12}, \\tfrac{212}{509},\\dots$. The last one with denominator below $N = 35$ is $\\tfrac5{12}$, so $r = 12$ (and $s = 5$).",
+     "concept": "fourier"
+    }
+   }
+  },
+  "fa/p5": {
+   "title": "Problem 5: Grover on 64 items",
+   "exam": "fa",
+   "label": "Practice Final",
+   "html": "<p>Search <span class=\"cs_math_to_render\">N = 64</span> items with exactly one marked item, so <span class=\"cs_math_to_render\">\\sin\\theta = 1/8</span>.</p>\n<div class=\"xq-part\"><p><strong>(5A)</strong> How many iterations maximize the success probability?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(5B)</strong> What is the success probability after that many iterations?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(5C)</strong> What happens to the success probability if you run 12 iterations instead?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "k =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "6"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$6$",
+     "rows": 4,
+     "expl": "$\\tfrac{\\pi}{4\\theta} - \\tfrac12\\approx 5.77$, so take $k = 6$.",
+     "concept": "search"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "P =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "0.99659"
+      ],
+      "tol": 0.005,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$\\approx 0.997$",
+     "rows": 4,
+     "expl": "$\\sin^2(13\\theta)$ with $\\theta = \\arcsin(1/8)$.",
+     "concept": "search"
+    },
+    "C1": {
+     "kind": "multiplechoice",
+     "prompt": "Choose one:",
+     "renderer": "radio",
+     "options": [
+      "It drops to nearly 0",
+      "It stays above 0.99",
+      "It becomes exactly 1/2",
+      "It becomes exactly 1"
+     ],
+     "check": null,
+     "soln": "It drops to nearly 0",
+     "rows": 4,
+     "expl": "$\\sin^2(25\\theta)\\approx 7\\times10^{-5}$: the state has rotated almost all the way back to the unmarked subspace.",
+     "concept": "search"
+    }
+   }
+  },
+  "fa/p6": {
+   "title": "Problem 6: Codes and syndromes",
+   "exam": "fa",
+   "label": "Practice Final",
+   "html": "<p>Use the 3-qubit bit-flip code <span class=\"cs_math_to_render\">\\alpha|000\\rangle + \\beta|111\\rangle</span> with checks <span class=\"cs_math_to_render\">Z_1Z_2</span> and <span class=\"cs_math_to_render\">Z_2Z_3</span>, and the Hamming <span class=\"cs_math_to_render\">[7,4,3]</span> code whose parity-check columns are <span class=\"cs_math_to_render\">1,\\dots,7</span> in binary.</p>\n<div class=\"xq-part\"><p><strong>(6A)</strong> An <span class=\"cs_math_to_render\">X</span> error hits qubit 2. What syndrome <span class=\"cs_math_to_render\">(Z_1Z_2, Z_2Z_3)</span> is measured?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(6B)</strong> Instead, qubit 1 suffers the coherent error <span class=\"cs_math_to_render\">e^{-i\\epsilon X}</span> with <span class=\"cs_math_to_render\">\\epsilon = 0.1</span>. With what probability does the syndrome indicate qubit 1?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(6C)</strong> In the Hamming code, bit 6 flips. What syndrome is measured? (Three bits, most significant first.)</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(6D)</strong> Each physical qubit independently suffers an <span class=\"cs_math_to_render\">X</span> error with probability <span class=\"cs_math_to_render\">p = 0.01</span>. What is the probability that the 3-qubit code ends with a logical error (two or more flips)?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "multiplechoice",
+     "prompt": "Syndrome:",
+     "renderer": "radio",
+     "options": [
+      "(−1, −1)",
+      "(−1, +1)",
+      "(+1, −1)",
+      "(+1, +1)"
+     ],
+     "check": null,
+     "soln": "(−1, −1)",
+     "rows": 4,
+     "expl": "Qubit 2 is in both checks, so both flip.",
+     "concept": "qec"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "P =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "sin(0.1)^2"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$\\sin^2(0.1)\\approx 0.00997$",
+     "rows": 4,
+     "expl": "$e^{-i\\epsilon X} = \\cos\\epsilon\\, I - i\\sin\\epsilon\\, X$. Syndrome measurement collapses to the $X_1$ branch with probability $\\sin^2\\epsilon$ (then corrected) and otherwise to no error. This is error discretization.",
+     "concept": "qec"
+    },
+    "C1": {
+     "kind": "smallbox",
+     "prompt": "Syndrome:",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "text",
+      "answers": [
+       "110"
+      ],
+      "case": false,
+      "space": "ignore"
+     },
+     "soln": "110",
+     "rows": 4,
+     "expl": "The syndrome is the binary column for position 6.",
+     "concept": "qec"
+    },
+    "D1": {
+     "kind": "smallbox",
+     "prompt": "P(logical) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "0.000298"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$3p^2(1-p) + p^3 \\approx 2.98\\times10^{-4}$",
+     "rows": 4,
+     "expl": "One flip is corrected; two or three flips cause a logical error. Since $3p^2 \\ll p$, encoding helps whenever $p$ is small.",
+     "concept": "qec"
+    }
+   }
+  },
+  "fa/p7": {
+   "title": "Problem 7: BB84 under attack",
+   "exam": "fa",
+   "label": "Practice Final",
+   "html": "<p>Alice and Bob run BB84 over a noiseless channel.</p>\n<div class=\"xq-part\"><p><strong>(7A)</strong> What fraction of the qubits survive sifting?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(7B)</strong> Eve performs intercept–resend (random bases) on every qubit. What error rate do Alice and Bob observe on the sifted key?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(7C)</strong> They observe a 5% error rate. If Eve does intercept–resend on a fraction <span class=\"cs_math_to_render\">f</span> of the qubits and there is no other noise, what is <span class=\"cs_math_to_render\">f</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(7D)</strong> Roughly, below what error rate does the Shor–Preskill proof guarantee a positive secure key rate?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "fraction =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/2"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/2$",
+     "rows": 4,
+     "expl": "Bob's basis matches Alice's half the time.",
+     "concept": "qkd"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "QBER =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/4"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/4$",
+     "rows": 4,
+     "expl": "Eve picks the wrong basis with probability $\\tfrac12$, and then Bob's bit is random.",
+     "concept": "qkd"
+    },
+    "C1": {
+     "kind": "smallbox",
+     "prompt": "f =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "0.2"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$0.2$",
+     "rows": 4,
+     "expl": "$f/4 = 0.05$.",
+     "concept": "qkd"
+    },
+    "D1": {
+     "kind": "smallbox",
+     "prompt": "threshold ≈",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "0.11"
+      ],
+      "tol": 0.05,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$\\approx 11\\%$",
+     "rows": 4,
+     "expl": "The key rate $1 - 2h(e)$ is positive for $e \\lesssim 0.110$.",
+     "concept": "qkd"
+    }
+   }
+  },
+  "pe1/p1": {
+   "title": "Problem 1: A shared state in the ± basis",
+   "exam": "pe1",
+   "label": "Practice Exam 1 (course handout)",
+   "html": "<p>Alice and Bob share a quantum state of the form <span class=\"cs_math_to_render\">\\alpha\\left(|0\\rangle_A|+\\rangle_B + |-\\rangle_A|1\\rangle_B\\right)</span>.</p>\n<div class=\"xq-part\"><p><strong>(1A)</strong> What is <span class=\"cs_math_to_render\">\\alpha</span>? (Take <span class=\"cs_math_to_render\">\\alpha &gt; 0</span>.)</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1B)</strong> They measure in the basis <span class=\"cs_math_to_render\">\\{|{+}{+}\\rangle, |{+}{-}\\rangle, |{-}{+}\\rangle, |{-}{-}\\rangle\\}</span>. What is the probability of <span class=\"cs_math_to_render\">|{+}{+}\\rangle</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1C)</strong> What is the probability of <span class=\"cs_math_to_render\">|{+}{-}\\rangle</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1D)</strong> What is the probability of <span class=\"cs_math_to_render\">|{-}{+}\\rangle</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1E)</strong> What is the probability of <span class=\"cs_math_to_render\">|{-}{-}\\rangle</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"E1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1",
+    "E1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "α =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/sqrt(3)"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$\\alpha = 1/\\sqrt3$",
+     "rows": 4,
+     "expl": "The two terms are **not** orthogonal: $\\langle 0+|{-}1\\rangle = \\langle0|-\\rangle\\langle+|1\\rangle = \\tfrac{1}{\\sqrt2}\\cdot\\tfrac{1}{\\sqrt2} = \\tfrac12$. So $\\langle\\psi|\\psi\\rangle = \\alpha^2(1 + 1 + 2\\cdot\\tfrac12) = 3\\alpha^2 = 1$.",
+     "concept": "states"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "P(++) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/6"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/6$",
+     "rows": 4,
+     "expl": "$\\langle{+}{+}|\\psi\\rangle = \\alpha\\left(\\langle+|0\\rangle\\langle+|+\\rangle + \\langle+|-\\rangle\\langle+|1\\rangle\\right) = \\alpha\\cdot\\tfrac{1}{\\sqrt2}$, so $P = \\tfrac13\\cdot\\tfrac12 = \\tfrac16$.",
+     "concept": "tensor"
+    },
+    "C1": {
+     "kind": "smallbox",
+     "prompt": "P(+−) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "0"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$0$",
+     "rows": 4,
+     "expl": "$\\langle{+}{-}|\\psi\\rangle = \\alpha\\left(\\tfrac{1}{\\sqrt2}\\langle-|+\\rangle + \\langle+|-\\rangle\\langle-|1\\rangle\\right) = 0$.",
+     "concept": "tensor"
+    },
+    "D1": {
+     "kind": "smallbox",
+     "prompt": "P(−+) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "2/3"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$2/3$",
+     "rows": 4,
+     "expl": "$\\langle{-}{+}|\\psi\\rangle = \\alpha\\left(\\langle-|0\\rangle\\cdot 1 + \\langle-|-\\rangle\\langle+|1\\rangle\\right) = \\alpha\\left(\\tfrac{1}{\\sqrt2} + \\tfrac{1}{\\sqrt2}\\right) = \\sqrt2\\,\\alpha$, so $P = \\tfrac23$.",
+     "concept": "tensor"
+    },
+    "E1": {
+     "kind": "smallbox",
+     "prompt": "P(−−) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/6"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/6$",
+     "rows": 4,
+     "expl": "$\\langle{-}{-}|\\psi\\rangle = \\alpha\\left(\\tfrac{1}{\\sqrt2}\\cdot0 + 1\\cdot\\langle-|1\\rangle\\right) = -\\tfrac{\\alpha}{\\sqrt2}$, so $P = \\tfrac16$. The four probabilities sum to 1.",
+     "concept": "tensor"
+    }
+   }
+  },
+  "pe1/p2": {
+   "title": "Problem 2: Fill in the missing gate",
+   "exam": "pe1",
+   "label": "Practice Exam 1 (course handout)",
+   "html": "<p>The circuit, read left to right: <span class=\"cs_math_to_render\">H</span> on qubit 1; a CNOT with control qubit 1 and target qubit 2; then, in parallel, <span class=\"cs_math_to_render\">H</span> on qubit 1 and an unknown gate <span class=\"cs_math_to_render\">\\boxed{?}</span> on qubit 2; a CNOT with control qubit 2 and target qubit 1; finally <span class=\"cs_math_to_render\">H</span> on qubit 2.</p>\n<p>When we input <span class=\"cs_math_to_render\">|0\\rangle\\otimes|0\\rangle</span>, the output is <span class=\"cs_math_to_render\">|0\\rangle\\otimes|0\\rangle</span>. (The original handout shows this as a circuit diagram.)</p>\n<div class=\"xq-part\"><p><strong>(2A)</strong> Find a gate to substitute for <span class=\"cs_math_to_render\">\\boxed{?}</span> that gives the output <span class=\"cs_math_to_render\">|0\\rangle\\otimes|0\\rangle</span>.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2B)</strong> Show that the gate you found in part (a) is the only one that gives this output (up to global phase).</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "multiplechoice",
+     "prompt": "? =",
+     "renderer": "radio",
+     "options": [
+      "H",
+      "I",
+      "X",
+      "Z",
+      "S"
+     ],
+     "check": null,
+     "soln": "H",
+     "rows": 4,
+     "expl": "Work backwards from the output. Undoing the final $H_2$ gives $|0\\rangle|+\\rangle$, and undoing $\\mathrm{CNOT}_{2\\to1}$ gives $\\tfrac{1}{\\sqrt2}(|00\\rangle + |11\\rangle) = |\\Phi^+\\rangle$. The first two gates also produce $|\\Phi^+\\rangle$, so we need $(H\\otimes G)|\\Phi^+\\rangle = |\\Phi^+\\rangle$. By the transpose trick, $(A\\otimes I)|\\Phi^+\\rangle = (I\\otimes A^T)|\\Phi^+\\rangle$, so this is $(I\\otimes GH)|\\Phi^+\\rangle$, which works when $GH = I$, i.e. $G = H$.",
+     "concept": "unitary"
+    },
+    "B1": {
+     "kind": "bigbox",
+     "prompt": "Your argument:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "From the work above, any valid $G$ must satisfy $(I\\otimes GH)|\\Phi^+\\rangle = e^{i\\gamma}|\\Phi^+\\rangle$. Write $M = GH$. Then $(I\\otimes M)|\\Phi^+\\rangle = \\tfrac{1}{\\sqrt2}\\sum_{j,k} M_{kj}|j\\rangle|k\\rangle$, so the coefficients of $(I\\otimes M)|\\Phi^+\\rangle$ are the matrix entries of $M$ (divided by $\\sqrt2$). Matching them to $e^{i\\gamma}|\\Phi^+\\rangle$ forces $M = e^{i\\gamma}I$, hence $G = e^{i\\gamma}H^{-1} = e^{i\\gamma}H$. The map $M\\mapsto(I\\otimes M)|\\Phi^+\\rangle$ is injective, which is why the answer is unique.",
+     "rows": 5,
+     "expl": "",
+     "concept": "unitary"
+    }
+   }
+  },
+  "pe1/p3": {
+   "title": "Problem 3: Total spin of two qubits",
+   "exam": "pe1",
+   "label": "Practice Exam 1 (course handout)",
+   "html": "<p>Two qubits are spin-½ particles. The spin in the <span class=\"cs_math_to_render\">z</span> direction is the observable <span class=\"cs_math_to_render\">J_z = \\tfrac12(\\sigma_z\\otimes I + I\\otimes\\sigma_z)</span>, and the spin in the <span class=\"cs_math_to_render\">x</span> direction is <span class=\"cs_math_to_render\">J_x = \\tfrac12(\\sigma_x\\otimes I + I\\otimes\\sigma_x)</span>.</p>\n<div class=\"xq-part\"><p><strong>(3A)</strong> What is the value of <span class=\"cs_math_to_render\">J_z</span> for <span class=\"cs_math_to_render\">|00\\rangle</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3B)</strong> What is the value of <span class=\"cs_math_to_render\">J_z</span> for <span class=\"cs_math_to_render\">\\tfrac{1}{\\sqrt2}(|01\\rangle + |10\\rangle)</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3C)</strong> Show that <span class=\"cs_math_to_render\">J_z</span> and <span class=\"cs_math_to_render\">J_x</span> do not commute.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3D)</strong> Show that <span class=\"cs_math_to_render\">J_z^2</span> and <span class=\"cs_math_to_render\">J_x^2</span> commute.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "J_z =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1$",
+     "rows": 4,
+     "expl": "$|00\\rangle$ is an eigenvector of each $\\sigma_z$ term with eigenvalue $+1$, so $J_z = \\tfrac12(1 + 1) = 1$.",
+     "concept": "states"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "J_z =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "0"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$0$",
+     "rows": 4,
+     "expl": "Both $|01\\rangle$ and $|10\\rangle$ have eigenvalue $\\tfrac12(1 - 1) = 0$, so their superposition does too.",
+     "concept": "states"
+    },
+    "C1": {
+     "kind": "bigbox",
+     "prompt": "Your argument:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Cross terms like $[\\sigma_z\\otimes I, I\\otimes\\sigma_x]$ vanish because they act on different qubits. So $[J_z, J_x] = \\tfrac14\\left([\\sigma_z,\\sigma_x]\\otimes I + I\\otimes[\\sigma_z,\\sigma_x]\\right) = \\tfrac14(2i\\sigma_y\\otimes I + I\\otimes 2i\\sigma_y) = iJ_y \\neq 0$. A concrete check: $J_zJ_x|00\\rangle$ and $J_xJ_z|00\\rangle$ differ, since $J_x|00\\rangle = \\tfrac12(|10\\rangle + |01\\rangle)$ has $J_z = 0$, so $J_zJ_x|00\\rangle = 0$ while $J_xJ_z|00\\rangle = J_x|00\\rangle \\neq 0$.",
+     "rows": 5,
+     "expl": "",
+     "concept": "states"
+    },
+    "D1": {
+     "kind": "bigbox",
+     "prompt": "Your argument:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Expand using $\\sigma^2 = I$: $J_z^2 = \\tfrac14(2I + 2\\sigma_z\\otimes\\sigma_z) = \\tfrac12(I + \\sigma_z\\otimes\\sigma_z)$, and likewise $J_x^2 = \\tfrac12(I + \\sigma_x\\otimes\\sigma_x)$. So it suffices that $\\sigma_z\\otimes\\sigma_z$ and $\\sigma_x\\otimes\\sigma_x$ commute. On each qubit $\\sigma_z$ and $\\sigma_x$ anticommute, so swapping the order picks up $(-1)(-1) = +1$. They commute.",
+     "rows": 5,
+     "expl": "",
+     "concept": "states"
+    }
+   }
+  },
+  "pe1/p4": {
+   "title": "Problem 4: Relaying two XORs",
+   "exam": "pe1",
+   "label": "Practice Exam 1 (course handout)",
+   "html": "<p>Alice has two classical bits <span class=\"cs_math_to_render\">a_1, a_2</span>; Bob has <span class=\"cs_math_to_render\">b_1, b_2</span>. They want to send Charlie <span class=\"cs_math_to_render\">c_1 = a_1\\oplus b_1</span> and <span class=\"cs_math_to_render\">c_2 = a_2\\oplus b_2</span>. Alice and Charlie share <span class=\"cs_math_to_render\">\\tfrac{1}{\\sqrt2}(|00\\rangle + |11\\rangle)</span>. They may send one qubit from Alice to Bob and one qubit from Bob to Charlie, and no classical bits.</p>\n<div class=\"xq-part\"><p><strong>(4A)</strong> Can they accomplish the task?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(4B)</strong> Describe how.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "multiplechoice",
+     "prompt": "Choose one:",
+     "renderer": "radio",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "check": null,
+     "soln": "Yes",
+     "rows": 4,
+     "expl": "Use superdense coding, relayed through Bob. Details are in part (b).",
+     "concept": "protocols"
+    },
+    "B1": {
+     "kind": "bigbox",
+     "prompt": "Your protocol:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Alice applies $X^{a_1}Z^{a_2}$ to her half of the shared pair and sends that qubit to Bob. Bob applies $X^{b_1}Z^{b_2}$ to it and sends it to Charlie. Paulis commute up to sign, so the qubit has been acted on by $X^{a_1\\oplus b_1}Z^{a_2\\oplus b_2}$, up to a global phase. Charlie now holds both halves of $(X^{c_1}Z^{c_2}\\otimes I)|\\Phi^+\\rangle$, which is one of the four Bell states. A Bell measurement reveals $(c_1, c_2)$ exactly. Bob learns nothing: the qubit he handles is maximally mixed.",
+     "rows": 5,
+     "expl": "",
+     "concept": "protocols"
+    }
+   }
+  },
+  "pe1/p5": {
+   "title": "Problem 5: Where can the other state go?",
+   "exam": "pe1",
+   "label": "Practice Exam 1 (course handout)",
+   "html": "<p>A unitary transformation on one qubit takes <span class=\"cs_math_to_render\">\\tfrac{2}{\\sqrt5}|0\\rangle + \\tfrac{1}{\\sqrt5}|1\\rangle</span> to <span class=\"cs_math_to_render\">|0\\rangle</span>.</p>\n<div class=\"xq-part\"><p><strong>(5A)</strong> What are the possible states it could take <span class=\"cs_math_to_render\">\\tfrac{1}{\\sqrt5}|0\\rangle - \\tfrac{2}{\\sqrt5}|1\\rangle</span> to?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n",
+   "order": [
+    "A1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "multiplechoice",
+     "prompt": "Choose one:",
+     "renderer": "radio",
+     "options": [
+      "e^{iφ}|1⟩ for any phase φ",
+      "Exactly |1⟩",
+      "Any state orthogonal to |+⟩",
+      "Any state at all"
+     ],
+     "check": null,
+     "soln": "e^{iφ}|1⟩ for any phase φ",
+     "rows": 4,
+     "expl": "The two input states are orthogonal: $\\tfrac{2}{\\sqrt5}\\cdot\\tfrac{1}{\\sqrt5} - \\tfrac{1}{\\sqrt5}\\cdot\\tfrac{2}{\\sqrt5} = 0$. Unitaries preserve inner products, so the image must be orthogonal to $|0\\rangle$, i.e. $e^{i\\varphi}|1\\rangle$. Every phase is possible, e.g. $U = |0\\rangle\\langle v| + e^{i\\varphi}|1\\rangle\\langle v^\\perp|$.",
+     "concept": "unitary"
+    }
+   }
+  },
+  "ps1/p1": {
+   "title": "Problem 1: Properties of unitaries",
+   "exam": "ps1",
+   "label": "Problem Set 1",
+   "html": "<p>Consider the <span class=\"cs_math_to_render\">d</span>-dimensional state space with basis <span class=\"cs_math_to_render\">|0\\rangle,\\dots,|d-1\\rangle</span>, and another orthonormal basis <span class=\"cs_math_to_render\">|v_0\\rangle,\\dots,|v_{d-1}\\rangle</span>.</p>\n<div class=\"xq-part\"><p><strong>(1A)</strong> Show that there is a unitary transformation <span class=\"cs_math_to_render\">U</span> with <span class=\"cs_math_to_render\">U|i\\rangle = |v_i\\rangle</span>.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1B)</strong> Show that <span class=\"cs_math_to_render\">\\sum_{i=0}^{d-1}|v_i\\rangle\\langle v_i| = I</span>.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "bigbox",
+     "prompt": "Your proof:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Define $U = \\sum_i |v_i\\rangle\\langle i|$. Then $U|j\\rangle = |v_j\\rangle$, and $U^\\dagger U = \\sum_{i,j}|i\\rangle\\langle v_i|v_j\\rangle\\langle j| = \\sum_i |i\\rangle\\langle i| = I$ by orthonormality. So $U$ is unitary. (Its columns are the vectors $v_i$, an orthonormal set.)",
+     "rows": 5,
+     "expl": "",
+     "concept": "unitary"
+    },
+    "B1": {
+     "kind": "bigbox",
+     "prompt": "Your proof:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "With $U$ from part (a), $\\sum_i|v_i\\rangle\\langle v_i| = \\sum_i U|i\\rangle\\langle i|U^\\dagger = U\\left(\\sum_i|i\\rangle\\langle i|\\right)U^\\dagger = UU^\\dagger = I$. (For a square matrix, $U^\\dagger U = I$ implies $UU^\\dagger = I$.)",
+     "rows": 5,
+     "expl": "",
+     "concept": "unitary"
+    }
+   }
+  },
+  "ps1/p2": {
+   "title": "Problem 2: A rotation of the Bloch sphere",
+   "exam": "ps1",
+   "label": "Problem Set 1",
+   "html": "<p>Let <span class=\"cs_math_to_render\">U = \\tfrac{1}{\\sqrt2}\\begin{pmatrix}1 &amp; i\\\\ 1 &amp; -i\\end{pmatrix}</span>, and <span class=\"cs_math_to_render\">|{\\pm i}\\rangle = \\tfrac{1}{\\sqrt2}(|0\\rangle \\pm i|1\\rangle)</span>.</p>\n<div class=\"xq-part\"><p><strong>(2A)</strong> Show that <span class=\"cs_math_to_render\">U</span> is unitary.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2B)</strong> What is <span class=\"cs_math_to_render\">U|+\\rangle</span> (up to global phase)?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2C)</strong> What is <span class=\"cs_math_to_render\">U|{+i}\\rangle</span> (up to global phase)?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2D)</strong> <span class=\"cs_math_to_render\">U</span> acts on the Bloch sphere as a rotation. By what angle, in degrees?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "bigbox",
+     "prompt": "Your check:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "$U^\\dagger = \\tfrac{1}{\\sqrt2}\\begin{pmatrix}1&1\\\\-i&i\\end{pmatrix}$ and $U^\\dagger U = \\tfrac12\\begin{pmatrix}1+1 & i - i\\\\ -i + i & 1 + 1\\end{pmatrix} = I$. Equivalently, the columns $\\tfrac{1}{\\sqrt2}(1,1)$ and $\\tfrac{1}{\\sqrt2}(i,-i)$ are orthonormal.",
+     "rows": 5,
+     "expl": "",
+     "concept": "unitary"
+    },
+    "B1": {
+     "kind": "multiplechoice",
+     "prompt": "U|+⟩ =",
+     "renderer": "radio",
+     "options": [
+      "|−i⟩",
+      "|+i⟩",
+      "|0⟩",
+      "|+⟩"
+     ],
+     "check": null,
+     "soln": "|−i⟩",
+     "rows": 4,
+     "expl": "$U|0\\rangle = |+\\rangle$ and $U|1\\rangle = i|-\\rangle$. Then $U|+\\rangle = \\tfrac{1}{\\sqrt2}(|+\\rangle + i|-\\rangle) = \\tfrac{1+i}{2}(|0\\rangle - i|1\\rangle) \\propto |{-i}\\rangle$. The full map: $|0\\rangle\\to|+\\rangle$, $|1\\rangle\\to|-\\rangle$, $|+\\rangle\\to|{-i}\\rangle$, $|-\\rangle\\to|{+i}\\rangle$, $|{+i}\\rangle\\to|1\\rangle$, $|{-i}\\rangle\\to|0\\rangle$ (all up to phase).",
+     "concept": "unitary"
+    },
+    "C1": {
+     "kind": "multiplechoice",
+     "prompt": "U|+i⟩ =",
+     "renderer": "radio",
+     "options": [
+      "|1⟩",
+      "|0⟩",
+      "|+⟩",
+      "|−⟩"
+     ],
+     "check": null,
+     "soln": "|1⟩",
+     "rows": 4,
+     "expl": "$U|{+i}\\rangle = \\tfrac{1}{\\sqrt2}(|+\\rangle + i\\cdot i|-\\rangle) = \\tfrac{1}{\\sqrt2}(|+\\rangle - |-\\rangle) = |1\\rangle$.",
+     "concept": "unitary"
+    },
+    "D1": {
+     "kind": "smallbox",
+     "prompt": "angle =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "120"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$120^\\circ$",
+     "rows": 4,
+     "expl": "On Bloch vectors, $U$ sends $\\hat z\\to\\hat x$, $\\hat x\\to-\\hat y$, $\\hat y\\to -\\hat z$, i.e. $(x,y,z)\\mapsto(z,-x,-y)$. The fixed axis is $(1,-1,1)/\\sqrt3$, and the trace of the rotation matrix is 0 $= 1 + 2\\cos\\theta$, so $\\theta = 120^\\circ$. It cyclically permutes the axes $+z\\to+x\\to-y\\to+z$.",
+     "concept": "unitary"
+    }
+   }
+  },
+  "ps1/p3": {
+   "title": "Problem 3: A qutrit measurement",
+   "exam": "ps1",
+   "label": "Problem Set 1",
+   "html": "<p>For a qutrit with basis <span class=\"cs_math_to_render\">|0\\rangle,|1\\rangle,|2\\rangle</span>, let <span class=\"cs_math_to_render\">|a\\rangle = \\tfrac{1}{\\sqrt2}|0\\rangle + \\tfrac12|1\\rangle + \\tfrac12|2\\rangle</span>, <span class=\"cs_math_to_render\">|b\\rangle = \\tfrac{1}{\\sqrt2}|0\\rangle - \\tfrac12|1\\rangle - \\tfrac12|2\\rangle</span>, and <span class=\"cs_math_to_render\">|c\\rangle = \\tfrac{1}{\\sqrt2}|1\\rangle - \\tfrac{1}{\\sqrt2}|2\\rangle</span>.</p>\n<div class=\"xq-part\"><p><strong>(3A)</strong> Show that <span class=\"cs_math_to_render\">\\{|a\\rangle, |b\\rangle, |c\\rangle\\}</span> is an orthonormal basis.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3B)</strong> The state <span class=\"cs_math_to_render\">|\\psi\\rangle = \\tfrac{1}{\\sqrt3}(|0\\rangle + \\sqrt2|1\\rangle)</span> is measured in this basis. What is the probability of outcome <span class=\"cs_math_to_render\">a</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3C)</strong> What is the probability of outcome <span class=\"cs_math_to_render\">b</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3D)</strong> What is the probability of outcome <span class=\"cs_math_to_render\">c</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "bigbox",
+     "prompt": "Your check:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Norms: $\\tfrac12 + \\tfrac14 + \\tfrac14 = 1$ for $a$ and $b$, and $\\tfrac12 + \\tfrac12 = 1$ for $c$. Inner products: $\\langle a|b\\rangle = \\tfrac12 - \\tfrac14 - \\tfrac14 = 0$, $\\langle a|c\\rangle = \\tfrac{1}{2\\sqrt2} - \\tfrac{1}{2\\sqrt2} = 0$, and $\\langle b|c\\rangle = -\\tfrac{1}{2\\sqrt2} + \\tfrac{1}{2\\sqrt2} = 0$. Three orthonormal vectors in a 3-dimensional space form a basis.",
+     "rows": 5,
+     "expl": "",
+     "concept": "states"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "P(a) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "2/3"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$2/3$",
+     "rows": 4,
+     "expl": "$\\langle a|\\psi\\rangle = \\tfrac{1}{\\sqrt3}\\left(\\tfrac{1}{\\sqrt2} + \\tfrac{\\sqrt2}{2}\\right) = \\sqrt{2/3}$. The resulting state is $|a\\rangle$.",
+     "concept": "states"
+    },
+    "C1": {
+     "kind": "smallbox",
+     "prompt": "P(b) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "0"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$0$",
+     "rows": 4,
+     "expl": "$\\langle b|\\psi\\rangle = \\tfrac{1}{\\sqrt3}\\left(\\tfrac{1}{\\sqrt2} - \\tfrac{\\sqrt2}{2}\\right) = 0$.",
+     "concept": "states"
+    },
+    "D1": {
+     "kind": "smallbox",
+     "prompt": "P(c) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/3"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/3$",
+     "rows": 4,
+     "expl": "$\\langle c|\\psi\\rangle = \\tfrac{1}{\\sqrt3}\\cdot\\tfrac{\\sqrt2}{\\sqrt2} = \\tfrac{1}{\\sqrt3}$. The resulting state is $|c\\rangle$. The probabilities sum to 1.",
+     "concept": "states"
+    }
+   }
+  },
+  "ps1/p4": {
+   "title": "Problem 4: Polarizing filters",
+   "exam": "ps1",
+   "label": "Problem Set 1",
+   "html": "<p>Perfect polarizing filters pass horizontally polarized photons and block vertical ones. Two such filters stacked with the top one rotated by <span class=\"cs_math_to_render\">90^\\circ</span> block all light.</p>\n<div class=\"xq-part\"><p><strong>(4A)</strong> A third filter at <span class=\"cs_math_to_render\">45^\\circ</span> goes between them. What fraction of the photons that pass the first filter make it through? (If you measure from unpolarized light instead, that's fine too.)</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(4B)</strong> Instead put two filters between them, at <span class=\"cs_math_to_render\">30^\\circ</span> and <span class=\"cs_math_to_render\">60^\\circ</span>. Which order lets the most light through?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(4C)</strong> In the best order, what fraction of the photons that pass the first filter make it through? (From unpolarized light is also accepted.)</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "fraction =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "any",
+      "checks": [
+       {
+        "type": "num",
+        "answers": [
+         "1/4"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       {
+        "type": "num",
+        "answers": [
+         "1/8"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       }
+      ]
+     },
+     "soln": "$1/4$ of the photons leaving the first filter ($1/8$ of unpolarized light)",
+     "rows": 4,
+     "expl": "Each $45^\\circ$ step passes $\\cos^2 45^\\circ = \\tfrac12$, so $\\tfrac12\\cdot\\tfrac12 = \\tfrac14$. The first filter passes half of unpolarized light, giving $\\tfrac18$ overall.",
+     "concept": "states"
+    },
+    "B1": {
+     "kind": "multiplechoice",
+     "prompt": "Order (bottom to top):",
+     "renderer": "radio",
+     "options": [
+      "0°, 30°, 60°, 90°",
+      "0°, 60°, 30°, 90°",
+      "Both orders give the same"
+     ],
+     "check": null,
+     "soln": "0°, 30°, 60°, 90°",
+     "rows": 4,
+     "expl": "Increasing order gives three $30^\\circ$ steps: $(\\cos^2 30^\\circ)^3 = \\tfrac{27}{64}$. The other order gives $\\cos^2 60^\\circ\\cos^2 30^\\circ\\cos^2 60^\\circ = \\tfrac{3}{64}$.",
+     "concept": "states"
+    },
+    "C1": {
+     "kind": "smallbox",
+     "prompt": "fraction =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "any",
+      "checks": [
+       {
+        "type": "num",
+        "answers": [
+         "27/64"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       {
+        "type": "num",
+        "answers": [
+         "27/128"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       }
+      ]
+     },
+     "soln": "$27/64$ (or $27/128$ from unpolarized light)",
+     "rows": 4,
+     "expl": "$(3/4)^3 = 27/64$.",
+     "concept": "states"
+    }
+   }
+  },
+  "ps1/p5": {
+   "title": "Problem 5: Mystery filters",
+   "exam": "ps1",
+   "label": "Problem Set 1",
+   "html": "<p>Two objects look like polarizing filters, with sides A, B (first) and C, D (second). With B next to C they act like polarizers: rotating one changes transmission from 50% to 0%. With B next to D, 25% gets through no matter how they are oriented.</p>\n<div class=\"xq-part\"><p><strong>(5A)</strong> What might the filters be doing? (Hint: glue a polarizing filter to something that applies a unitary to the polarization.)</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(5B)</strong> For your construction, what happens with side A next to D?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "bigbox",
+     "prompt": "Your construction:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Make each object a polarizer glued to a **quarter-wave plate** (a unitary that maps circular polarization $|{\\pm i}\\rangle$ to linear polarization). Put the bare polarizer faces at B and C, and the quarter-wave plates at A and D. B–C is then just two polarizers: 50% down to 0%. For B–D, linearly polarized light leaving B enters D's plate. Rotating the object by $\\phi$ gives transmission $|\\langle0|U|\\theta-\\phi\\rangle|^2$, which is constant exactly when $U^\\dagger|0\\rangle$ is circular, since a circular state overlaps every linear state with probability $\\tfrac12$. So half of the 50% gets through: 25%, for every orientation.",
+     "rows": 5,
+     "expl": "",
+     "concept": "unitary"
+    },
+    "B1": {
+     "kind": "bigbox",
+     "prompt": "Your answer:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Light passes polarizer B, then plate A, then plate D, then polarizer C. Two quarter-wave plates in series act as a half-wave plate (or cancel, depending on their relative angle), which maps linear polarization to linear polarization at an angle that depends on the orientation. So the pair behaves like polarizers again, with transmission varying between 0% and 50% as you rotate, but with the angles at which light is blocked shifted relative to B–C.",
+     "rows": 5,
+     "expl": "",
+     "concept": "unitary"
+    }
+   }
+  },
+  "ps2/p1": {
+   "title": "Problem 1: No reflections",
+   "exam": "ps2",
+   "label": "Problem Set 2",
+   "html": "<p><span class=\"cs_math_to_render\">\\sigma_x</span> preserves spin in the <span class=\"cs_math_to_render\">x</span>-direction and flips spins in the <span class=\"cs_math_to_render\">y</span>- and <span class=\"cs_math_to_render\">z</span>-directions.</p>\n<div class=\"xq-part\"><p><strong>(1A)</strong> Show that no unitary can preserve spin in the <span class=\"cs_math_to_render\">x</span>- and <span class=\"cs_math_to_render\">y</span>-directions while flipping spin in the <span class=\"cs_math_to_render\">z</span>-direction.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n",
+   "order": [
+    "A1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "bigbox",
+     "prompt": "Your proof:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Such a $U$ would satisfy $U\\sigma_xU^\\dagger = \\sigma_x$, $U\\sigma_yU^\\dagger = \\sigma_y$ and $U\\sigma_zU^\\dagger = -\\sigma_z$. But $\\sigma_z = -i\\sigma_x\\sigma_y$, so $U\\sigma_zU^\\dagger = -i(U\\sigma_xU^\\dagger)(U\\sigma_yU^\\dagger) = -i\\sigma_x\\sigma_y = \\sigma_z$. That contradicts $-\\sigma_z$. Geometrically, conjugation by a unitary is a rotation of the Bloch sphere (determinant $+1$), and this map is a reflection (determinant $-1$).",
+     "rows": 5,
+     "expl": "",
+     "concept": "unitary"
+    }
+   }
+  },
+  "ps2/p2": {
+   "title": "Problem 2: NAND is universal",
+   "exam": "ps2",
+   "label": "Problem Set 2",
+   "html": "<p>NAND has truth table <span class=\"cs_math_to_render\">00\\to1,\\ 01\\to1,\\ 10\\to1,\\ 11\\to0</span>.</p>\n<div class=\"xq-part\"><p><strong>(2A)</strong> Show that any Boolean function can be implemented using only NAND gates.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2B)</strong> How many NAND gates does your construction use for OR?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "bigbox",
+     "prompt": "Your proof:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Any Boolean function can be written with AND, OR, NOT (for instance in disjunctive normal form: OR over the inputs where $f = 1$ of an AND of literals). Each of these comes from NAND: $\\lnot x = \\mathrm{NAND}(x,x)$, $x\\wedge y = \\lnot\\,\\mathrm{NAND}(x,y)$, and $x\\vee y = \\mathrm{NAND}(\\lnot x,\\lnot y)$. Replace each gate by its NAND version (with fan-out to reuse wires).",
+     "rows": 5,
+     "expl": "",
+     "concept": "circuits"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "NANDs for OR =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "3"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$3$",
+     "rows": 4,
+     "expl": "Two to make $\\lnot x$ and $\\lnot y$, one to combine them.",
+     "concept": "circuits"
+    }
+   }
+  },
+  "ps2/p3": {
+   "title": "Problem 3: The Fredkin gate",
+   "exam": "ps2",
+   "label": "Problem Set 2",
+   "html": "<p>Fredkin: input <span class=\"cs_math_to_render\">(x,y,z)</span> gives output <span class=\"cs_math_to_render\">(0,y,z)</span> if <span class=\"cs_math_to_render\">x = 0</span> and <span class=\"cs_math_to_render\">(1,z,y)</span> if <span class=\"cs_math_to_render\">x = 1</span> (a controlled SWAP).</p>\n<div class=\"xq-part\"><p><strong>(3A)</strong> Which input makes the **third** output equal to <span class=\"cs_math_to_render\">x\\wedge y</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3B)</strong> Which input makes the **second** output equal to <span class=\"cs_math_to_render\">x\\vee y</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3C)</strong> The input <span class=\"cs_math_to_render\">(x, 1, 0)</span> gives NOT and FANOUT at once. What are the outputs in terms of <span class=\"cs_math_to_render\">x</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3D)</strong> Show that the Fredkin gate preserves the number of 1s.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "multiplechoice",
+     "prompt": "Input:",
+     "renderer": "radio",
+     "options": [
+      "(x, y, 0)",
+      "(x, y, 1)",
+      "(x, 1, 0)",
+      "(x, 0, y)"
+     ],
+     "check": null,
+     "soln": "(x, y, 0)",
+     "rows": 4,
+     "expl": "If $x = 1$ the third output is $y$, and if $x = 0$ it is $0$: that's $xy$.",
+     "concept": "circuits"
+    },
+    "B1": {
+     "kind": "multiplechoice",
+     "prompt": "Input:",
+     "renderer": "radio",
+     "options": [
+      "(x, y, 1)",
+      "(x, y, 0)",
+      "(x, 1, y)",
+      "(x, 0, 1)"
+     ],
+     "check": null,
+     "soln": "(x, y, 1)",
+     "rows": 4,
+     "expl": "If $x = 0$ the second output is $y$, and if $x = 1$ it is $1$: that's $x\\vee y$.",
+     "concept": "circuits"
+    },
+    "C1": {
+     "kind": "multiplechoice",
+     "prompt": "Outputs:",
+     "renderer": "radio",
+     "options": [
+      "(x, ¬x, x)",
+      "(x, x, ¬x)",
+      "(x, 1, 0)",
+      "(¬x, x, x)"
+     ],
+     "check": null,
+     "soln": "(x, ¬x, x)",
+     "rows": 4,
+     "expl": "$x = 0$ gives $(0,1,0)$ and $x = 1$ gives $(1,0,1)$. So the second wire is $\\lnot x$, and $x$ appears twice (FANOUT).",
+     "concept": "circuits"
+    },
+    "D1": {
+     "kind": "bigbox",
+     "prompt": "Your proof:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "The control bit is unchanged. The other two bits are either left alone or swapped, and a swap doesn't change how many 1s they contain. So the total weight is conserved, which is what lets billiard-ball models implement it: balls are never created or destroyed.",
+     "rows": 5,
+     "expl": "",
+     "concept": "circuits"
+    }
+   }
+  },
+  "ps2/p4": {
+   "title": "Problem 4: Trying to clone",
+   "exam": "ps2",
+   "label": "Problem Set 2",
+   "html": "<p>You're given a qubit equally likely to be <span class=\"cs_math_to_render\">|0\\rangle, |1\\rangle, |+\\rangle, |-\\rangle</span> and must hand back two qubits. The challenger measures both in the basis of the original state, and you pass only if both match it.</p>\n<div class=\"xq-part\"><p><strong>(4A)</strong> You measure in <span class=\"cs_math_to_render\">\\{|0\\rangle,|1\\rangle\\}</span> and hand back two copies of the result. What is your probability of passing?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(4B)</strong> Now measure in <span class=\"cs_math_to_render\">\\{\\cos\\theta|0\\rangle + \\sin\\theta|1\\rangle,\\ -\\sin\\theta|0\\rangle + \\cos\\theta|1\\rangle\\}</span> and return two copies. What is the success probability as a function of <span class=\"cs_math_to_render\">\\theta</span>? (Enter an expression in theta.)</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(4C)</strong> How should you pick <span class=\"cs_math_to_render\">\\theta</span> to maximize success? Does it matter?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "P(pass) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "5/8"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$5/8$",
+     "rows": 4,
+     "expl": "For $|0\\rangle$ or $|1\\rangle$ you always pass. For $|\\pm\\rangle$ you return $|00\\rangle$ or $|11\\rangle$, and each qubit passes an $X$-basis test with probability $\\tfrac12$, so $\\tfrac14$. Average: $\\tfrac12(1) + \\tfrac12\\cdot\\tfrac14 = \\tfrac58$.",
+     "concept": "protocols"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "P(pass) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "5/8"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [
+       "theta"
+      ],
+      "ranges": {
+       "theta": [
+        0.05,
+        1.5
+       ]
+      },
+      "none": false,
+      "words": []
+     },
+     "soln": "$5/8$ for every $\\theta$",
+     "rows": 4,
+     "expl": "For $|0\\rangle$: $P = \\cos^6\\theta + \\sin^6\\theta = 1 - \\tfrac34\\sin^2 2\\theta$. For $|+\\rangle$, set $q = |\\langle+|v\\rangle|^2 = \\tfrac12(1 + \\sin2\\theta)$: $P = q^3 + (1-q)^3 = \\tfrac14 + \\tfrac34\\sin^2 2\\theta$. The other two states match these. Averaging gives $\\tfrac12\\left(\\tfrac54\\right) = \\tfrac58$, independent of $\\theta$.",
+     "concept": "protocols"
+    },
+    "C1": {
+     "kind": "multiplechoice",
+     "prompt": "Choose one:",
+     "renderer": "radio",
+     "options": [
+      "It doesn't matter: every θ gives 5/8",
+      "θ = π/8",
+      "θ = π/4",
+      "θ = 0"
+     ],
+     "check": null,
+     "soln": "It doesn't matter: every θ gives 5/8",
+     "rows": 4,
+     "expl": "The $\\theta$-dependence cancels exactly. Beating $\\tfrac58$ requires a genuinely quantum cloner (Problem Set 3), not measure-and-prepare.",
+     "concept": "protocols"
+    }
+   }
+  },
+  "ps2/p5": {
+   "title": "Problem 5: A non-projective measurement",
+   "exam": "ps2",
+   "label": "Problem Set 2",
+   "html": "<p>You receive one of <span class=\"cs_math_to_render\">|a\\rangle = |0\\rangle</span>, <span class=\"cs_math_to_render\">|b\\rangle = -\\tfrac12|0\\rangle + \\tfrac{\\sqrt3}{2}|1\\rangle</span>, <span class=\"cs_math_to_render\">|c\\rangle = -\\tfrac12|0\\rangle - \\tfrac{\\sqrt3}{2}|1\\rangle</span> with equal probability and want to identify it.</p>\n<div class=\"xq-part\"><p><strong>(5A)</strong> Show that any von Neumann measurement in a qubit basis <span class=\"cs_math_to_render\">\\{|v\\rangle,|\\bar v\\rangle\\}</span> succeeds with probability strictly less than <span class=\"cs_math_to_render\">\\tfrac23</span>.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(5B)</strong> Find <span class=\"cs_math_to_render\">\\alpha &gt; 0</span> so that <span class=\"cs_math_to_render\">|11\\rangle</span>, <span class=\"cs_math_to_render\">\\alpha|a\\rangle|0\\rangle + \\beta|01\\rangle</span>, <span class=\"cs_math_to_render\">\\alpha|b\\rangle|0\\rangle + \\beta|01\\rangle</span>, <span class=\"cs_math_to_render\">\\alpha|c\\rangle|0\\rangle + \\beta|01\\rangle</span> form an orthonormal basis.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(5C)</strong> Using that measurement (on the qubit plus an ancilla in <span class=\"cs_math_to_render\">|0\\rangle</span>), what is the probability of identifying the state correctly?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "bigbox",
+     "prompt": "Your argument:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "A two-outcome measurement can name at most two of the three states, so at least one state (say $c$) is never guessed. Then $P \\le \\tfrac13\\left(|\\langle v|a\\rangle|^2 + |\\langle\\bar v|b\\rangle|^2\\right) \\le \\tfrac23$. Equality would need $|v\\rangle = |a\\rangle$ and $|\\bar v\\rangle = |b\\rangle$, which is impossible because $a$ and $b$ aren't orthogonal ($\\langle a|b\\rangle = -\\tfrac12$). So it's strictly less.",
+     "rows": 5,
+     "expl": "",
+     "concept": "states"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "α =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "sqrt(2/3)"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$\\alpha = \\sqrt{2/3}$, $\\beta = 1/\\sqrt3$",
+     "rows": 4,
+     "expl": "Orthogonality of two of the last three vectors requires $\\alpha^2\\langle a|b\\rangle + \\beta^2 = -\\tfrac{\\alpha^2}{2} + \\beta^2 = 0$, and normalization requires $\\alpha^2 + \\beta^2 = 1$. So $\\alpha^2 = \\tfrac23$ and $\\beta^2 = \\tfrac13$. All three are orthogonal to $|11\\rangle$ automatically.",
+     "concept": "states"
+    },
+    "C1": {
+     "kind": "smallbox",
+     "prompt": "P(correct) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "2/3"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$2/3$",
+     "rows": 4,
+     "expl": "For input $|a\\rangle|0\\rangle$, the overlap with $\\alpha|a\\rangle|0\\rangle + \\beta|01\\rangle$ is $\\alpha$, so $P = \\alpha^2 = \\tfrac23$; the same holds for $b$ and $c$. (The $|11\\rangle$ outcome never occurs.) This beats every projective measurement on the qubit alone.",
+     "concept": "states"
+    }
+   }
+  },
+  "ps3/p1": {
+   "title": "Problem 1: Eavesdropping on teleportation",
+   "exam": "ps3",
+   "label": "Problem Set 3",
+   "html": "<p>Alice teleports a series of qubits to Bob, and an eavesdropper records her classical bits.</p>\n<div class=\"xq-part\"><p><strong>(1A)</strong> Can the eavesdropper learn anything about Alice's qubits from these bits?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1B)</strong> Explain why.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "multiplechoice",
+     "prompt": "Choose one:",
+     "renderer": "radio",
+     "options": [
+      "No",
+      "Yes"
+     ],
+     "check": null,
+     "soln": "No",
+     "rows": 4,
+     "expl": "Each of the four 2-bit messages occurs with probability $\\tfrac14$, whatever the state being teleported. The bits are independent of $|\\psi\\rangle$ and carry no information about it.",
+     "concept": "protocols"
+    },
+    "B1": {
+     "kind": "bigbox",
+     "prompt": "Your explanation:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Writing $|\\psi\\rangle_{A_1}|\\Phi^+\\rangle_{A_2B}$ in the Bell basis on $A_1A_2$ gives $\\tfrac12\\sum_{ab}|\\beta_{ab}\\rangle\\otimes X^bZ^a|\\psi\\rangle$. Every Bell outcome has amplitude $\\tfrac12$ times a normalized state, so $P(a,b) = \\tfrac14$ for all $|\\psi\\rangle$. A distribution that doesn't depend on $|\\psi\\rangle$ reveals nothing about it.",
+     "rows": 5,
+     "expl": "",
+     "concept": "protocols"
+    }
+   }
+  },
+  "ps3/p2": {
+   "title": "Problem 2: A better cloner",
+   "exam": "ps3",
+   "label": "Problem Set 3",
+   "html": "<p>You're given <span class=\"cs_math_to_render\">|0\\rangle, |+\\rangle, |1\\rangle</span> or <span class=\"cs_math_to_render\">|-\\rangle</span> (equally likely). Embed it with <span class=\"cs_math_to_render\">B|0\\rangle = \\sqrt{\\tfrac23}|000\\rangle + \\tfrac{1}{\\sqrt6}|011\\rangle + \\tfrac{1}{\\sqrt6}|101\\rangle</span> and <span class=\"cs_math_to_render\">B|1\\rangle = \\sqrt{\\tfrac23}|111\\rangle + \\tfrac{1}{\\sqrt6}|100\\rangle + \\tfrac{1}{\\sqrt6}|010\\rangle</span> (extended linearly), then hand back the first two qubits. The challenger checks both against the original.</p>\n<div class=\"xq-part\"><p><strong>(2A)</strong> What is the probability that you pass?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n",
+   "order": [
+    "A1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "P(pass) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "2/3"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$2/3$",
+     "rows": 4,
+     "expl": "Compute the reduced state of qubits 1–2 and its overlap with $|\\psi\\rangle|\\psi\\rangle$. For $|0\\rangle$: only the $|000\\rangle$ branch passes, giving $\\tfrac23$. For $|+\\rangle$: $B|+\\rangle = \\tfrac{1}{\\sqrt2}(B|0\\rangle + B|1\\rangle)$, and tracing out qubit 3 and projecting onto $|{+}{+}\\rangle$ also gives $\\tfrac23$. By symmetry every input gives $\\tfrac23 > \\tfrac58$. This is the optimal symmetric cloner.",
+     "concept": "protocols"
+    }
+   }
+  },
+  "ps3/p3": {
+   "title": "Problem 3: Building the cloner from CNOTs",
+   "exam": "ps3",
+   "label": "Problem Set 3",
+   "html": "<p>Implement <span class=\"cs_math_to_render\">B</span> by taking the input (qubit 1), appending a state <span class=\"cs_math_to_render\">|\\psi\\rangle</span> on qubits 2 and 3, and applying <span class=\"cs_math_to_render\">\\mathrm{CNOT}_{1\\to2}, \\mathrm{CNOT}_{1\\to3}, \\mathrm{CNOT}_{3\\to1}, \\mathrm{CNOT}_{2\\to1}</span> in that order.</p>\n<div class=\"xq-part\"><p><strong>(3A)</strong> In <span class=\"cs_math_to_render\">|\\psi\\rangle = \\alpha_{00}|00\\rangle + \\alpha_{01}|01\\rangle + \\alpha_{10}|10\\rangle + \\alpha_{11}|11\\rangle</span>, what is <span class=\"cs_math_to_render\">\\alpha_{00}</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3B)</strong> What is <span class=\"cs_math_to_render\">\\alpha_{10}</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3C)</strong> Show that the circuit has the desired result.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "α₀₀ =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "sqrt(2/3)"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$\\sqrt{2/3}$",
+     "rows": 4,
+     "expl": "Run the circuit backwards on $B|0\\rangle$: apply $\\mathrm{CNOT}_{2\\to1}$, $\\mathrm{CNOT}_{3\\to1}$, $\\mathrm{CNOT}_{1\\to3}$, $\\mathrm{CNOT}_{1\\to2}$. The result is $|0\\rangle\\otimes\\left(\\sqrt{\\tfrac23}|00\\rangle + \\tfrac{1}{\\sqrt6}|01\\rangle + \\tfrac{1}{\\sqrt6}|11\\rangle\\right)$. So $|\\psi\\rangle = \\sqrt{\\tfrac23}|00\\rangle + \\tfrac{1}{\\sqrt6}(|01\\rangle + |11\\rangle)$.",
+     "concept": "circuits"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "α₁₀ =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "0"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$0$",
+     "rows": 4,
+     "expl": "See the solution to (3A).",
+     "concept": "circuits"
+    },
+    "C1": {
+     "kind": "bigbox",
+     "prompt": "Your check:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Forward on $|0\\rangle|\\psi\\rangle$: the CNOTs from qubit 1 do nothing. $\\mathrm{CNOT}_{3\\to1}$ maps $|0\\rangle\\left(\\sqrt{\\tfrac23}|00\\rangle + \\tfrac{1}{\\sqrt6}|01\\rangle + \\tfrac{1}{\\sqrt6}|11\\rangle\\right)$ to $\\sqrt{\\tfrac23}|000\\rangle + \\tfrac{1}{\\sqrt6}|101\\rangle + \\tfrac{1}{\\sqrt6}|111\\rangle$. Then $\\mathrm{CNOT}_{2\\to1}$ gives $\\sqrt{\\tfrac23}|000\\rangle + \\tfrac{1}{\\sqrt6}|101\\rangle + \\tfrac{1}{\\sqrt6}|011\\rangle = B|0\\rangle$. For input $|1\\rangle$, the first two CNOTs flip qubits 2 and 3, and the same steps give $B|1\\rangle$. Linearity handles superpositions.",
+     "rows": 5,
+     "expl": "",
+     "concept": "circuits"
+    }
+   }
+  },
+  "ps3/p4": {
+   "title": "Problem 4: GHZ to EPR",
+   "exam": "ps3",
+   "label": "Problem Set 3",
+   "html": "<p>Alice, Bob and Charlie hold <span class=\"cs_math_to_render\">\\tfrac{1}{\\sqrt2}(|000\\rangle + |111\\rangle)</span>. Each can do unitaries and measurements on their own qubit, and they can phone each other.</p>\n<div class=\"xq-part\"><p><strong>(4A)</strong> Charlie measures in the <span class=\"cs_math_to_render\">\\{|+\\rangle,|-\\rangle\\}</span> basis and gets <span class=\"cs_math_to_render\">-</span>. Which gate should Alice apply so that she and Bob share <span class=\"cs_math_to_render\">\\tfrac{1}{\\sqrt2}(|00\\rangle + |11\\rangle)</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(4B)</strong> Write out the full protocol.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "multiplechoice",
+     "prompt": "Alice applies:",
+     "renderer": "radio",
+     "options": [
+      "Z",
+      "X",
+      "H",
+      "Nothing"
+     ],
+     "check": null,
+     "soln": "Z",
+     "rows": 4,
+     "expl": "Outcome $\\pm$ leaves $\\tfrac{1}{\\sqrt2}(|00\\rangle \\pm |11\\rangle)$. For $-$, $Z$ on Alice's qubit fixes the sign.",
+     "concept": "protocols"
+    },
+    "B1": {
+     "kind": "bigbox",
+     "prompt": "Your protocol:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Charlie measures in the $X$ basis. Since $\\langle\\pm|_C$ applied to the GHZ state gives $\\tfrac12(|00\\rangle \\pm |11\\rangle)$, each outcome occurs with probability $\\tfrac12$. He phones the result to Alice, who applies $Z$ if it was $-$. Now Alice and Bob share $|\\Phi^+\\rangle$. (A $Z$-basis measurement by Charlie would destroy the entanglement.)",
+     "rows": 5,
+     "expl": "",
+     "concept": "protocols"
+    }
+   }
+  },
+  "ps3/p5": {
+   "title": "Problem 5: An observable with a repeated eigenvalue",
+   "exam": "ps3",
+   "label": "Problem Set 3",
+   "html": "<p>Consider <span class=\"cs_math_to_render\">M = \\begin{pmatrix}2&amp;2&amp;2\\\\2&amp;-1&amp;1\\\\2&amp;1&amp;-1\\end{pmatrix}</span>, with (unnormalized) eigenvectors <span class=\"cs_math_to_render\">(2,1,1)</span>, <span class=\"cs_math_to_render\">(1,-1,-1)</span>, <span class=\"cs_math_to_render\">(0,1,-1)</span>. The qutrit <span class=\"cs_math_to_render\">|\\psi\\rangle = \\tfrac23|0\\rangle + \\tfrac23|1\\rangle - \\tfrac13|2\\rangle</span> is measured with <span class=\"cs_math_to_render\">M</span>.</p>\n<div class=\"xq-part\"><p><strong>(5A)</strong> What is the largest eigenvalue of <span class=\"cs_math_to_render\">M</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(5B)</strong> What is the probability of measuring the eigenvalue <span class=\"cs_math_to_render\">4</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(5C)</strong> What is the expected value of the observable?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(5D)</strong> After outcome <span class=\"cs_math_to_render\">-2</span>, the state is proportional to <span class=\"cs_math_to_render\">(2, 7, x)</span>. What is <span class=\"cs_math_to_render\">x</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "λ_max =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "4"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$4$",
+     "rows": 4,
+     "expl": "$M(2,1,1)^T = (8,4,4)^T$, so $\\lambda = 4$. The other two eigenvectors both have $\\lambda = -2$. Projectors: $P_4 = \\tfrac16\\begin{pmatrix}4&2&2\\\\2&1&1\\\\2&1&1\\end{pmatrix}$ and $P_{-2} = I - P_4$.",
+     "concept": "states"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "P(4) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "25/54"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$25/54$",
+     "rows": 4,
+     "expl": "$\\langle v_4|\\psi\\rangle = \\tfrac{1}{\\sqrt6}\\left(\\tfrac43 + \\tfrac23 - \\tfrac13\\right) = \\tfrac{5}{3\\sqrt6}$; squared, $\\tfrac{25}{54}$. Then $P(-2) = \\tfrac{29}{54}$.",
+     "concept": "states"
+    },
+    "C1": {
+     "kind": "smallbox",
+     "prompt": "⟨M⟩ =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "7/9"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$7/9$",
+     "rows": 4,
+     "expl": "$4\\cdot\\tfrac{25}{54} - 2\\cdot\\tfrac{29}{54} = \\tfrac{42}{54} = \\tfrac79$. Check: $M|\\psi\\rangle = (2, \\tfrac13, \\tfrac73)$ and $\\langle\\psi|M|\\psi\\rangle = \\tfrac43 + \\tfrac29 - \\tfrac79 = \\tfrac79$.",
+     "concept": "states"
+    },
+    "D1": {
+     "kind": "smallbox",
+     "prompt": "x =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "-11"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$-11$",
+     "rows": 4,
+     "expl": "$P_{-2}|\\psi\\rangle = |\\psi\\rangle - \\tfrac{5}{18}(2,1,1) = \\tfrac{1}{18}(2, 7, -11)$, which normalizes to $(2,7,-11)/\\sqrt{174}$. After outcome $4$ the state is $(2,1,1)/\\sqrt6$. With a repeated eigenvalue, the state is projected onto the whole eigenspace rather than onto one eigenvector.",
+     "concept": "states"
+    }
+   }
+  },
+  "ps4/p1": {
+   "title": "Problem 1: Which ensembles match?",
+   "exam": "ps4",
+   "label": "Problem Set 4",
+   "html": "<p>(a) <span class=\"cs_math_to_render\">\\tfrac35|0\\rangle + \\tfrac45|1\\rangle</span> w.p. <span class=\"cs_math_to_render\">\\tfrac12</span> and <span class=\"cs_math_to_render\">\\tfrac35|0\\rangle - \\tfrac45|1\\rangle</span> w.p. <span class=\"cs_math_to_render\">\\tfrac12</span>.</p>\n<p>(b) <span class=\"cs_math_to_render\">|0\\rangle</span> w.p. <span class=\"cs_math_to_render\">\\tfrac15</span>, <span class=\"cs_math_to_render\">|1\\rangle</span> w.p. <span class=\"cs_math_to_render\">\\tfrac25</span>, <span class=\"cs_math_to_render\">|+\\rangle</span> w.p. <span class=\"cs_math_to_render\">\\tfrac15</span>, <span class=\"cs_math_to_render\">|-\\rangle</span> w.p. <span class=\"cs_math_to_render\">\\tfrac15</span>.</p>\n<p>(c) <span class=\"cs_math_to_render\">|0\\rangle</span> w.p. <span class=\"cs_math_to_render\">\\tfrac{9}{25}</span> and <span class=\"cs_math_to_render\">|1\\rangle</span> w.p. <span class=\"cs_math_to_render\">\\tfrac{16}{25}</span>.</p>\n<p>(d) <span class=\"cs_math_to_render\">|+\\rangle</span> w.p. <span class=\"cs_math_to_render\">\\tfrac{9}{25}</span>, <span class=\"cs_math_to_render\">|-\\rangle</span> w.p. <span class=\"cs_math_to_render\">\\tfrac{9}{25}</span>, <span class=\"cs_math_to_render\">|1\\rangle</span> w.p. <span class=\"cs_math_to_render\">\\tfrac{7}{25}</span>.</p>\n<div class=\"xq-part\"><p><strong>(1A)</strong> Which of these have the same density matrix?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1B)</strong> What is <span class=\"cs_math_to_render\">\\langle 0|\\rho|0\\rangle</span> for ensemble (b)?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "multiplechoice",
+     "prompt": "Same density matrix:",
+     "renderer": "radio",
+     "options": [
+      "(a), (c) and (d)",
+      "All four",
+      "(a) and (c) only",
+      "(b) and (d) only",
+      "(a) and (b) only"
+     ],
+     "check": null,
+     "soln": "(a), (c) and (d)",
+     "rows": 4,
+     "expl": "(a): the cross terms cancel, leaving $\\mathrm{diag}(\\tfrac{9}{25},\\tfrac{16}{25})$. (b): $\\mathrm{diag}(\\tfrac15,\\tfrac25) + \\tfrac15 I = \\mathrm{diag}(\\tfrac25,\\tfrac35)$. (c): $\\mathrm{diag}(\\tfrac{9}{25},\\tfrac{16}{25})$. (d): $\\tfrac{9}{25}I + \\tfrac{7}{25}|1\\rangle\\langle1| = \\mathrm{diag}(\\tfrac{9}{25},\\tfrac{16}{25})$. So (a), (c), (d) are identical and (b) differs.",
+     "concept": "density"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "⟨0|ρ|0⟩ =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "2/5"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$2/5$",
+     "rows": 4,
+     "expl": "$\\tfrac15 + \\tfrac15\\cdot\\tfrac12 + \\tfrac15\\cdot\\tfrac12 = \\tfrac25$.",
+     "concept": "density"
+    }
+   }
+  },
+  "ps4/p2": {
+   "title": "Problem 2: Measuring Bob's half",
+   "exam": "ps4",
+   "label": "Problem Set 4",
+   "html": "<p>Alice and Bob hold <span class=\"cs_math_to_render\">\\tfrac{1}{\\sqrt3}(|00\\rangle + |01\\rangle + |11\\rangle)</span> (Alice's qubit first).</p>\n<div class=\"xq-part\"><p><strong>(2A)</strong> Bob measures in the <span class=\"cs_math_to_render\">\\{|0\\rangle,|1\\rangle\\}</span> basis. What is the probability he gets <span class=\"cs_math_to_render\">1</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2B)</strong> In that scenario, what is the off-diagonal entry <span class=\"cs_math_to_render\">\\langle0|\\rho_A|1\\rangle</span> of Alice's resulting density matrix (averaged over Bob's outcomes)?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2C)</strong> Bob instead measures in the <span class=\"cs_math_to_render\">\\{|+\\rangle,|-\\rangle\\}</span> basis. What is the probability he gets <span class=\"cs_math_to_render\">+</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2D)</strong> What is <span class=\"cs_math_to_render\">\\mathrm{Tr}_B</span> of the joint state? Give <span class=\"cs_math_to_render\">\\langle 0|\\rho_A|0\\rangle</span>.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "P(B = 1) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "2/3"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$2/3$",
+     "rows": 4,
+     "expl": "The terms with Bob $= 1$ are $|01\\rangle + |11\\rangle = |{+}\\rangle_A|1\\rangle_B\\cdot\\sqrt2$, so $P = \\tfrac23$ and Alice is left with $|+\\rangle$. On outcome 0 (probability $\\tfrac13$) Alice has $|0\\rangle$.",
+     "concept": "density"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "⟨0|ρ_A|1⟩ =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/3"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/3$",
+     "rows": 4,
+     "expl": "$\\rho_A = \\tfrac13|0\\rangle\\langle0| + \\tfrac23|+\\rangle\\langle+| = \\tfrac13\\begin{pmatrix}2&1\\\\1&1\\end{pmatrix}$.",
+     "concept": "density"
+    },
+    "C1": {
+     "kind": "smallbox",
+     "prompt": "P(B = +) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "5/6"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$5/6$",
+     "rows": 4,
+     "expl": "$\\langle+|_B$ gives $\\tfrac{1}{\\sqrt6}(2|0\\rangle + |1\\rangle)$, so $P = \\tfrac56$ and Alice has $\\tfrac{1}{\\sqrt5}(2|0\\rangle + |1\\rangle)$. On $-$ (probability $\\tfrac16$) Alice has $|1\\rangle$. Averaging gives the same $\\rho_A = \\tfrac13\\begin{pmatrix}2&1\\\\1&1\\end{pmatrix}$.",
+     "concept": "density"
+    },
+    "D1": {
+     "kind": "smallbox",
+     "prompt": "⟨0|ρ_A|0⟩ =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "2/3"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$2/3$",
+     "rows": 4,
+     "expl": "$\\rho_A = CC^\\dagger$ with $C = \\tfrac{1}{\\sqrt3}\\begin{pmatrix}1&1\\\\0&1\\end{pmatrix}$, which gives $\\tfrac13\\begin{pmatrix}2&1\\\\1&1\\end{pmatrix}$, the same in all three scenarios. That's no-signaling: Bob's choice of measurement can't change Alice's density matrix.",
+     "concept": "density"
+    }
+   }
+  },
+  "ps5/p1": {
+   "title": "Problem 1: Expectation values from ρ",
+   "exam": "ps5",
+   "label": "Problem Set 5",
+   "html": "<p>An ensemble <span class=\"cs_math_to_render\">\\{p_i, |v_i\\rangle\\}</span> has density matrix <span class=\"cs_math_to_render\">\\rho = \\sum_i p_i|v_i\\rangle\\langle v_i|</span>.</p>\n<div class=\"xq-part\"><p><strong>(1A)</strong> Show that measuring an observable <span class=\"cs_math_to_render\">M</span> on this ensemble has expectation value <span class=\"cs_math_to_render\">\\mathrm{Tr}(M\\rho)</span>.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n",
+   "order": [
+    "A1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "bigbox",
+     "prompt": "Your proof:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "For a pure state, $\\langle v|M|v\\rangle = \\mathrm{Tr}(M|v\\rangle\\langle v|)$ by cyclicity of the trace. Averaging over the ensemble: $\\langle M\\rangle = \\sum_i p_i\\langle v_i|M|v_i\\rangle = \\sum_i p_i\\mathrm{Tr}(M|v_i\\rangle\\langle v_i|) = \\mathrm{Tr}\\left(M\\sum_i p_i|v_i\\rangle\\langle v_i|\\right) = \\mathrm{Tr}(M\\rho)$, using linearity of the trace.",
+     "rows": 5,
+     "expl": "",
+     "concept": "density"
+    }
+   }
+  },
+  "ps5/p2": {
+   "title": "Problem 2: Deutsch–Jozsa on a bad input",
+   "exam": "ps5",
+   "label": "Problem Set 5",
+   "html": "<p>A function on <span class=\"cs_math_to_render\">n</span> bits is neither constant nor balanced: <span class=\"cs_math_to_render\">f(x) = 0</span> for <span class=\"cs_math_to_render\">r</span> inputs and <span class=\"cs_math_to_render\">f(x) = 1</span> for <span class=\"cs_math_to_render\">s</span> inputs (<span class=\"cs_math_to_render\">r + s = 2^n</span>).</p>\n<div class=\"xq-part\"><p><strong>(2A)</strong> What is the probability that Deutsch–Jozsa claims the function is constant? (Use only r and s.)</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n",
+   "order": [
+    "A1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "P(constant) =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "((r-s)/(r+s))^2"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [
+       "r",
+       "s"
+      ],
+      "ranges": {
+       "r": [
+        1,
+        10
+       ],
+       "s": [
+        1,
+        10
+       ]
+      },
+      "none": false,
+      "words": []
+     },
+     "soln": "$\\left(\\frac{r - s}{r + s}\\right)^2 = \\left(\\frac{r-s}{2^n}\\right)^2$",
+     "rows": 4,
+     "expl": "The algorithm says 'constant' when it measures $0^n$. That amplitude is $\\tfrac{1}{2^n}\\sum_x(-1)^{f(x)} = \\tfrac{r - s}{2^n}$, so the probability is its square.",
+     "concept": "oracle"
+    }
+   }
+  },
+  "ps5/p3": {
+   "title": "Problem 3: GHZ can't become a Bell pair without talking",
+   "exam": "ps5",
+   "label": "Problem Set 5",
+   "html": "<p>Alice, Bob and Charlie hold <span class=\"cs_math_to_render\">\\tfrac{1}{\\sqrt2}(|000\\rangle + |111\\rangle)</span> and cannot communicate.</p>\n<div class=\"xq-part\"><p><strong>(3A)</strong> Show there is no way for Alice and Charlie to end up sharing <span class=\"cs_math_to_render\">\\tfrac{1}{\\sqrt2}(|00\\rangle_{AC} + |11\\rangle_{AC})</span> using only local measurements and unitaries.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n",
+   "order": [
+    "A1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "bigbox",
+     "prompt": "Your proof:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Without communication, Bob's operations can't change $\\rho_{AC}$. Averaged over his outcomes, which Alice and Charlie never learn, $\\rho_{AC} = \\mathrm{Tr}_B\\,\\rho = \\tfrac12(|00\\rangle\\langle00| + |11\\rangle\\langle11|)$, a separable (classically correlated) state. Local operations by Alice and Charlie (unitaries and measurements, even ones they post-select on together later) map separable states to separable states. So they can never deterministically reach the entangled pure state $|\\Phi^+\\rangle$, whose density matrix isn't separable.",
+     "rows": 5,
+     "expl": "",
+     "concept": "density"
+    }
+   }
+  },
+  "ps5/p4": {
+   "title": "Problem 4: Locally distinguishing four states",
+   "exam": "ps5",
+   "label": "Problem Set 5",
+   "html": "<p>Alice and Bob are given one of <span class=\"cs_math_to_render\">|0\\rangle_A|0\\rangle_B</span>, <span class=\"cs_math_to_render\">|0\\rangle_A|1\\rangle_B</span>, <span class=\"cs_math_to_render\">|1\\rangle_A|+\\rangle_B</span>, <span class=\"cs_math_to_render\">|1\\rangle_A|-\\rangle_B</span>.</p>\n<div class=\"xq-part\"><p><strong>(4A)</strong> Using local measurements and classical communication, what is the minimum number of messages needed to distinguish all four perfectly?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(4B)</strong> If they share an EPR pair, show they can distinguish the four states with **simultaneous** measurements followed by classical communication.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "messages =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1$",
+     "rows": 4,
+     "expl": "Alice measures in $Z$ and tells Bob the result $a$. Bob measures in $Z$ if $a = 0$ and in $X$ if $a = 1$. That's one message and two rounds of measurement.",
+     "concept": "protocols"
+    },
+    "B1": {
+     "kind": "bigbox",
+     "prompt": "Your protocol:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Bob teleports his qubit to Alice: he does a Bell measurement on his input and his EPR half ($\\mathrm{CNOT}_{B\\to B'}$, $H$ on $B$, measure both in $Z$), getting bits $m_1, m_2$. Alice's EPR half is now $X^{m_2}Z^{m_1}|\\psi_B\\rangle$. At the same time, Alice measures her input in $Z$, getting $a$, and, *controlled on her input qubit*, applies $H$ to her EPR half before measuring it in $Z$. That measures it in $Z$ if $a = 0$ and in $X$ if $a = 1$, all within one simultaneous measurement of her two qubits. After they exchange results, a $Z$-basis outcome is flipped by $m_2$ and an $X$-basis outcome by $m_1$, so Alice can undo Bob's Pauli frame and read off which of the four states it was. (Using the hint: a CNOT in the $\\pm$ basis is a CNOT with control and target reversed, which gives an equivalent circuit.)",
+     "rows": 5,
+     "expl": "",
+     "concept": "protocols"
+    }
+   }
+  },
+  "pe2/p1": {
+   "title": "Problem 1: Mixtures of Bell states",
+   "exam": "pe2",
+   "label": "Practice Exam 2 (course handout, official solutions)",
+   "html": "<p>The probabilistic ensemble containing an equal mixture of any two Bell states is always unentangled. This problem works it out for a specific example.</p>\n<p>Consider the ensemble of <span class=\"cs_math_to_render\">\\tfrac{1}{\\sqrt2}(|00\\rangle + |11\\rangle)</span> and <span class=\"cs_math_to_render\">\\tfrac{1}{\\sqrt2}(|01\\rangle + |10\\rangle)</span>, each with probability <span class=\"cs_math_to_render\">\\tfrac12</span>.</p>\n<div class=\"xq-part\"><p><strong>(1A)</strong> What is the density matrix of this ensemble? Enter its <span class=\"cs_math_to_render\">\\langle 00|\\rho|11\\rangle</span> entry.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1B)</strong> And its <span class=\"cs_math_to_render\">\\langle 01|\\rho|01\\rangle</span> entry?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1C)</strong> Express this density matrix as a probabilistic mixture of tensor product states <span class=\"cs_math_to_render\">|\\phi\\rangle\\otimes|\\psi\\rangle</span>.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1D)</strong> Use Pauli transformations together with the parts above to show that the 50/50 mixture of **any** two of the four Bell states <span class=\"cs_math_to_render\">\\tfrac{1}{\\sqrt2}(|00\\rangle\\pm|11\\rangle)</span>, <span class=\"cs_math_to_render\">\\tfrac{1}{\\sqrt2}(|01\\rangle\\pm|10\\rangle)</span> is not entangled. How do you do this?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "⟨00|ρ|11⟩ =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/4"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/4$",
+     "rows": 4,
+     "expl": "**Official solution:** $\\rho = \\tfrac12\\cdot\\tfrac12(|00\\rangle + |11\\rangle)(\\langle00| + \\langle11|) + \\tfrac12\\cdot\\tfrac12(|01\\rangle + |10\\rangle)(\\langle01| + \\langle10|) = \\tfrac14\\begin{pmatrix}1&0&0&1\\\\0&1&1&0\\\\0&1&1&0\\\\1&0&0&1\\end{pmatrix}$ in the basis $|00\\rangle,|01\\rangle,|10\\rangle,|11\\rangle$.",
+     "concept": "density"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "⟨01|ρ|01⟩ =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/4"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/4$",
+     "rows": 4,
+     "expl": "See the full matrix in part (A). Every diagonal entry is $\\tfrac14$.",
+     "concept": "density"
+    },
+    "C1": {
+     "kind": "multiplechoice",
+     "prompt": "ρ =",
+     "renderer": "radio",
+     "options": [
+      "½|++⟩⟨++| + ½|−−⟩⟨−−|",
+      "½|00⟩⟨00| + ½|11⟩⟨11|",
+      "½|+−⟩⟨+−| + ½|−+⟩⟨−+|",
+      "¼ I ⊗ I"
+     ],
+     "check": null,
+     "soln": "½|++⟩⟨++| + ½|−−⟩⟨−−|",
+     "rows": 4,
+     "expl": "**Official solution:** $\\rho$ is a 50/50 mixture of $\\tfrac12(|00\\rangle + |01\\rangle + |10\\rangle + |11\\rangle) = |{+}{+}\\rangle$ and $\\tfrac12(|00\\rangle - |01\\rangle - |10\\rangle + |11\\rangle) = |{-}{-}\\rangle$. The cross terms between kets with an even number of 1s and kets with an odd number of 1s cancel, leaving $\\rho$.\\n\\n**Notes:** in the $X$ basis, $|\\Phi^+\\rangle = \\tfrac{1}{\\sqrt2}(|{+}{+}\\rangle + |{-}{-}\\rangle)$ and $|\\Psi^+\\rangle = \\tfrac{1}{\\sqrt2}(|{+}{+}\\rangle - |{-}{-}\\rangle)$. Averaging the two projectors cancels the cross terms, leaving $\\tfrac12|{+}{+}\\rangle\\langle{+}{+}| + \\tfrac12|{-}{-}\\rangle\\langle{-}{-}|$. You can check this against the matrix in part (A).",
+     "concept": "density"
+    },
+    "D1": {
+     "kind": "bigbox",
+     "prompt": "Your argument:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "**Official solution:** the intended idea is that local unitaries can't create entanglement. So if a single-qubit transformation maps the pair $\\{|B_a\\rangle, |B_b\\rangle\\}$ to $\\{\\tfrac{1}{\\sqrt2}(|00\\rangle+|11\\rangle), \\tfrac{1}{\\sqrt2}(|01\\rangle+|10\\rangle)\\}$, the original mixture is unentangled too. For example, $\\sigma_z$ on the second qubit turns $\\{\\tfrac{1}{\\sqrt2}(|00\\rangle - |11\\rangle), \\tfrac{1}{\\sqrt2}(|01\\rangle - |10\\rangle)\\}$ into the pair from part (A). The official solutions admit the problem was accidentally much too hard: Pauli transformations alone can't map *every* pair to that one. For example, $\\{\\Phi^+, \\Psi^-\\}$ can't be sent to $\\{\\Phi^+, \\Psi^+\\}$ by Paulis. Two fixes work but are too long for a test: use single-qubit rotations by $120^\\circ$ about axes like $(1,1,1)$, or show directly that the $\\{\\Phi^+, \\Psi^-\\}$ mixture is unentangled.\\n\\n**Notes (one short fix):** Every Bell state is $(I\\otimes P)|\\Phi^+\\rangle$ for a Pauli $P\\in\\{I, X, Z, XZ\\}$. A mixture of $(I\\otimes P)|\\Phi^+\\rangle$ and $(I\\otimes Q)|\\Phi^+\\rangle$ equals $(I\\otimes P)$ applied to the mixture of $|\\Phi^+\\rangle$ and $(I\\otimes P^\\dagger Q)|\\Phi^+\\rangle$. Local unitaries preserve separability, so it suffices to handle the three cases $P^\\dagger Q = X, Z, Y$ (up to phase). $X$ is parts (A)–(C). For $Z$, the mixture of $\\Phi^\\pm$ is $\\tfrac12(|00\\rangle\\langle00| + |11\\rangle\\langle11|)$, already separable. For $Y$, use $(C^*\\otimes C)|\\Phi^+\\rangle = |\\Phi^+\\rangle$ for any unitary $C$. Choosing $C = S^\\dagger$ conjugates $Y$ to $X$, so this local unitary maps the $\\{\\Phi^+, (I\\otimes Y)\\Phi^+\\}$ mixture to the $X$ case. This is a non-Pauli single-qubit transformation, in the spirit of the official fix.",
+     "rows": 5,
+     "expl": "",
+     "concept": "density"
+    }
+   }
+  },
+  "pe2/p2": {
+   "title": "Problem 2: Factoring 21, eigenvector by eigenvector",
+   "exam": "pe2",
+   "label": "Practice Exam 2 (course handout, official solutions)",
+   "html": "<p>To factor 21, use <span class=\"cs_math_to_render\">U|y\\rangle = |2y \\bmod 21\\rangle</span> on the numbers <span class=\"cs_math_to_render\">0,\\dots,20</span>. The factoring algorithm starts with <span class=\"cs_math_to_render\">|1\\rangle</span> and runs phase estimation on <span class=\"cs_math_to_render\">U</span>. Assume that if the eigenvalue is <span class=\"cs_math_to_render\">e^{2\\pi i a/b}</span>, phase estimation plus continued fractions returns <span class=\"cs_math_to_render\">a/b</span> in lowest terms with probability 1.</p>\n<div class=\"xq-part\"><p><strong>(2A)</strong> <span class=\"cs_math_to_render\">|1\\rangle</span> is a superposition of eigenvectors of <span class=\"cs_math_to_render\">U</span>. How many eigenvectors appear?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2B)</strong> Describe these eigenvectors.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2C)</strong> The algorithm returns <span class=\"cs_math_to_render\">a/b</span>; if <span class=\"cs_math_to_render\">b</span> is even we compute <span class=\"cs_math_to_render\">2^{b/2}</span> and try to factor with <span class=\"cs_math_to_render\">\\gcd(2^{b/2}\\pm1, 21)</span>, and odd <span class=\"cs_math_to_render\">b</span> counts as failure. What is the probability of getting the factors?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "number =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "6"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$6$",
+     "rows": 4,
+     "expl": "**Official solution:** six eigenvectors have an overlap with $|1\\rangle$, because $2^1\\equiv2, 2^2\\equiv4, 2^3\\equiv8, 2^4\\equiv16, 2^5\\equiv11, 2^6\\equiv1 \\pmod{21}$. Each is an equal superposition of $|1\\rangle, |2\\rangle, |4\\rangle, |8\\rangle, |16\\rangle, |11\\rangle$ with phases that are powers of a sixth root of unity, with eigenvalues $e^{2\\pi i(k/6)}$ for $k = 0,\\dots,5$.\\n\\n**Notes:** the orbit of 1 is $1, 2, 4, 8, 16, 11$, so the order is $r = 6$. The eigenvectors are $|u_s\\rangle = \\tfrac{1}{\\sqrt6}\\sum_{k=0}^{5}e^{-2\\pi i sk/6}|2^k \\bmod 21\\rangle$ for $s = 0,\\dots,5$, with eigenvalue $e^{2\\pi i s/6}$, and $|1\\rangle = \\tfrac{1}{\\sqrt6}\\sum_s|u_s\\rangle$, so each $s$ is equally likely.",
+     "concept": "fourier"
+    },
+    "B1": {
+     "kind": "bigbox",
+     "prompt": "Your description:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "**Official solution:** there are six, one for each sixth root of unity. For example $\\tfrac{1}{\\sqrt6}(|1\\rangle - |2\\rangle + |4\\rangle - |8\\rangle + |16\\rangle - |11\\rangle)$ has eigenvalue $e^{2\\pi i(3/6)} = -1$, and $\\tfrac{1}{\\sqrt6}(|1\\rangle + |2\\rangle + |4\\rangle + |8\\rangle + |16\\rangle + |11\\rangle)$ has eigenvalue 1.\\n\\n**Notes:** they are the Fourier transforms of the orbit $\\{1,2,4,8,16,11\\}$: $|u_s\\rangle = \\tfrac{1}{\\sqrt6}\\sum_{k=0}^{5}\\omega^{-sk}|2^k\\bmod21\\rangle$ with $\\omega = e^{2\\pi i/6}$, for $s = 0,\\dots,5$. Applying $U$ shifts $k\\to k+1$, which multiplies the state by $\\omega^s$. Summing over $s$ makes every term except $k = 0$ cancel, leaving $|1\\rangle$.",
+     "rows": 5,
+     "expl": "",
+     "concept": "fourier"
+    },
+    "C1": {
+     "kind": "smallbox",
+     "prompt": "P =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "any",
+      "checks": [
+       {
+        "type": "num",
+        "answers": [
+         "1/2"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       },
+       {
+        "type": "num",
+        "answers": [
+         "1/3"
+        ],
+        "tol": 0.01,
+        "atol": 1e-09,
+        "vars": [],
+        "ranges": {},
+        "none": false,
+        "words": []
+       }
+      ]
+     },
+     "soln": "$1/2$ or $1/3$ (the official solutions give full credit for either)",
+     "rows": 4,
+     "expl": "**Official solution:** denominator 6 gives $(2^3 + 1)(2^3 - 1) = 9\\cdot7$, and $\\gcd(9, 21) = 3$, $\\gcd(7, 21) = 7$. Denominators 3 and 1 don't work because they are odd. Denominator 2 gives $(2+1)(2-1)$ and $\\gcd(3, 21) = 3$, which is one of the factors, but by complete coincidence. So the probability is $\\tfrac12$ or $\\tfrac13$, depending on whether you count the coincidence, and either receives full credit.\\n\\n**Notes:** $s/6$ in lowest terms: $s = 0\\to 0/1$, $1\\to1/6$, $2\\to1/3$, $3\\to1/2$, $4\\to2/3$, $5\\to5/6$. Odd $b$ ($s = 0, 2, 4$) fails. $b = 6$ ($s = 1, 5$) gives $2^3 = 8$, and $\\gcd(7, 21) = 7$, $\\gcd(9, 21) = 3$: success, probability $\\tfrac13$. $b = 2$ ($s = 3$) gives $2^1 = 2$. That's not a genuine square root of 1 (since $2^2 = 4 \\neq 1$), but $\\gcd(3, 21) = 3$ still finds a factor by luck, raising the total to $\\tfrac12$.",
+     "concept": "fourier"
+    }
+   }
+  },
+  "pe2/p3": {
+   "title": "Problem 3: Prime powers",
+   "exam": "pe2",
+   "label": "Practice Exam 2 (course handout, official solutions)",
+   "html": "<p>Suppose we apply the factoring algorithm to <span class=\"cs_math_to_render\">N = p^t</span>, a power of a prime <span class=\"cs_math_to_render\">p</span>.</p>\n<div class=\"xq-part\"><p><strong>(3A)</strong> Will it work?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3B)</strong> Exactly what goes wrong, and how is it avoided in practice?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "multiplechoice",
+     "prompt": "Choose one:",
+     "renderer": "radio",
+     "options": [
+      "No: a^{r/2} ≡ −1 whenever r is even, so the gcds are trivial",
+      "Yes, as usual",
+      "No: the order r doesn't exist",
+      "No: U_a isn't unitary"
+     ],
+     "check": null,
+     "soln": "No: a^{r/2} ≡ −1 whenever r is even, so the gcds are trivial",
+     "rows": 4,
+     "expl": "**Official solution:** the algorithm finds $r$ with $a^r\\equiv1$ and hopes $a^{r/2}-1$ and $a^{r/2}+1$ each contain a different factor of $N$. But every factor of $p^t$ is a power of $p$. If both are multiples of $p$, so is their difference, which is 2. So it can only work when $p = 2$, and powers of 2 don't need a quantum computer. In fact $a^{r/2}$ is always $\\pm1$, because 1 has only two square roots mod $p^t$, though proving that takes more number theory than the course expects.\\n\\n**Notes:** order finding works fine, but the reduction fails. For odd $p$, $(\\mathbb{Z}/p^t)^*$ is cyclic, so $x^2\\equiv1 \\pmod{p^t}$ has only the solutions $\\pm1$. If $r$ is even, then $a^{r/2}\\not\\equiv1$ (by minimality of $r$) forces $a^{r/2}\\equiv -1$. So $\\gcd(a^{r/2}\\pm1, N)$ is always trivial.",
+     "concept": "fourier"
+    },
+    "B1": {
+     "kind": "bigbox",
+     "prompt": "Your explanation:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "**Official solution:** if $a^{r/2}-1$ and $a^{r/2}+1$ were both multiples of $p$, their difference 2 would be too, which is impossible for odd $p$. So the two gcds can't split $N$. Factoring powers of 2 doesn't need a quantum computer.\\n\\n**Notes:** the reduction needs a nontrivial square root of 1 mod $N$, and those exist only when $N$ has at least two distinct odd prime factors (Chinese remainder theorem). For $N = p^t$, every square root of 1 is $\\pm1$, so each trial gives either odd $r$ or $a^{r/2}\\equiv-1$, and both fail. The fix is classical: before running the quantum part, check whether $N$ is a perfect power $m^k$, which takes polynomial time by computing $k$-th roots for $k\\le\\log_2N$.",
+     "rows": 5,
+     "expl": "",
+     "concept": "fourier"
+    }
+   }
+  },
+  "pe2/p4": {
+   "title": "Problem 4: Forgetting the gcd check",
+   "exam": "pe2",
+   "label": "Practice Exam 2 (course handout, official solutions)",
+   "html": "<p>Suppose we don't check <span class=\"cs_math_to_render\">\\gcd(a, N) = 1</span> and accidentally pick <span class=\"cs_math_to_render\">1 &lt; a &lt; N</span> with <span class=\"cs_math_to_render\">\\gcd(a, N) &gt; 1</span>.</p>\n<div class=\"xq-part\"><p><strong>(4A)</strong> Will the algorithm still work?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(4B)</strong> Exactly what goes wrong?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "multiplechoice",
+     "prompt": "Choose one:",
+     "renderer": "radio",
+     "options": [
+      "No: U_a isn't a permutation, so it isn't unitary, and a has no order mod N",
+      "Yes, it finds r as usual",
+      "Yes, but r is always odd"
+     ],
+     "check": null,
+     "soln": "No: U_a isn't a permutation, so it isn't unitary, and a has no order mod N",
+     "rows": 4,
+     "expl": "**Official solution:** you will never find an $r$ with $a^r\\equiv1 \\pmod N$. If a prime $p$ divides both $a$ and $N$, then $a^r \\bmod N$ is always a multiple of $p$.\\n\\n**Notes:** if $d = \\gcd(a, N) > 1$, then $y\\mapsto ay \\bmod N$ isn't one-to-one (it maps $N/d$ and $0$ both to $0$), so it isn't reversible, let alone unitary. No power of $a$ is $\\equiv 1 \\pmod N$, so the order doesn't exist.",
+     "concept": "fourier"
+    },
+    "B1": {
+     "kind": "bigbox",
+     "prompt": "Your explanation:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "**Official solution:** for this $a$ we never find an $r$ with $a^r\\equiv1 \\pmod N$, because if $p$ divides $a$ and $N$, then $a^r \\bmod N$ is always a multiple of $p$.\\n\\n**Notes:** the quantum step assumes $U_a$ permutes $\\mathbb{Z}_N$. When $\\gcd(a, N) > 1$, multiplication by $a$ isn't invertible mod $N$. The sequence $1, a, a^2,\\dots$ never returns to 1 (it lands in multiples of $d$), so there's no period $r$ to find. Phase estimation is undefined, and any implementation of 'multiply by $a$' would either not be a valid gate or return meaningless output. The irony is that $\\gcd(a, N)$ itself is already a nontrivial factor, which is why the classical check comes first.",
+     "rows": 5,
+     "expl": "",
+     "concept": "fourier"
+    }
+   }
+  },
+  "pe2/p5": {
+   "title": "Problem 5: Continued fractions",
+   "exam": "pe2",
+   "label": "Practice Exam 2 (course handout, official solutions)",
+   "html": "<p>Explain what problem the continued fraction algorithm solves, and how it is used in the quantum factoring algorithm.</p>\n<div class=\"xq-part\"><p><strong>(5A)</strong> With <span class=\"cs_math_to_render\">t</span> ancilla bits and <span class=\"cs_math_to_render\">N = 21</span>, what is the smallest <span class=\"cs_math_to_render\">t</span> with <span class=\"cs_math_to_render\">2^t \\ge N^2</span> (the usual precision choice)?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(5B)</strong> Your explanation:</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "smallbox",
+     "prompt": "t =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "9"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$9$",
+     "rows": 4,
+     "expl": "$N^2 = 441$ and $2^9 = 512$. With this precision, the fraction $s/r$ with $r < N$ closest to $m/2^t$ is unique.",
+     "concept": "fourier"
+    },
+    "B1": {
+     "kind": "bigbox",
+     "prompt": "Your explanation:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "**Official solution:** the quantum part returns a fraction $M/2^L$ that approximates $d/r$, where $r$ is the period of $a^k \\bmod N$. We need $r$, but we can't find it by inspection because $r$ and $2^L$ are exponentially large. The continued fraction algorithm takes a real number and finds all its convergents, fractions that are close to it subject to a bound on the denominator. One of them is guaranteed to be $d/r$, and since there are only about $\\log$ of the denominator many, we can try them all (that last point isn't needed for full credit).\\n\\n**Notes:** continued fractions find the best rational approximations to a real number: the convergents $p_k/q_k$, computed by repeatedly taking integer parts and reciprocals. Any fraction $p/q$ with $|x - p/q| < 1/(2q^2)$ is guaranteed to be a convergent of $x$. In Shor's algorithm, phase estimation returns $m$ with $|m/2^t - s/r| \\le 1/2^{t+1}$. Choosing $2^t\\ge N^2 > r^2$ makes this error less than $1/(2r^2)$, so $s/r$ appears among the convergents of $m/2^t$, and we take the last convergent with denominator below $N$. That denominator is $r$, or a divisor of $r$ if $\\gcd(s, r) > 1$, which a few repetitions or an lcm fixes. It takes $O(\\log N)$ steps.",
+     "rows": 5,
+     "expl": "",
+     "concept": "fourier"
+    }
+   }
+  },
+  "ps6/p1": {
+   "title": "Problem 1: Simon's algorithm without the promise",
+   "exam": "ps6",
+   "label": "Problem Set 6",
+   "html": "<p><span class=\"cs_math_to_render\">f</span> maps <span class=\"cs_math_to_render\">n</span>-bit strings to <span class=\"cs_math_to_render\">n</span>-bit strings, is not necessarily 2-to-1, but satisfies <span class=\"cs_math_to_render\">f(x) = f(x\\oplus c)</span> for some <span class=\"cs_math_to_render\">c</span>.</p>\n<div class=\"xq-part\"><p><strong>(1A)</strong> Show that the quantum part of Simon's algorithm still always returns a <span class=\"cs_math_to_render\">k</span> with <span class=\"cs_math_to_render\">c\\cdot k\\equiv 0 \\pmod 2</span>.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(1B)</strong> Can you use this to give an algorithm that always finds <span class=\"cs_math_to_render\">c</span> in a reasonable amount of time?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "bigbox",
+     "prompt": "Your proof:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "After the query and measuring the second register with value $v$, the first register is the uniform superposition over $S = f^{-1}(v)$. Since $f(x) = f(x\\oplus c)$, $S$ is closed under $x\\mapsto x\\oplus c$ and splits into pairs $\\{x, x\\oplus c\\}$. After $H^{\\otimes n}$, the amplitude of $k$ is proportional to $\\sum_{x\\in S}(-1)^{x\\cdot k} = \\sum_{\\text{pairs}}(-1)^{x\\cdot k}\\left(1 + (-1)^{c\\cdot k}\\right)$, which vanishes whenever $c\\cdot k = 1$. So every observed $k$ satisfies $c\\cdot k = 0$.",
+     "rows": 5,
+     "expl": "",
+     "concept": "oracle"
+    },
+    "B1": {
+     "kind": "multiplechoice",
+     "prompt": "Choose one:",
+     "renderer": "radio",
+     "options": [
+      "No: the k's need not span c's orthogonal complement",
+      "Yes: run it n times and solve",
+      "Yes, with Grover"
+     ],
+     "check": null,
+     "soln": "No: the k's need not span c's orthogonal complement",
+     "rows": 4,
+     "expl": "Without the 2-to-1 promise the $k$'s can be concentrated on a small subspace. Extreme case: a constant $f$ satisfies the condition for every $c$, and the algorithm always returns $k = 0$, so the equations say nothing. Even when $c$ is unique, the distribution of $k$ can make the needed independent equations exponentially unlikely.",
+     "concept": "oracle"
+    }
+   }
+  },
+  "ps6/p2": {
+   "title": "Problem 2: Fidelity",
+   "exam": "ps6",
+   "label": "Problem Set 6",
+   "html": "<p>For PSD <span class=\"cs_math_to_render\">A</span>, <span class=\"cs_math_to_render\">A^{1/2}</span> is the unique PSD <span class=\"cs_math_to_render\">B</span> with <span class=\"cs_math_to_render\">B^2 = A</span>. For pure states <span class=\"cs_math_to_render\">F(|\\phi\\rangle,|\\psi\\rangle) = |\\langle\\phi|\\psi\\rangle|</span>, and for density matrices <span class=\"cs_math_to_render\">F(\\rho,\\sigma) = \\mathrm{Tr}\\sqrt{\\rho^{1/2}\\sigma\\rho^{1/2}}</span>.</p>\n<div class=\"xq-part\"><p><strong>(2A)</strong> Show that <span class=\"cs_math_to_render\">\\rho^{1/2}\\sigma\\rho^{1/2}</span> is positive semidefinite, so the fidelity is well-defined.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2B)</strong> Show that for pure states <span class=\"cs_math_to_render\">\\rho = |\\phi\\rangle\\langle\\phi|</span>, <span class=\"cs_math_to_render\">\\sigma = |\\psi\\rangle\\langle\\psi|</span>, <span class=\"cs_math_to_render\">F(\\rho,\\sigma) = |\\langle\\phi|\\psi\\rangle|</span>.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2C)</strong> Show that <span class=\"cs_math_to_render\">F(U\\rho U^\\dagger, U\\sigma U^\\dagger) = F(\\rho,\\sigma)</span>.</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"C1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(2D)</strong> What is <span class=\"cs_math_to_render\">F(\\rho,\\sigma)</span> for <span class=\"cs_math_to_render\">\\rho = |0\\rangle\\langle0|</span> and <span class=\"cs_math_to_render\">\\sigma = I/2</span>?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"D1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1",
+    "C1",
+    "D1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "bigbox",
+     "prompt": "Your proof:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "Write $\\rho^{1/2}\\sigma\\rho^{1/2} = (\\sigma^{1/2}\\rho^{1/2})^\\dagger(\\sigma^{1/2}\\rho^{1/2}) = M^\\dagger M$, using that $\\rho^{1/2}$ and $\\sigma^{1/2}$ are Hermitian. For any $|v\\rangle$, $\\langle v|M^\\dagger M|v\\rangle = \\|M|v\\rangle\\|^2\\ge0$. So it's PSD and has a PSD square root.",
+     "rows": 5,
+     "expl": "",
+     "concept": "density"
+    },
+    "B1": {
+     "kind": "bigbox",
+     "prompt": "Your proof:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "A pure-state projector is its own square root, so $\\rho^{1/2} = \\rho$. Then $\\rho\\sigma\\rho = |\\phi\\rangle\\langle\\phi|\\psi\\rangle\\langle\\psi|\\phi\\rangle\\langle\\phi| = |\\langle\\phi|\\psi\\rangle|^2\\,|\\phi\\rangle\\langle\\phi|$. Its square root is $|\\langle\\phi|\\psi\\rangle|\\,|\\phi\\rangle\\langle\\phi|$, whose trace is $|\\langle\\phi|\\psi\\rangle|$.",
+     "rows": 5,
+     "expl": "",
+     "concept": "density"
+    },
+    "C1": {
+     "kind": "bigbox",
+     "prompt": "Your proof:",
+     "renderer": null,
+     "options": null,
+     "check": null,
+     "soln": "$(U\\rho U^\\dagger)^{1/2} = U\\rho^{1/2}U^\\dagger$, since it is PSD and squares to $U\\rho U^\\dagger$ (uniqueness). Then $(U\\rho U^\\dagger)^{1/2}U\\sigma U^\\dagger(U\\rho U^\\dagger)^{1/2} = U\\rho^{1/2}\\sigma\\rho^{1/2}U^\\dagger$, whose square root is $U\\sqrt{\\rho^{1/2}\\sigma\\rho^{1/2}}\\,U^\\dagger$ by the same argument. The trace is invariant under conjugation.",
+     "rows": 5,
+     "expl": "",
+     "concept": "density"
+    },
+    "D1": {
+     "kind": "smallbox",
+     "prompt": "F =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "1/sqrt(2)"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$1/\\sqrt2$",
+     "rows": 4,
+     "expl": "$\\rho^{1/2}\\sigma\\rho^{1/2} = \\tfrac12|0\\rangle\\langle0|$, whose square root is $\\tfrac{1}{\\sqrt2}|0\\rangle\\langle0|$, with trace $\\tfrac{1}{\\sqrt2}$. In general $F(|\\phi\\rangle\\langle\\phi|,\\sigma) = \\sqrt{\\langle\\phi|\\sigma|\\phi\\rangle}$.",
+     "concept": "density"
+    }
+   }
+  },
+  "ps6/p3": {
+   "title": "Problem 3: Leaving out a small gate",
+   "exam": "ps6",
+   "label": "Problem Set 6",
+   "html": "<p>A computation <span class=\"cs_math_to_render\">|\\psi\\rangle = U_t\\cdots U_1|\\phi\\rangle</span> on <span class=\"cs_math_to_render\">L</span> qubits has gate <span class=\"cs_math_to_render\">U_k = \\mathrm{diag}(1,1,1,e^{2\\pi i\\epsilon})</span> (a controlled phase) with small <span class=\"cs_math_to_render\">\\epsilon</span>. Let <span class=\"cs_math_to_render\">|\\psi'\\rangle</span> be the result of leaving <span class=\"cs_math_to_render\">U_k</span> out.</p>\n<div class=\"xq-part\"><p><strong>(3A)</strong> How does <span class=\"cs_math_to_render\">1 - F(|\\psi\\rangle,|\\psi'\\rangle)</span> scale with <span class=\"cs_math_to_render\">\\epsilon</span> in the worst case?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"A1\"></div></section></p></div>\n<div class=\"xq-part\"><p><strong>(3B)</strong> For <span class=\"cs_math_to_render\">\\epsilon = 0.1</span>, what is the worst-case fidelity?</p></div>\n<div class=\"xq-answers\"><p><section aria-label=\"Question\"><div class=\"q\" data-q=\"B1\"></div></section></p></div>\n",
+   "order": [
+    "A1",
+    "B1"
+   ],
+   "questions": {
+    "A1": {
+     "kind": "multiplechoice",
+     "prompt": "1 − F scales as:",
+     "renderer": "radio",
+     "options": [
+      "ε²",
+      "ε",
+      "√ε",
+      "It doesn't depend on ε"
+     ],
+     "check": null,
+     "soln": "ε²",
+     "rows": 4,
+     "expl": "Let $|\\chi\\rangle = U_{k-1}\\cdots U_1|\\phi\\rangle$ and $p = \\|\\Pi_{11}|\\chi\\rangle\\|^2$, where $\\Pi_{11}$ projects the two gate qubits onto $|11\\rangle$. Later gates are unitary, so $F = |\\langle\\chi|U_k|\\chi\\rangle| = |1 + p(e^{2\\pi i\\epsilon} - 1)|$. This is minimized at $p = \\tfrac12$, giving $F\\ge\\cos(\\pi\\epsilon)\\approx 1 - \\tfrac{\\pi^2\\epsilon^2}{2}$.",
+     "concept": "unitary"
+    },
+    "B1": {
+     "kind": "smallbox",
+     "prompt": "F_min =",
+     "renderer": null,
+     "options": null,
+     "check": {
+      "type": "num",
+      "answers": [
+       "cos(pi/10)"
+      ],
+      "tol": 0.01,
+      "atol": 1e-09,
+      "vars": [],
+      "ranges": {},
+      "none": false,
+      "words": []
+     },
+     "soln": "$\\cos(\\pi/10)\\approx0.951$",
+     "rows": 4,
+     "expl": "$F_{\\min} = \\cos(\\pi\\epsilon)$. Note the *distance* $\\||\\psi\\rangle - |\\psi'\\rangle\\|\\le 2\\sin(\\pi\\epsilon) = O(\\epsilon)$ is first order, while the fidelity loss is second order. Both say small rotations can be dropped, and errors add up at most linearly over many dropped gates. That's the basis for approximating the QFT by omitting tiny controlled-phase gates.",
+     "concept": "unitary"
+    }
+   }
+  }
+ }
+}
